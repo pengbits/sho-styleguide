@@ -1,0 +1,280 @@
+  @mixin icon-size($size)
+  {
+    @include size( map-get($icon-sizes, #{$size}));
+  }
+
+  @mixin icon-image($name)
+  {
+    background-image:url("#{$icon-base-path}/#{$name}.svg");
+  }
+  
+  //Sass map to determine which icon svg to load based on size
+  // ----------------------------------------------------------------------------------------------------------------
+  // name            xsmall            small            medium            large              xlarge
+  // ----------------------------------------------------------------------------------------------------------------  
+  $icon-variants:
+  (
+    'next':         ('next',           'next',          'next--thinner',  'next--thinner',  'next--thinner'),
+    'prev':         ('prev',           'prev',          'prev--thinner',  'prev--thinner',  'prev--thinner')
+  );
+  
+  $size-variants:
+  (
+    'xsmall': 1,
+    'small': 2,
+    'medium': 3,
+    'large': 4,
+    'xlarge': 5
+  );
+  
+  @mixin icon($name:'', $size:'') {
+    display:inline-block;
+    background-size:cover;
+
+    @if($name != ''){      
+      @if map-has-key($icon-variants, $name) and map-has-key($size-variants, $size) {
+        $icon-list: map-get($icon-variants, $name);
+        $size-n: map-get($size-variants, $size);
+        $icon: nth($icon-list, $size-n);
+        @include icon-image($icon); 
+      } @else { 
+        @include icon-image($name);
+      }
+    }
+    @if($size != '') {
+      @include icon-size($size);
+    }
+  }
+
+  .icon {
+    @include icon;
+  }
+
+  .icon--xsmall {
+    @include icon;
+    @include icon-size('xsmall');
+  }
+
+  .icon--small {
+    @include icon;
+    @include icon-size('small');
+  }
+
+  .icon--medium {
+    @include icon;
+    @include icon-size('medium');
+  }
+
+  .icon--large {
+    @include icon;
+    @include icon-size('large');
+  }
+
+  .icon--xlarge {
+    @include icon;
+    @include icon-size('xlarge');
+  }
+
+  .icon--play {
+    @include icon;
+    @include icon-image('play');
+  }
+
+  .icon--photo {
+    @include icon;
+    @include icon-image('photo');
+  }
+
+  .icon--next {
+    @include icon;
+		@include icon-image('next');
+  }
+  
+  .icon--next-medium {
+    @include icon;
+		@include icon-image('next--thinner');
+  }
+  
+  .icon--next-large {
+    @include icon;
+		@include icon-image('next--thinner');
+  }
+
+  .icon--next--dark-grey {
+    @include icon;
+    @include icon-image('next-dark-grey');
+  }
+
+  .icon--next-red-medium {
+    @include icon;
+    @include icon-image('next-red--thinner');
+  }
+  
+  .icon--next-red {
+    @include icon;
+    @include icon-image('next-red');
+  }
+
+  .icon--next-dark-red {
+    @include icon;
+    @include icon-image('next-dark-red');
+  }
+
+  .icon--next-grey {
+    @include icon;
+    @include icon-image('next-grey');
+  }
+
+  .icon--prev {
+    @include icon;
+    @include icon-image('prev');
+  }
+  
+  .icon--prev-medium {
+    @include icon;
+		@include icon-image('prev--thinner');
+  }
+
+  .icon--prev-red {
+    @include icon;
+    @include icon-image('prev-red');
+  }
+
+  .icon--close {
+    @include icon;
+    @include icon-image('close');
+  }
+
+  .icon--envelope {
+    @include icon;
+    @include icon-image('envelope');
+  }
+
+  .icon--check-mark {
+    @include icon;
+    @include icon-image('check-mark');
+  }
+
+  .icon--prev-dark-red {
+    @include icon;
+    @include icon-image('prev-dark-red');
+  }
+
+  .icon--prev-grey {
+    @include icon;
+    @include icon-image('prev-grey');
+  }
+
+  .icon--down-arrow {
+    @include icon;
+    @include icon-image('down-arrow');
+  } 
+
+  .icon--up-arrow {
+    @include icon;
+    @include icon-image('up-arrow');
+  }
+
+  .icon--down {
+    @include icon;
+    @include icon-image('down');
+  }
+
+  .icon--down-white {
+    @include icon;
+    @include icon-image('down-white');
+  }
+
+  .icon--up-white {
+    @include icon;
+    @include icon-image('up-white');
+  }
+
+  .icon--triangle-right-black {
+    @include icon;
+    @include icon-image('triangle-right-black');
+  }
+  
+  .icon--triangle-right-white {
+    @include icon;
+    @include icon-image('triangle-right-white');
+  }
+
+  .icon--up {
+    @include icon;
+    @include icon-image('up');
+  }
+
+  .icon--down-arrow-red {
+    @include icon;
+    @include icon-image('down-arrow-red');
+  }
+
+  .icon--down-arrow-black {
+    @include icon;
+    @include icon-image('down-arrow-black');
+  }
+
+  .icon--up-arrow-black {
+    @include icon;
+    @include icon-image('up-arrow-black');
+  }
+
+  .icon--up-arrow-red {
+    @include icon;
+    @include icon-image('up-arrow-red');
+  }
+
+  .icon--down-arrow-white {
+    @include icon;
+    @include icon-image('down-arrow-white');
+  }
+
+  .icon--up-arrow-white {
+    @include icon;
+    @include icon-image('up-arrow-white');
+  }
+
+  .icon--ext-link {
+    @include icon;
+    @include icon-image('ext-link');
+  }
+  
+  .icon--search {
+    @include icon;
+    @include icon-image('search');
+  }
+
+  .icon--replay {
+    @include icon;
+    @include icon-image('replay');
+  }
+
+  // SOCIAL ICONS
+  .icon--twitter {
+    @include icon('social-icons-twitter', 'medium');
+  }
+
+  .icon--facebook {
+    @include icon('social-icons-facebook', 'medium');
+  }
+
+  .icon--instagram {
+    @include icon('social-icons-instagram', 'medium');
+  }
+
+  .icon--pinterest {
+    @include icon('social-icons-pinterest', 'medium');
+  }
+
+  .icon--youtube {
+    @include icon('social-icons-youtube', 'medium');
+  }
+
+  .icon--googleplus {
+    @include icon('social-icons-googleplus', 'medium');
+  }
+
+  .icon--tumblr {
+    @include icon('social-icons-tumblr', 'medium');
+  }

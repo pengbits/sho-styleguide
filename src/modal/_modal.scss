@@ -1,0 +1,115 @@
+.modal {
+  @include pin-cover();
+  position: fixed;
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s, z-index 0s 0.2s;
+  text-align: center;
+  // overflow: hidden;
+  // overflow-y: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal > * {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.modal:before {
+  display: inline-block;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+  content: "";
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 199;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+.modal__inner {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  min-height: $size-xxl;
+  min-width: $size-xxl;
+  background: $colors-bg-dark;
+  z-index: -1;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s, transform 0.2s, z-index 0s 0.2s;
+  @include from-medium {
+    @include animation-name(pop-down);
+    @include animation-duration(0.2s);
+    @include animation-direction(normal);
+    @include animation-fill-mode(forwards);
+  }
+  @include until-medium-tall {
+    margin: 5% 0;
+    max-height: 100%;
+  }
+}
+
+.modal-open .modal__inner {
+  z-index: 100;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.2s, transform 0.2s;
+  @include from-medium {
+    @include animation-name(pop-up);
+    @include animation-duration(0.2s);
+    @include animation-direction(normal);
+    @include animation-fill-mode(forwards);
+  }
+}
+
+@keyframes pop-up {
+  from {
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    z-index: 100;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pop-down {
+  from {
+    z-index: 100;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.modal-open .modal__close {
+  @include icon('close','medium');
+  position: absolute;
+  z-index: 2;
+  right: $size-l;
+  top: $size-l;
+  cursor: pointer;
+}

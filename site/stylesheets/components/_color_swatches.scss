@@ -1,0 +1,32 @@
+// colors
+.color-swatches {
+  @include clearfix;
+}
+.color-swatch {
+  float:left;
+
+  &__fill {
+    display:block;
+    margin-right:10px;
+    margin-bottom:10px;
+    height:100px;
+    width:100px;
+  }
+
+  em {
+    display:block;
+    font-style:normal;
+  }
+}
+
+@each $key, $color in $color-map {
+  // apply fill and tag w/ hex value
+  .color-swatch--#{$key} {
+    .color-swatch__fill {
+      background-color:#{$color};
+    }
+    em:after {
+      content:"#{$color}";
+    }
+  }
+}

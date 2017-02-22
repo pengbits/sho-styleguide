@@ -1,0 +1,63 @@
+.press-recap {
+	@include container;
+		
+	@include from-medium {
+		@include container-equal;
+	}
+	
+	&__body {
+		position: relative;
+		padding: $size-l;
+		background-color: $colors-pure-white;
+		margin-bottom: $size-xs;
+
+		@include until-medium {
+			@include span-columns(12);
+		}
+		@include from-medium {
+			@include span-columns(6);
+		}
+		
+		@include from-medium {
+			margin-bottom: 0;
+		}
+	}
+	
+	&__logo {
+		height: 32px;
+		margin-bottom: $size-s;
+		
+		@include from-medium {
+			margin-bottom: $size-m;
+		}
+	}
+	
+	&__copy {
+		@include body-text;
+		padding-bottom: $size-m;
+		color: $colors-pure-black;
+		
+		@include from-small {
+			padding-bottom: $size-xxl;
+		}
+	}
+	
+	&__link {
+		@include body-text;
+		@include upcase;
+    width: 66%;
+		color: $colors-mid-grey;
+		
+		@include from-small {
+			position: absolute;
+			bottom: $size-l;
+		}
+
+		&:after {
+			@include icon('next-grey','small');
+			margin-right: -32px;
+			margin-left: $size-s;
+			content: '';
+		}
+	}
+}

@@ -1,0 +1,471 @@
+// hero
+
+@mixin hero-offset($offset:$hero-offset-medium) {
+  margin-top: $offset;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: $colors-pure-white;
+  background: $colors-pure-black;
+  text-align: left;
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.hero__image {
+  right: 0;
+  background-size: cover;
+  background-position: center center;
+  @include pin-top-left;
+  @include proportions--fourbythree;
+  @include overlay(gradient-dark);
+
+  @include from-medium {
+    @include proportions--eightbyfive;
+  }
+}
+
+.hero__inner {
+  @include full-width-container__inner;
+  position: relative;
+  @include clearfix;
+  @include display(flex);
+  @include hero-offset(180px);
+
+  @include at-small {
+    @include hero-offset(260px);
+  }
+
+  @include at-medium {
+    @include hero-offset(260px);
+  }
+
+  @include at-large {
+    @include hero-offset(40vmin);
+  }
+
+  @include from-extra-large {
+    @include hero-offset(50vmin);
+  }
+}
+
+.hero__body {
+  padding-bottom: $size-xl;
+  width: 98%;
+  @include clearfix;
+
+  @include from-medium {
+    padding-bottom: $size-xxl;
+    width: 65%;
+  }
+
+  @include from-extra-large {
+    padding-left: 0;
+  }
+}
+
+.hero--panel-link .hero__shim {
+  @include from-small {
+    float: right;
+    width: 40%;
+  }
+}
+
+.hero__top-line {
+  @include header--gamma;
+  @include upcase;
+  padding-bottom: $size-s;
+}
+
+@mixin hero__copy {
+  @include header--epsilon;
+  margin: 0;
+  padding-bottom: $size-s;
+
+  @include until-medium {
+    @include font(14,18,400);
+  }
+
+  @include from-medium {
+    padding-bottom: $size-s;
+  }
+}
+.hero__copy {
+  @include hero__copy;
+}
+.hero__description,
+.hero__subtitle {
+  @include hero__copy;
+}
+
+.hero__copy--metadata {
+  @include header--epsilon;
+  padding-bottom: $size-xs;
+}
+
+.hero__headline {
+  @include header--alpha;
+  display: block;
+  padding: 0 $size-xxs $size-xs 0; /* padding-right required to prevent :after el from wrapping by itself (see .hero__headline__link:after below) */
+  text-transform: uppercase;
+
+  .icon {
+    position: relative;
+    vertical-align: middle;
+    top: -$size-xs;
+  }
+}
+
+// accent
+.hero__headline:before {
+  content: '';
+  display: block;
+  margin-bottom: $size-m;
+  width: $size-xl;
+  border-bottom: ($size-xs) solid $colors-red;
+
+  @include from-large {
+    width: ($size-xl + $size-l);
+    border-bottom: ($size-xs + $size-xxs) solid $colors-red;
+  }
+}
+
+.hero__headline__link:after {
+  @include icon('next','small');
+  content: '';
+  position: relative;
+  top: -5px;
+  margin-left: $size-s;
+  margin-right: -$size-xl; /* negative margin-right required to prevent :after el from wrapping by itself http://www.brendanmckeown.com/css/2015/04/03/prevent-pseudo-element-wrap.html */
+
+  @include from-large {
+    vertical-align: middle;
+  }
+}
+
+.hero__links {
+  @include full-width-container__inner;
+  padding-bottom: $size-xl;
+
+  @include until-medium {
+    padding: 0 $size-m $size-xl;
+  }
+}
+
+.hero__cta {
+  @include body-text;
+  @include upcase;
+  @include cta;
+
+  &:after {
+    @include icon;
+    @include icon-image('next');
+    margin-right: -$size-xl;
+  }
+}
+
+.hero__ctas {
+  @include full-width-container__inner;
+  @include section--large;
+}
+
+.hero__navigation-container {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 0;
+	z-index: 3;
+
+	@include until-medium {
+		@include proportions--fourbythree;
+	}
+
+	@include from-medium {
+		position: relative;
+	}
+}
+
+
+// hero__navigation (previous/next)
+.hero__navigation {
+  position: absolute;
+  z-index: 3; // make entire block clickable
+  top: 50%;
+  margin-top: -20px;
+  padding: $size-m;
+  height: auto;
+  border: 2px solid rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: width 2s ease-in;
+  @include display("flex");
+  @include align-items(center);
+  @include justify-content(center);
+
+  &--previous {
+    left: 0px;
+    border-left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+    @include from-medium {
+      padding-left: $size-l + $size-l;
+    }
+  }
+
+  &--next {
+    right: 0px;
+    border-right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    @include from-medium {
+      padding-right: $size-l + $size-l;
+    }
+  }
+
+  @include at-medium {
+    top: 160px;
+    padding: $size-m $size-l;
+    height: 75px;
+  }
+
+  @include from-large {
+    top: 300px;
+    padding: $size-l $size-l + $size-s;
+    height: 90px;
+  }
+
+  .hero__navigation__detail {
+    @include upcase;
+    opacity: 0;
+    max-width: 0px;
+    margin: 0;
+    text-align: left;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    @include until-medium {
+      display: none;
+    }
+  }
+
+  &:hover > .hero__navigation__detail {
+    @include from-medium {
+      opacity: 1;
+      margin-left: $size-l + $size-m;
+      max-width: inherit;
+    }
+  }
+
+  &--next:hover .hero__navigation__detail {
+    @include from-medium {
+      margin: 0 $size-l + $size-m 0 0;
+    }
+  }
+}
+
+//.hero > .order-promo {
+//  margin: 0 $size-m $size-m;
+//
+//  @include until-small {
+//    padding: ($size-l + $size-s) $size-l;
+//  }
+//
+//  @include at-medium {
+//    margin: 0 50px 80px;
+//  }
+//
+//  @include from-large {
+//    display: none;
+//    margin: 0;
+//  }
+//}
+
+.hero > .order-banner {
+  margin-bottom: $size-m;
+  
+  @include from-medium {
+    margin-bottom: $size-xxl;
+  }
+}
+.sports-home .hero > .order-promo {
+    margin-bottom: $size-xl;
+
+}
+
+// poster art superimposed on hero
+.hero--poster {
+  @include until-medium {
+    .hero__poster img {
+      width: 50%;
+      margin-bottom: $size-m;
+    }
+
+    .button--stream {
+      max-width: 100%;
+    }
+  }
+
+  @include from-medium {
+    .hero__body {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      width: 95%;
+      padding-bottom: $size-xl;
+    }
+
+    .hero__poster {
+      margin-right: $size-xl;
+
+      & img {
+        width: 320px;
+      }
+    }
+  }
+
+  .hero__inner {
+    @include hero-offset(110px);
+  }
+
+  .hero__copy {
+    padding-bottom: 2px; // gandalf the wizard
+  }
+}
+
+@mixin hero--no-accent {
+  .hero__headline:before {
+    display: none;
+  }
+}
+
+.hero--no-accent {
+  @include hero--no-accent;
+}
+
+.hero--no-top-line {
+  .hero__top-line {
+    display: none;
+  }
+}
+
+.hero--no-description {
+  .hero__description {
+    display: none;
+  }
+}
+
+.hero--no-bottom-padding {
+  .hero__body {
+    padding-bottom: 0;
+  }
+}
+
+// episode/movie page heros
+.hero--detail {
+  @include hero--no-accent;
+
+  .hero__body {
+    padding-bottom: $size-l;
+  }
+
+  .hero__inner {
+    @include until-small {
+      @include hero-offset(260px);
+    }
+
+    @include at-small {
+      @include hero-offset(380px);
+    }
+
+    @include at-medium {
+      @include hero-offset(420px);
+    }
+  }
+}
+
+// movie pages with poster may get this treatment
+// this method is not yet IE friendly
+.hero--blur {
+  .hero__image {
+    @include blur;
+  }
+}
+
+.hero--cast {
+  @include hero--no-accent;
+
+  .hero__body {
+    padding-bottom: $size-l;
+  }
+
+  @include until-medium {
+    .hero__image {
+      position: relative;
+    }
+
+    .hero__inner {
+      display: none;
+    }
+  }
+
+  .hero__inner {
+     @include until-small {
+       @include hero-offset(250px);
+     }
+
+     @include at-small {
+       @include hero-offset(499px);
+     }
+
+     @include at-medium {
+       @include hero-offset(40vmin);
+     }
+
+     @include at-large {
+       @include hero-offset(55vmin);
+     }
+
+     @include from-extra-large {
+       @include hero-offset(60vmin);
+     }
+   }
+}
+
+/* /bulk */
+.hero--multi-headline {
+  .hero__body {
+    padding-bottom: $size-l;
+  }
+
+  .hero__inner.hero__inner--headline-2 {
+    margin-top: $size-xxl + $size-xl;
+    margin-bottom: $size-xxl;
+    @include until-medium {
+      margin-top: $size-xl + $size-l;
+      margin-bottom: $size-xl;
+    }
+  }
+}
+
+.hero__top-line--logo {
+  margin-bottom: $size-m * 2;
+  background: url("#{$icon-base-path}/showtime-logo.svg") no-repeat;
+  background-size: contain;
+  width: 260px;
+  height: 91px;
+  @include until-medium {
+    margin-bottom: $size-m;
+    width: 200px;
+    height: 73px;
+  }
+}
+
+.hero__headline-emphasis {
+  color: $colors-light-red;
+}

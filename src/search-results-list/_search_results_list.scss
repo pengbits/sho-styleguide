@@ -1,0 +1,13 @@
+@import "search_results_list_item";
+@import "search_results_list_item_order";
+@import "search_results_list_item_store";
+@import "search_results_list_item_video";
+
+
+.search-results__list {
+	@include unstyled-ul;
+	margin-top: $size-xl;
+	@include from-medium {
+		margin-top: $size-xxl;
+	}
+}

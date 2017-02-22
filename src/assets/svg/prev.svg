@@ -1,0 +1,16 @@
+<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+ <style type="text/css">.st0{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.9289;}</style>
+
+ <title>Rectangle 1</title>
+ <desc>Created with Sketch.</desc>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g transform="rotate(-180 6.000006198883057,5.999999523162842) " id="Page-1_1_">
+   <path d="m3.95,10.1l4.1,-4.1l-4.1,-4.1" class="st0" id="Path-20-Copy_1_"/>
+  </g>
+ </g>
+</svg>

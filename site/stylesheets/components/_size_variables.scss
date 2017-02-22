@@ -1,0 +1,96 @@
+// Size variables
+
+
+.box-left, 
+.box-right {
+  float: left;
+  display: block;
+  width: 150px;
+  height: 150px;
+ }
+ 
+.box-right {
+  background-color:$colors-pure-black;
+} 
+
+.box-left {
+  background-color: $colors-red;
+}
+
+.box-hdr {
+  clear: both;
+  padding-top: $size-xl;
+}
+
+.box-copy {
+  float: left;
+  width: 300px;
+  clear: both;
+  outline: 1px solid $colors-pure-black;
+  position: relative;
+}
+
+.box--xxs {
+  margin-right: $size-xxs;
+  padding: $size-xxs;
+}
+
+
+.box--xs {
+  margin-right: $size-xs;
+  padding: $size-xs;
+}
+
+.box--s {
+  margin-right: $size-s;
+  padding: $size-s;
+}   
+  
+.box--m {
+  margin-right: $size-m;
+  padding: $size-m;
+}  
+ 
+.box--l {
+  margin-right: $size-l;
+  padding: $size-l;
+} 
+
+.box--xl {
+  margin-right: $size-xl;
+  padding: $size-xl;
+} 
+
+.box--xxl {
+  margin-right: $size-xxl;
+  padding: $size-xxl;
+}  
+
+.xxs--value:after {
+  content: "#{$size-xxs}";
+}
+
+.xs--value:after {
+  content: "#{$size-xs}";
+}
+
+.s--value:after {
+  content: "#{$size-s}";
+}
+
+.m--value:after {
+  content: "#{$size-m}";
+}
+
+.l--value:after {
+  content: "#{$size-l}";
+}
+
+.xl--value:after {
+  content: "#{$size-xl}";
+}
+
+.xxl--value:after {
+  content: "#{$size-xxl}";
+} 
+

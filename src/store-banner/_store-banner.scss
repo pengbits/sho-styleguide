@@ -1,0 +1,104 @@
+.store-banner {
+  background:$colors-pure-white;
+}
+
+.store-banner__inner {
+  @include full-width-container__inner;
+  background: $colors-pure-white;
+  padding: $size-m 0 0 0;
+
+  @include from-medium {
+    @include container-equal;
+    padding: 0;
+  }
+
+  @include from-large {
+    padding-top: $size-m;
+  }
+
+  .store-banner__image {
+    height:120px;
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+
+    @include at-small {
+      display:block;
+      margin-top: $size-m;
+    }
+
+    @include from-medium {
+      @include span-columns(5);
+      @include shift(-12);
+      height: auto;
+    }
+
+    @include from-large {
+      @include span-columns(3);
+      @include shift(-12);
+    }
+
+  }
+
+  .store-banner__body {
+
+    position: relative;
+    @include from-medium {
+		  @include span-columns(7);
+		  margin-left: 25%;
+      @include shift(5);
+		}
+
+    @include from-large {
+			@include span-columns(9);
+      @include shift(3);
+		}
+
+  }
+
+  .store-banner__headline {
+    @include upcase;
+    @include header--gamma;
+    color: $colors-pure-black;
+    text-align: center;
+    padding: $size-l $size-s $size-m $size-s;
+
+    @include from-medium {
+      text-align: center;
+      padding: 4% 0;
+		}
+
+    @include from-large {
+			@include span-columns(5 of 9);
+      text-align: left;
+      padding: 4% 0;
+		}
+
+    @include from-extra-large {
+      padding: 4% 0;
+    }
+  }
+
+  .store-banner__button {
+    padding: 4% 0;
+    text-align: center;
+    white-space: nowrap;
+
+    @include until-medium {
+      padding: 0;
+    }
+
+    @include from-medium {
+			@include span-columns(12 of 12);
+		}
+
+    @include from-large {
+      @include span-columns(4 of 9);
+    }
+
+    @include from-extra-large {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.footer-order-promo {
+
+	@include from-medium {
+		@include span-columns(5);
+	}
+
+	&__header {
+		@include upcase;
+		@include header--delta;
+		margin-bottom: $size-xs;
+		color: $colors-dark-red;
+	}
+
+	&__link {
+		@include upcase;
+		@include header--gamma;
+		margin-bottom: $size-m * 2;
+		color: $colors-pure-white;
+		display: inline-block;
+
+		@include from-medium { 
+			margin-bottom: $size-l;
+		}
+	}
+
+	&__link:after {
+		@include icon;
+		@include icon-size('small');
+		@include icon-image('next');
+		margin-left: $size-s;
+		content: "";
+
+		@include from-medium {
+			vertical-align: 10%;
+		}
+	}
+}

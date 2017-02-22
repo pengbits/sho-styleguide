@@ -1,0 +1,73 @@
+// grid examples
+.grid-examples {
+  a {
+    text-decoration: underline;
+  }
+  
+  h3 {
+    margin-bottom: $size-m;
+  }
+  article {
+    margin-bottom: $size-m;
+    padding: $size-m;
+    background: $colors-dark-grey;
+  }
+  
+  .grid-example {
+    @include container;
+    margin-bottom: $size-m;
+    padding: $size-s 0 0 0;
+    background: $colors-pure-black;
+    
+    &__legend  pre,
+    &__snippet pre {
+      font-family: "Droid Sans Mono","Consolas", monospace;
+      font-size: 14px;
+      overflow: hidden;
+      font-style: normal;
+    }
+    
+    &__legend {
+      @include span-columns(12);
+      pre {
+        padding: 0 $size-m;
+      }
+    }
+    
+    &.zero {
+      article {
+        @include from-medium {
+          @include span-columns(6);
+        }
+      }
+    }  
+    
+    &.one {
+      article {
+        @include at-medium {
+          @include span-columns(6 of 12);
+          @include omega(2n);
+        }
+        
+        @include from-large {
+          @include span-columns(3);
+        }
+      }
+    }
+    
+    &.two {
+      padding-top: 0;
+      @include from-medium {
+        @include container-equal;
+        & > * {
+          margin-top: 0;
+          @include span-columns(3);
+        }
+      }
+      .grid-example__legend {
+        @include span-columns(12);
+      }
+    }
+  }
+}
+

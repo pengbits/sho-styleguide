@@ -1,0 +1,42 @@
+.pagination { 
+	position: relative;
+	margin: 0 auto;
+	width: $size-xxl * 3;
+	border: $size-xxs solid $colors-mid-grey;
+	border-radius: $size-xl;
+  @include justify-content(center);
+  @include flex-direction(row);
+	@include display(flex);
+
+	&__prev {
+		@include icon('prev','medium');
+		position: absolute;
+		top: $size-m;
+		left: $size-l;
+	}
+
+	&__next {
+		@include icon('next','medium');
+		position: absolute;
+		top: $size-m; 
+		right: $size-l;
+	}
+
+	&__list {
+		list-style-type: none;
+		padding: 0 $size-l;
+		width: 80%;
+    @include justify-content(space-around);
+		@include display(flex);
+	}
+
+	&__page-number {
+		@include header--delta;
+		color: $colors-mid-grey;
+		@include display(flex);
+
+		&--active {
+			color: $colors-pure-white;
+		}
+	}
+}

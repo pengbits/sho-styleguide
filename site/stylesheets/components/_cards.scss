@@ -1,0 +1,42 @@
+
+  .card-examples__sidebar {
+    min-height:600px;
+  
+    @include from-small {
+      width:380px;
+    }
+
+    .card {
+      color: $colors-pure-black;
+    }
+    .card__body {
+      background-color: $colors-mid-grey;
+    }
+  }
+  
+  .card-group {
+    @include container;
+  }
+  
+  .card-group--three-up {
+    .column {
+      @include from-medium {
+        @include span-columns(4);
+      }
+    }
+  }
+  
+  .card-group--three-over-two {
+    .column {
+      @include span-columns(6);
+      @include from-medium {
+        @include span-columns(4);
+      }
+    }
+    
+    .column:first-child {
+      @include until-medium {
+        @include span-columns(12);
+      }
+    }
+  }

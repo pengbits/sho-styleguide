@@ -1,0 +1,132 @@
+.link-banner {
+	@include full-width-container__inner;
+
+	&__link,
+	&__link--est {
+		display: block;
+		position: relative;   
+		margin-bottom: $size-s;
+		padding: $size-l;
+		height: $size-xxl * 2; 
+		background: $colors-mid-dark-grey;
+		@include from-medium {  
+			height: auto;
+			padding: 0;
+			align-items: center;
+			@include display("flex");
+		}
+	}
+	
+	&__link--last {
+	 margin-bottom: 0px;
+	}
+
+	&__link--est {
+		@extend .link-banner__link;
+		height: auto;
+		align-items: center;
+		@include display("flex");
+	}
+
+	&__image {
+		display: none;
+
+		@include from-medium {
+			display: block;
+			width: $size-xxl;
+	    min-height: 120px;
+		}
+	}
+
+	&__title-container {
+		display: inline-block;
+
+		@include from-medium {
+			margin-left: $size-l;
+			flex-direction: column;
+			@include display("flex");
+			@include span-columns(4);
+		}
+
+		&--est {
+			margin: $size-l 0 $size-l $size-s;
+			@include span-columns(11);
+			
+			@include from-medium {
+				margin: $size-xl;
+			}
+		}
+	}
+
+	&__title {
+		@include header--gamma;
+		@include upcase;
+
+		&--est {
+			@include header--delta;
+			color: $colors-light-grey;
+		}
+	}
+
+	&__sub-title {
+		@include header--epsilon;
+	}
+
+	&__availability {
+		@include header--epsilon;
+		@include upcase;
+		position: absolute;
+		bottom: $size-xl;
+		margin-bottom: $size-xs;
+		color: $colors-mid-grey;
+		
+		@include from-medium {
+			position: static;
+			text-align: center;
+			@include display("flex");
+			@include span-columns(4);
+		}
+
+		@include from-extra-large {
+			@include shift(1);
+		}
+	}
+
+	&__info {
+		@include header--delta;
+		@include upcase;
+		position: absolute;
+		bottom: $size-m;
+
+		@include from-medium {
+			position: relative;
+			bottom: -3px;
+			text-align: center;
+			@include display("flex");
+			@include span-columns(3);
+		}
+
+		&--highlight {
+			color: $colors-red;
+		}
+	}
+
+	&__more,
+	&__more--est {
+		@include display('flex');
+		@include icon('next','small');
+		@include from-medium {
+			margin-right: $size-xl;
+			min-width: 12px;			
+		}
+	}
+	
+	// icon is hidden until larger size for the default case,
+	// for est version it is always shown
+
+	&__more {
+		@include until-large {
+			display: none; 
+		}
+	}
+}

@@ -1,0 +1,17 @@
+.site-header a {
+  display: block;
+  padding: $medium $medium $medium ($size-xl + $size-s);
+}
+  
+.theme--dark {
+  .site-header a {
+    color:$colors-site-light-grey;
+    background-color: $colors-site-dark-blue-grey-accent;
+    
+    &:hover,
+    &:focus {
+      background-color: $colors-pure-black;
+    }
+  }
+}
+

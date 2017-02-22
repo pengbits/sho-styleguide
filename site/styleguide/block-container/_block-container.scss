@@ -1,0 +1,34 @@
+@mixin block-container {
+  @include body-text;
+  padding: ($size-l + $size-s) $size-l $size-l $size-l;
+  background-color: $colors-bg-dark;
+  color: $colors-pure-white;
+
+  @include from-small {
+    padding: $size-l + $size-s;
+  }
+}
+
+@mixin block-container__headline {
+  @include header--beta;
+  @include upcase;
+  margin-bottom: $size-l;
+}
+  
+@mixin block-container__copy {
+  margin: 0;
+  color: $colors-text-med;
+}
+
+.block-container { 
+  @include block-container; 
+  
+  &__headline {
+    @include block-container__headline;
+  }
+  
+  &__copy,
+  p {
+    @include block-container__copy;
+  }
+}

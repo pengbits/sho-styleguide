@@ -1,0 +1,16 @@
+// define a map so we can iterate over color swatches
+// side note - having to main this list here and in variables.scss sucks
+$color-map: (
+  teal:             $colors-teal,
+  dark-teal:        $colors-dark-teal,
+  text-med:         $colors-text-med,
+  text-dark:        $colors-text-dark,
+  bg-dark:          $colors-bg-dark,
+  bg-med:           $colors-bg-med,
+  bg-light:         $colors-bg-light,
+  red:              $colors-red,
+  light-red:        $colors-light-red,
+  dark-red:         $colors-dark-red,
+  pure-white:       $colors-pure-white,
+  pure-black:       $colors-pure-black,
+);

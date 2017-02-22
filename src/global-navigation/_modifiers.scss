@@ -1,0 +1,142 @@
+.global-navigation--open {
+	@include until-large {
+		.global-navigation__primary-mobile {
+			display: block;
+			opacity: 1;
+			@include transform(translateX(0));
+		}
+	}
+	
+	@include from-large {
+		.global-navigation__right {
+			opacity: 0;
+		}
+	}
+}
+
+.global-navigation--open .global-navigation__inner {
+	.global-navigation__menu-toggle {
+		span:nth-child(1) {
+			width: 0;
+			top: 16px;
+			left: 50%;
+		}
+
+		span:nth-child(2) {
+			@include transform(rotate(45deg));
+		}
+
+		span:nth-child(3) {
+			@include transform(rotate(-45deg));
+		}
+
+		span:nth-child(4) {
+			width: 0;
+			top: 16px;
+			left: 50%;
+		}
+	}
+					
+	@include from-large {
+		.global-navigation__breadcrumb {
+			display: none;
+		}
+	
+		.global-navigation__primary-menu {			
+			@include transform(translateX(0));
+		}
+	}
+}
+	
+.global-navigation--home-page {
+  .global-navigation__breadcrumb-mobile {
+		display: none;
+	}
+}
+	
+.global-navigation--home-page .global-navigation__inner {
+	@include from-large {
+		.global-navigation__menu-toggle {
+			display: none;
+		}
+	
+		.global-navigation__primary-menu {
+			@include transform(translateX(0));
+		}
+		
+		.global-navigation__right {
+			opacity: 1;
+		}
+	}
+			
+	.global-navigation__breadcrumb {
+		display: none !important;
+	}
+}
+
+.global-navigation--sub-page {
+	@include until-large {
+		.global-navigation__breadcrumb {
+			display: none;
+		}
+		
+		.global-navigation__breadcrumb-mobile {
+			display: block;
+		}
+	}
+}
+
+.global-navigation--schedules-open {
+	@include from-small {
+		.schedule-drawer {
+			opacity: 1;
+			@include transform(translateY(0));
+		}
+	}
+}
+
+.global-navigation--search-open {
+	.global-navigation__search-bar {
+		opacity: 1;
+		@include transform(translateX(0));
+	}
+		
+	.global-navigation__menu-toggle,
+	.global-navigation__primary,
+	.global-navigation__right-menu,
+	.global-navigation__logo {
+		display: none;
+	}
+	
+	@include from-large {
+		.global-navigation__logo {
+			display: block;
+		}
+	}
+	
+	.global-navigation__circle {
+		@include transform(scale(.02));
+		@include transform-origin(30% 40%);
+		background: white;
+		border-color:white;
+	}
+	
+	.global-navigation__handle:after {
+		@include transform-origin(center center);
+		@include transform(rotate(90deg));
+	}
+}
+
+.global-navigation--red {
+	color: $colors-light-red !important;
+}
+
+.global-navigation--hidden {
+	display: none;
+}
+
+.global-navigation--hidden-md {
+	@include until-large {
+		display: none;
+	}
+}

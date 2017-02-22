@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-2" sketch:type="MSArtboardGroup" transform="translate(-56.000000, -76.000000)">
+            <g id="PLAY-SMALL" sketch:type="MSLayerGroup" transform="translate(56.000000, 76.000000)">
+                <ellipse id="Oval-1" opacity="0.8" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="19" cy="19" rx="19" ry="19"></ellipse>
+                <path d="M14.7096774,25.6152352 L14.7096774,12.4991062 L25.8562769,19.0571707 L14.7096774,25.6152352 Z" id="Triangle-1" fill="#000101" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

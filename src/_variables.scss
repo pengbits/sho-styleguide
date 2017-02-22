@@ -1,0 +1,90 @@
+// paths that don't change by environment
+$assets-image-base: "http://www.sho.com/assets/images";
+
+// font-family name
+$ff: "ff-din-web, Calibri, Arial ,sans-serif";
+
+// color palette
+$colors-dark-teal: #38958B;
+$colors-teal: #65F2E3;
+$colors-light-grey: #D9D9D9;
+$colors-mid-grey: #7D7D7D;
+$colors-mid-dark-grey: #222226;
+$colors-slate-grey: #2D2D2D;
+$colors-dark-grey: #1B1B1F;
+$colors-other-grey: #181717;          // not sure about adding more colors, and the names are terrible,
+$colors-other-light-grey: #9B9B9B;    // but the values in order designs are different from existing
+
+// use these greys below;
+// the ones above are being phased out
+$colors-text-med: #aaaaaa;
+$colors-text-dark: #7D7D7D;
+$colors-bg-dark: #1b1b1f;
+$colors-bg-med: #222226;
+$colors-bg-light: #2d2d33;
+
+$colors-red: #B10000;
+$colors-blue: #13527C;
+$colors-light-red: #C9141F;
+$colors-bright-red: #CA2200;
+$colors-deep-red: #77171E;
+$colors-dark-red: #500207;
+
+
+$colors-dark-blue: #0A3854;
+$colors-pure-white: #FFFFFF;
+$colors-pure-black: #000101;
+
+// sizes to be used
+$size-xxs: 1px;
+$size-xs: 5px;
+$size-s: 10px;
+$size-m: 15px;
+$size-l: 20px;
+$size-xl: 40px;
+$size-xxl: 80px;
+
+$size-border-width-s: 1px;
+$size-border-width-m: 2px;
+$size-border-width-l: 5px;
+$size-border-radius:  5px;
+$size-border-radius-m: 5px;
+$size-border-radius-l: 10px;
+
+// transitions
+$transition-easing: "ease-in-out"!default;
+$transition-duration: .25s!default;
+
+// icons
+$icon-sizes: (
+  xsmall:    10px,
+  small:    12px,
+  medium:   24px,
+  large:    32px,
+  xlarge:   40px
+);
+
+// Neat grid settings
+$column: 78px; // was 67
+$gutter: 24px; // was 36
+$grid-columns: 12;
+$max-width: 1400px;
+$fg-column: $column;
+$fg-gutter: $gutter;
+
+// using a map instead of variables, for an individual breakpoint,
+// use mq-breakpoint function:
+// mq-breakpoint('small') => 480px
+$breakpoint-map: (
+  'small':              480px,
+  'medium':             768px,
+  'large':              992px,
+  'extra-large':        1200px,
+  'extra-extra-large':  1850px,
+
+  'extra-short':        450px,
+  'short':              550px,
+  'medium-tall':        650px,
+  'tall':               750px,
+  'extra-tall':         1200px
+);

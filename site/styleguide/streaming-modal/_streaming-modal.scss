@@ -1,0 +1,369 @@
+.modal__close {
+  @include until-large {
+    height: 18px !important;
+    width: 18px !important;
+  }
+}
+
+.streaming-modal {
+  position: relative;
+  max-width: 440px;
+  @include container-equal;
+  @include flex-wrap(wrap);
+
+  @include from-large {
+    max-width: 874px;
+  }
+}
+
+.streaming-modal__option {
+  padding: ($size-l + $size-s);
+  background: $colors-bg-dark;
+  @include span-columns(12);
+  @include display(flex);
+  @include flex-direction(column);
+  flex: 1 0 auto;
+  margin-right: 0;
+
+  @include from-large {
+    @include span-columns(6);
+    @include display(flex);
+    margin-right: 0;
+    width: 50%;
+  }
+}
+
+.streaming-modal__headline {
+  @include header--beta;
+  width: 100%;
+  text-align: center;
+}
+
+.streaming-modal__logo {
+  margin: 0 auto;
+  width: 138px;
+  height: 44px;
+  background: url("#{$icon-base-path}/showtime-logo.svg") no-repeat;
+
+  .streaming-modal__option--showtime-anytime & {
+    width: 238px;
+    height: 44px;
+    background: url("#{$icon-base-path}/showtime-anytime-logo.svg") no-repeat;
+  }
+}
+
+.streaming-modal__logo {
+  display: block; 
+}
+
+.streaming-modal__headline {
+  display: none; 
+}
+
+.streaming-modal__link {
+  display: none;
+  
+  &:after {
+    display: inline-block;
+    background-size: cover;
+    background-image: url(/www/sho/lib/assets/svg/next.svg);
+    height: 12px;
+    width: 12px;
+    margin-left: $size-s;
+    content: "";
+  }
+}
+
+.streaming-modal__option--showtime-anytime {
+  @include until-large {
+    border-top: $size-xxs solid $colors-bg-light;
+  }
+  @include from-large {
+    border-left: $size-xxs solid $colors-bg-light;
+  }
+}
+
+.streaming-modal--logos-hide {
+  .streaming-modal__logo {
+    display: none; 
+  }
+  
+  .streaming-modal__option {
+    @include until-large {
+      padding: 0 ($size-l + $size-s) ($size-l + $size-s);
+    }
+    
+    @include from-large {
+      padding: 0 ($size-l + $size-s) ($size-l + $size-s);
+    }
+  }
+  
+  .streaming-modal__headline {
+    display: block;
+    
+    @include until-large {
+      padding: ($size-xl + $size-s) ($size-l + $size-s) ($size-l + $size-s);
+    }
+    
+    @include from-large {
+      padding: ($size-l + $size-s);
+    }
+  }
+  
+  .streaming-modal__option--showtime-anytime {
+    @include until-large {
+      border-top: none;
+    }
+    @include from-large {
+      border-left: none;
+    }
+  }
+  
+  .streaming-modal__copy {
+    padding-top: 0;
+  }
+}
+
+.streaming-modal__copy {
+  @include header--epsilon;
+  margin: 0 auto;
+  padding: $size-m 0 $size-m;
+  color: $colors-pure-white;
+  text-align: center;
+  @include from-large {
+    width: 90%;
+  }
+}
+
+.streaming-modal__button {
+  @include button--solid-red;
+  margin-top: auto;
+  width: 100%;
+
+  .streaming-modal__option--showtime-anytime & {
+    padding-left: $size-xxs;
+    padding-right: $size-xxs;
+  }
+}
+
+.streaming-modal__order {
+  padding: ($size-l + $size-s);
+  background: $colors-bg-light;
+  text-align: center;
+  @include span-columns(12);
+}
+
+.streaming-modal__order-header {
+  @include header--delta;
+  @include upcase;
+  margin-bottom: $size-xs;
+  color: $colors-text-med;
+}
+
+.streaming-modal__red-order-promo {
+  display: none;
+  width: 100%;
+  background: $colors-red;
+  padding: 0 ($size-l + $size-s) ($size-l + $size-s);
+  
+  .streaming-modal__headline {
+    @include until-large {
+      padding: 50px 0 0 !important;
+    }
+    
+    @include from-large {
+      padding: ($size-l + $size-s) 0 0 !important;
+    }
+    margin-bottom: $size-s !important;
+  }
+  
+  .streaming-modal__copy {
+    padding-bottom: 0;
+    margin-bottom: $size-m !important;
+    @include from-large {
+      width: 70%;
+    }
+  }
+}
+
+.streaming-modal--red-order-promo {
+  .streaming-modal__logo,
+  .streaming-modal__order {
+    display: none; 
+  }
+  
+  .streaming-modal__option {
+    padding: 0 ($size-l + $size-s) ($size-l + $size-s);
+    
+    .streaming-modal__button {
+      border-color: $colors-pure-white;
+      background: $colors-bg-dark;
+    }
+  }
+  
+  .streaming-modal__headline {
+    display: block;
+    padding: ($size-l + $size-s) 0;
+  }
+  
+  .streaming-modal__option--showtime-anytime {
+    @include until-large {
+      border-top: none;
+    }
+    @include from-large {
+      border-left: none;
+    }
+  }
+  
+  .streaming-modal__copy {
+    padding-top: 0;
+  }
+  
+  .streaming-modal__red-order-promo {
+    display: block;
+  }
+  
+  .streaming-modal__red-order-promo-button {
+    display: block;
+    margin: 0 auto;
+    color: $colors-red;
+    
+    @include from-large {
+      width: 40%;
+    }
+  }
+}
+
+.streaming-modal__hero-image {
+  display: none;
+  width: 100%;
+}
+
+.streaming-modal--hero-image {
+  .streaming-modal__hero-image {
+    display: block;
+  }
+  
+  @include until-small {
+    padding: $size-xl $size-l;
+  }
+  
+  padding: $size-l + $size-s;
+  background: $colors-dark-grey;
+  max-width: 660px;
+  
+  .streaming-modal__hero-image-headline {
+    @include header--beta;
+    padding-right: $size-l + $size-s;
+    text-transform: uppercase;
+  }
+  
+  .streaming-modal__copy {
+    @include header--epsilon;
+    color: $colors-mid-grey;
+    margin-bottom: $size-s;
+    text-align: left;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  
+  .streaming-modal__hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    @include proportions--landscape;
+    overflow: hidden;
+    
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+  
+  .streaming-modal__red-order-promo {
+    @include until-large {
+      padding: $size-l;
+      
+      .streaming-modal__headline {
+        padding-top: 0 !important;
+      }
+    }
+    
+    .streaming-modal__copy {
+      display: none !important;
+    }
+  }
+  
+  .streaming-modal__red-order-promo-button {
+    width: 100%;
+    
+    @include from-large {
+      width: 48%;
+    }
+  }
+  
+  .streaming-modal__headline {
+    @include until-medium {
+      padding: $size-l 0;
+    }
+  }
+  
+  .streaming-modal__option {
+    .streaming-modal__button {
+      display: none;
+    }
+    
+    .streaming-modal__link {
+      display: block;
+      
+      @include until-large {
+        text-align: center;
+      }
+    }
+  }
+  
+  .streaming-modal__option {
+    padding-bottom: 0;
+  }
+  
+  .streaming-modal__option--showtime {
+    @include until-large {
+      padding: 0;
+      
+      .streaming-modal__copy {
+        text-align: center;
+      }
+      
+      .streaming-modal__link {
+        @include until-large {
+          margin-bottom: $size-l;
+        }
+        
+        @include from-large {
+          margin-bottom: $size-l + $size-s;
+        }
+      }
+    }
+    
+    @include from-large {
+      padding-left: 0;
+      border-right: 1px solid $colors-slate-grey;
+    }
+  }
+  
+  .streaming-modal__option--showtime-anytime {
+    @include until-large {
+      padding: 0;
+      
+      .streaming-modal__copy {
+        text-align: center;
+      }
+    }
+    
+    @include from-large {
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+// load vendor frameworks
+@import "lib/normalize-css/normalize";
+@import "lib/bourbon-stylesheets/bourbon";
+
+// import global variables
+@import "variables";
+
+// import variables specific to the environment
+@import "variables.env";
+
+// configure bourbon and load rules for base elments
+@import "lib/bourbon-neat-stylesheets/neat";
+@import "utils/utils";
+@import "typography/typography";
+@import "images/images";
+@import "grid/grid";
+@import "forms/forms";
+
+// Styleguide components -dependencies must come first
+@import "full-width-container/full_width_container";
+@import "sections/sections";
+
+@import "buttons/buttons";
+@import "icons/icons";
+@import "block-container/block-container";
+@import "call-to-action/call_to_actions";
+@import "cards/cards";
+@import "colors/colors";
+@import "countdown-widget/countdown-widget";
+@import "email-signup/email-signup";
+@import "event-hero/event-hero";
+@import "fight-card/fight-card";
+@import "footer/footer";
+@import "global-navigation/global-navigation";
+@import "grid/grid";
+@import "headers/headers";
+@import "hero/hero";
+@import "music-list/music-list";
+@import "images/images";
+@import "link-banner/link-banner";
+@import "loading-animation/loading-animation";
+@import "measure-scrollbars/measure-scrollbars";
+@import "movies-gallery/movies-gallery";
+@import "modal/modal";
+@import "notification/notification";
+@import "order-promo/order-promo";
+@import "order-banner/order-banner";
+@import "order-masthead/order-masthead";
+@import "order-tray/order-tray";
+@import "pagination/pagination";
+@import "press-recap/press-recap";
+@import "promos/promos";
+@import "promo-group/promo-group";
+@import "read-more/_read-more";
+@import "sample-component/sample-component";
+@import "schedule-date-selector/schedule-date-selector";
+@import "schedule-drawer/schedule-drawer";
+@import "schedule-grid/schedule_grid";
+@import "search-results-header/search_results_header";
+@import "search-results-super-serp/search_results_super_serp";
+@import "search-results-list/search_results_list";
+@import "secondary-navigation/secondary-navigation";
+@import "select-navigation/select-navigation";
+@import "section-header-dropdown/section_header_dropdown";
+@import "series-legal/series-legal";
+@import "simplified-global-navigation/simplified-global-navigation";
+@import "slider/slider";
+@import "slideshow/slideshow";
+@import "streaming-modal/streaming-modal";
+@import "store-banner/store-banner";
+@import "title-metadata/title_metadata";
+@import "video-player/index";
+@import "video-metadata/video_metadata";
+@import "video-text-link/video_text_link";
+@import "variations/variation_controls";
+@import "ways-to-watch/ways-to-watch";

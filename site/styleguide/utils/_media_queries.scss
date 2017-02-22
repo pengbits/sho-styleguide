@@ -1,0 +1,162 @@
+// adapter mixins - preserve interface of old setup
+// there were three kinds, some of which overlap with eachother:
+
+// until  	(from 0 to breakpoint indicated-1 )
+// at     	(from breakpoint indicated, to next largest breakpoint-1)
+// from   	(breakpoint indicated and up )
+
+// media queries for width
+@mixin until-small {
+	@include mq($until:'small') { @content; }
+}
+@mixin until-medium {
+	@include mq($until:'medium') { @content; }
+}
+@mixin until-large {
+	@include mq($until:'large') { @content; }
+}
+@mixin until-extra-large {
+	@include mq($until:'extra-large') { @content; }
+}
+@mixin until-extra-extra-large {
+	@include mq($until:'extra-extra-large') { @content; }
+}
+
+@mixin at-small {
+	@include mq($from:'small', $until:'medium') { @content; }
+}
+@mixin at-medium {
+	@include mq($from:'medium', $until:'large') { @content; }
+}
+@mixin at-large {
+	@include mq($from:'large', $until:'extra-large') { @content; }
+}
+@mixin at-extra-large {
+	@include mq($from:'extra-large', $until:'extra-extra-large') { @content; }
+}
+@mixin at-extra-extra-large {
+	@include mq($from:'extra-extra-large') { @content; }
+}
+
+@mixin from-small {
+	@include mq($from:'small') { @content; }
+}
+@mixin from-medium {
+	@include mq($from:'medium') { @content; }
+}
+@mixin from-large {
+	@include mq($from:'large') { @content; }
+}
+@mixin from-extra-large {
+	@include mq($from:'extra-large') { @content; }
+}
+@mixin from-extra-extra-large  {
+	@include mq($from:'extra-extra-large') { @content; }
+}
+
+
+// media queries for height
+@mixin until-extra-short {
+	@include mq($until:'extra-short', $axis:'height') { @content ; }
+}
+@mixin until-short {
+	@include mq($until:'short', $axis:'height') { @content ; }
+}
+@mixin until-medium-tall { 
+  @include mq($until:'medium-tall', $axis:'height') { @content ; }
+}
+@mixin until-tall {
+	@include mq($until:'tall', $axis:'height') { @content ; }
+}
+@mixin until-extra-tall {
+	@include mq($until:'extra-tall', $axis:'height') { @content ; }
+}
+
+@mixin at-extra-short {
+	@include mq($from:'extra-short', $until:'short', $axis:'height') { @content ; }
+}
+@mixin at-short {
+	@include mq($from:'short', $until:'medium-tall', $axis:'height') { @content ; }
+}
+@mixin at-medium-tall { 
+  @include mq($from:'medium-tall', $until:'tall', $axis:'height') { @content ; }
+}
+@mixin at-tall {
+	@include mq($from:'tall', $until:'extra-tall', $axis:'height') { @content ; }
+}
+@mixin at-extra-tall {
+	@include mq($from:'extra-tall', $axis:'height') { @content ; }
+}
+@mixin from-short {
+	@include mq($from:'short', $axis:'height') { @content ; }
+}
+@mixin from-tall {
+	@include mq($from:'tall', $axis:'height') { @content ; }
+}
+@mixin from-extra-short {
+	@include mq($from:'extra-short', $axis:'height') { @content ; }
+}
+
+@function mq-breakpoint($name, $breakpoints: $breakpoint-map) {
+  @if map-has-key($breakpoints, $name) {
+    @return map-get($breakpoints, $name);
+  } @else {
+    @warn "Breakpoint #{$name} wasn't found in $breakpoint-map.";
+  }
+}
+
+// replacing all of the various new-breakpoint() calls with an adapter mixin,
+// loosely inspired by the great sass-mq, but relying on sass-breakpoint's guts
+// https://github.com/sass-mq/sass-mq/blob/master/_mq.scss
+@mixin mq($from:false, $until:false, $axis:'width') {
+  
+  $min-width: 0;
+  $max-width: 0;
+  $media-query: '';
+  $mode: '';
+  
+  // From: this breakpoint (inclusive)
+  @if $from {
+    $mode: 'from';
+    @if type-of($from) == number {
+      $min-width: $from;
+    }
+    @else {
+      $min-width: mq-breakpoint($from, $breakpoint-map);
+    }
+  }
+  
+  // Until: that breakpoint (exclusive)
+  @if $until {
+    $mode: 'until';
+    @if type-of($until) == number {
+      $max-width: $until;
+    }
+    @else {
+      $max-width: mq-breakpoint($until, $breakpoint-map);
+    }
+    $max-width: $max-width - 1;
+  }
+  
+  @if($from and $until and type-of($from) != number and type-of($until) != number){
+    $mode: 'at';
+  }
+  
+  // build up query in list format, since that's what bourbon neat expects
+  @if($min-width and $min-width != 0){
+    $media-query: ("min-#{$axis}" $min-width);
+    
+    @if($max-width and $max-width != 0){
+      $media-query: ("min-#{$axis}" $min-width "max-#{$axis}" $max-width);
+    }
+  }
+  @else {
+    @if($max-width and $max-width != 0){
+      $media-query: ("max-#{$axis}" $max-width);
+    }
+  }
+	
+  @include media($media-query) { 
+    @content;
+  }
+}

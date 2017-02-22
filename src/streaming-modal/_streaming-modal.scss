@@ -1,0 +1,221 @@
+.modal__close {
+  @include until-large {
+    height: 18px !important;
+    width: 18px !important;
+  }
+}
+
+.streaming-modal {
+  position: relative;
+  max-width: 440px;
+  @include container-equal;
+  @include flex-wrap(wrap);
+
+  @include from-large {
+    max-width: 874px;
+  }
+}
+
+.streaming-modal__option {
+  padding: 30px;
+  background: $colors-bg-dark;
+  @include span-columns(12);
+  @include display(flex);
+  @include flex-direction(column);
+  flex: 1 0 auto;
+  margin-right: 0;
+
+  @include from-large {
+    @include span-columns(6);
+    @include display(flex);
+    margin-right: 0;
+    width: 50%;
+  }
+}
+
+.streaming-modal__headline {
+  @include header--beta;
+  width: 100%;
+  text-align: center;
+}
+
+.streaming-modal__logo {
+  margin: 0 auto;
+  width: 138px;
+  height: 44px;
+  background: url("#{$icon-base-path}/showtime-logo.svg") no-repeat;
+
+  .streaming-modal__option--showtime-anytime & {
+    width: 238px;
+    height: 44px;
+    background: url("#{$icon-base-path}/showtime-anytime-logo.svg") no-repeat;
+  }
+}
+
+.streaming-modal__logo {
+  display: block; 
+}
+
+.streaming-modal__headline {
+  display: none; 
+}
+
+.streaming-modal__option--showtime-anytime {
+  @include until-large {
+    border-top: $size-xxs solid $colors-bg-light;
+  }
+  @include from-large {
+    border-left: $size-xxs solid $colors-bg-light;
+  }
+}
+
+.streaming-modal--logos-hide {
+  .streaming-modal__logo {
+    display: none; 
+  }
+  
+  .streaming-modal__option {
+    @include until-large {
+      padding: 0 30px 30px;
+    }
+    
+    @include from-large {
+      padding: 0 30px 30px;
+    }
+  }
+  
+  .streaming-modal__headline {
+    display: block;
+    
+    @include until-large {
+      padding: 50px 30px 30px;
+    }
+    
+    @include from-large {
+      padding: 30px;
+    }
+  }
+  
+  .streaming-modal__option--showtime-anytime {
+    @include until-large {
+      border-top: none;
+    }
+    @include from-large {
+      border-left: none;
+    }
+  }
+  
+  .streaming-modal__copy {
+    padding-top: 0;
+  }
+}
+
+.streaming-modal__copy {
+  @include header--epsilon;
+  margin: 0 auto;
+  padding: $size-m 0 $size-m;
+  color: $colors-pure-white;
+  text-align: center;
+  @include from-large {
+    width: 90%;
+  }
+}
+
+.streaming-modal__button {
+  @include button--solid-red;
+  margin-top: auto;
+  width: 100%;
+
+  .streaming-modal__option--showtime-anytime & {
+    padding-left: $size-xxs;
+    padding-right: $size-xxs;
+  }
+}
+
+.streaming-modal__order {
+  padding: 30px;
+  background: $colors-bg-light;
+  text-align: center;
+  @include span-columns(12);
+}
+
+.streaming-modal__order-header {
+  @include header--delta;
+  @include upcase;
+  margin-bottom: $size-xs;
+  color: $colors-text-med;
+}
+
+.streaming-modal__red-order-promo {
+  display: none;
+  width: 100%;
+  background: $colors-red;
+  padding: 0 30px 30px;
+  
+  .streaming-modal__headline {
+    @include until-large {
+      padding: 50px 0 0 !important;
+    }
+    
+    @include from-large {
+      padding: 30px 0 0 !important;
+    }
+    margin-bottom: $size-s !important;
+  }
+  
+  .streaming-modal__copy {
+    padding-bottom: 0;
+    margin-bottom: $size-m !important;
+    @include from-large {
+      width: 70%;
+    }
+  }
+}
+
+.streaming-modal--red-order-promo {
+  .streaming-modal__logo,
+  .streaming-modal__order {
+    display: none; 
+  }
+  
+  .streaming-modal__option {
+    padding: 0 30px 30px;
+    
+    .streaming-modal__button {
+      border-color: $colors-pure-white;
+      background: $colors-bg-dark;
+    }
+  }
+  
+  .streaming-modal__headline {
+    display: block;
+    padding: 30px;
+  }
+  
+  .streaming-modal__option--showtime-anytime {
+    @include until-large {
+      border-top: none;
+    }
+    @include from-large {
+      border-left: none;
+    }
+  }
+  
+  .streaming-modal__copy {
+    padding-top: 0;
+  }
+  
+  .streaming-modal__red-order-promo {
+    display: block;
+  }
+  
+  .streaming-modal__red-order-promo-button {
+    display: block;
+    margin: 0 auto;
+    color: $colors-red;
+    
+    @include from-large {
+      width: 40%;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+
+.super-radio-example, .faux-radio-example {
+  @include body-text;
+  padding: $size-l;
+  background-color: $colors-light-red;
+}

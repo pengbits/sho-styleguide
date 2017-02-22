@@ -1,0 +1,121 @@
+.breakpoints-aside {
+  width:600px;
+}
+
+.breakpoints-example-code-snippet {
+  em {
+    font-style: normal;
+    text-decoration: line-through;
+  }
+}
+
+.breakpoints-example {
+  margin: 0;
+  position: fixed;
+  width:auto;
+  z-index: 9999999;
+  
+  &--width {
+    top:$size-l;
+    right:$size-l;
+    
+    .breakpoints-example__breakpoint {
+      border-radius: $size-l;
+      background-color: $colors-site-mid-grey;
+    }
+  }
+  
+  &--height {
+    bottom:$size-l;
+    left: $size-l;
+    
+    @include mq($until:'large') {
+      bottom: auto;
+      top:$size-l;
+    }
+    
+    .breakpoints-example__breakpoint {
+      border-radius: $size-l;
+      background-color: $colors-site-muted-blue-grey;
+    }
+  }
+  
+  &__breakpoint {
+    display: none;
+    padding: $size-m $size-l;
+    
+    h1 {
+      @include header('gamma');
+    }
+    
+    em {
+      @include header('delta')
+      font-style: normal;
+    }
+    
+    &--extra-small { 
+      display: block;       @include from-small { display: none; }
+    }
+    &--small {              @include at-small { display: block; }}
+    &--medium {             @include at-medium { display: block; }}
+    &--large {              @include at-large { display: block; }}
+    &--extra-large {        @include at-extra-large { display: block; }}   
+     
+    &--extra-extra-short {  
+      display: block;       @include from-extra-short { display: none; }
+    }
+    &--extra-short {        @include at-extra-short { display: block; }}
+    &--short {              @include at-short { display: block; }}
+    &--medium-tall {        @include at-medium-tall { display: block; }      } 
+    &--tall {               @include at-tall { display: block; }}
+    &--extra-tall {         @include at-extra-tall { display: block; }}
+  }
+}
+
+.breakpoints-example--until {
+  position: static;
+  width: 100%;
+  overflow: hidden;
+  
+  .breakpoints-example__breakpoint {
+    display: block;  
+    padding: 0;
+    margin-bottom: $size-s;
+    background-color: $colors-site-dark-blue-grey-accent;
+    
+    &--until-small  { 
+      width: mq-breakpoint('small');  
+      
+      @include mq($until:'small') {
+        background-color: $colors-site-teal;
+      }
+    }
+   
+    &--until-medium  { 
+      width: mq-breakpoint('medium');  
+      
+      @include mq($until:'medium') {
+        background-color: $colors-site-teal;
+      }
+    }
+   
+    &--until-large  { 
+      width: mq-breakpoint('large');  
+      
+      @include mq($until:'large') {
+        background-color: $colors-site-teal;
+      }
+    }
+   
+    &--until-extra-large  { 
+      width: mq-breakpoint('extra-large');  
+      
+      @include mq($until:'extra-large') {
+        background-color: $colors-site-teal;
+      }
+    }
+   
+    
+  }
+}
+

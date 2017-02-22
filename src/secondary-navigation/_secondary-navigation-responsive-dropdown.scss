@@ -1,0 +1,92 @@
+// custom responsive dropdown
+
+.secondary-nav__disclosure {
+	@include header--epsilon;
+	@include upcase;
+	display: block;
+	padding: $size-s $size-l + $size-s;
+	width: 100%;
+	color: $colors-red;
+	background: rgba(0, 0, 0, .2);
+	@include from-medium {
+		display: none;
+	}
+
+	&:after {
+		@include icon('down-arrow-red','small');
+		margin-left: $size-xs;
+		content: '';
+	}
+
+	&--mobile-reveal {
+		background: $colors-dark-grey;
+
+		&:after {
+			@include icon('up-arrow-red','small');
+			margin-left: $size-xs;
+			content: '';
+		}
+	}
+}
+
+.secondary-nav__content {
+
+	.responsive-dropdown {
+		@include unstyled-ul;
+		flex-direction: column;
+		padding: $size-l $size-l 0 $size-l + $size-s;
+		@include display('flex')
+		@include from-medium {
+			padding: $size-m 0;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	&--mobile-reveal {
+		background: $colors-pure-black;
+		@include from-medium {
+			background: none;
+		}
+
+		.secondary-nav__item--active {
+			font-size: 14px;
+			@include from-medium {
+				color: $colors-red;
+			}
+			@include from-large {
+				font-size: 16px;
+			}
+		}
+
+		li {
+			display: block;
+		}
+	}
+}
+
+.secondary-nav__item {
+	@include header-regular-weight;
+	display: none;
+	margin-bottom: $size-l;
+	color: $colors-mid-grey;
+	@include from-medium {
+		display: block;
+		margin-bottom: 0;
+		color: $colors-pure-white;
+	}
+
+	&--active {
+		color: $colors-pure-white;
+		font-size: 24px;
+		border: none;
+		@include from-medium {
+			color: $colors-red;
+			font-size: 14px;
+			border-bottom: 3px solid $colors-red;
+		}
+		@include from-large {
+			@include header--epsilon;
+		}
+	}
+}

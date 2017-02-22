@@ -1,0 +1,38 @@
+.site-container {
+  display: flex;
+  position: relative;
+  align-items: stretch;
+  margin: 0 auto;
+  max-width: $site-container-max-width;
+  min-height: 100%;
+}
+
+.site-container:after {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: $size-s;
+  background-color: $colors-site-dark-blue;
+  color: $colors-site-light-grey;
+  z-index: 9999;
+  
+  @include until-small {
+    display: none;
+  }
+  
+  @include at-small {
+    content: 'small';
+  }
+  
+  @include at-medium {
+    content: 'medium';
+  }
+  
+  @include at-large {
+    content: 'large';
+  }
+  
+  @include at-extra-large {
+    content: 'extra large';
+  }
+}

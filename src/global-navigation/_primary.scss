@@ -1,0 +1,43 @@
+.global-navigation__primary {
+	float: left;
+	padding-top: ($size-xxs * 3);
+	overflow: hidden;
+	display: none;
+	
+	@include from-large {
+		display: block;
+	}
+	
+	.global-navigation__primary-menu {	
+		@include header--epsilon;
+    @include header-regular-weight;
+		@include upcase;
+		float: left;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		@include transform(translateX(-101%));
+		@include transition(.25s ease-in-out);
+		
+		.global-navigation__primary-menu-item {
+			float: left;
+			line-height: $logo-height;
+		
+			@include from-small {
+				line-height: $logo-height-small;
+			}
+		
+			@include from-medium {
+				padding: 0 $size-l 0 0;
+			}
+			
+			a {
+				display: block;
+			}
+		}
+	
+		.global-navigation__primary-menu-item:last-child {
+			padding-right: 0;
+		}
+	}
+}

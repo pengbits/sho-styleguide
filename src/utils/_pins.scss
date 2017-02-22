@@ -1,0 +1,37 @@
+
+  @mixin pin {
+    display: block;
+    position: absolute;
+  }
+  
+  @mixin pin-top-left {
+    @include pin;
+    left: 0;
+    top: 0;
+  }
+  
+  @mixin pin-bottom-left {
+    @include pin;
+    left: 0;
+    bottom: 0;
+  }
+  
+  @mixin pin-top-right {
+    @include pin;
+    top: 0;
+    right: 0;
+  }
+  
+  @mixin pin-bottom-right {
+    @include pin;
+    bottom: 0;
+    right: 0;
+  }
+    
+  @mixin pin-cover {
+    @include pin;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }

@@ -1,0 +1,140 @@
+@mixin cta {
+	@include upcase;
+
+	&:after {
+		@include icon;
+	  @include icon-size('small');
+		margin-left: $size-s;
+		content: "";
+	}
+}
+
+ //
+.cta,
+.cta--prev,
+.cta--expand,
+.cta--collapse {
+	@include upcase;
+ }
+
+.cta:after,
+.cta--expand:after,
+.cta--collapse:after {
+  @include cta
+}
+
+.cta--prev:before {
+	@include icon;
+	@include icon-size('small');
+  margin-right: $size-s;
+  content: "";
+}
+
+.cta--red {
+  color: $colors-red;
+}
+
+.cta--red:before {
+  @include icon;
+  @include icon-image('prev-red');
+}
+
+.cta--red:after {
+  @include icon;
+  @include icon-image('prev-red');
+}
+
+.cta--dark-red {
+  color: $colors-dark-red;
+}
+
+.cta--dark-red:before {
+  @include icon;
+  @include icon-image('prev-red');
+}
+
+.cta--dark-red:after {
+  @include icon;
+  @include icon-image('prev-red');
+}
+
+.cta--black {
+  color: $colors-pure-black;
+}
+
+.cta--expand:after {
+  @include icon;
+  @include icon-image('prev-red');
+}
+
+.cta--collapse:after {
+  @include icon;
+  @include icon-image('prev-red');
+}
+
+.cta--grey {
+  color: $colors-mid-grey;
+}
+
+.cta--grey:before {
+  @include icon;
+  @include icon-image('prev-red');
+}
+
+.cta--grey:after {
+  @include icon;
+  @include icon-image('prev-red');
+}
+
+// cta icons used in PR and Shosite
+
+.cta--item {
+  margin-left: $size-m;
+}
+
+.cta--item:first-child {
+  @include from-medium {
+    margin-left:0px;
+  }
+}
+
+.cta--video,
+.cta--gallery,
+.cta--facebook,
+.cta--twitter,
+.cta--contact {
+  @include body-text;
+  @include upcase;
+  @include until-medium {
+    display: block;
+    margin-top: $size-l;
+  }
+
+  &:before {
+    @include icon;
+    @include icon-size('medium');
+    margin: 0 $size-s 0 0;
+    vertical-align: -7px;
+    content: "";
+  }
+}
+
+.cta--gallery:before {
+  @include icon-image('photo');
+}
+
+.cta--video:before {
+  @include icon-image('play');
+}
+
+.cta--facebook:before {
+  @include icon-image('social-icons-facebook');
+}
+
+.cta--twitter:before {
+  @include icon-image('social-icons-twitter');
+}
+
+.cta--contact:before {
+  @include icon-image('envelope')
+}

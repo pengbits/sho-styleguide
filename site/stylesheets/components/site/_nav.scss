@@ -1,0 +1,33 @@
+.site-nav__section {
+  //border-bottom: 1px solid #ccc;
+  padding: $medium;
+}
+
+.site-nav__heading {
+  font-size: 1em;
+  margin: 0 0 $small;
+}
+
+.site-nav__list {
+  margin: 0; padding: 0;
+  list-style: none;
+}
+
+.site-nav__item {
+  margin-bottom: $small;
+}
+
+.theme--dark {
+  
+  .site-nav__heading {  
+    color: $colors-site-light-grey;
+  }
+  
+  .site-nav__anchor {
+    &:hover,
+    &:focus {
+      color: $colors-site-light-grey;
+    }
+  }
+    
+}

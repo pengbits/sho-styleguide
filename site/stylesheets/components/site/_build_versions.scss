@@ -1,0 +1,22 @@
+.build-versions {
+  border-spacing: collapse;
+  
+  th,td {
+    border:$colors-pure-black solid 1px;
+    padding: $size-s $size-m;
+  }
+  
+  th {
+    text-align: left;
+  }
+}
+
+.site-footer .build-versions {
+  th,
+  td {
+    font-weight: normal;
+    font-size:14px;
+    padding: $size-xs $size-s;
+    color: $colors-site-light-grey;
+  }
+}

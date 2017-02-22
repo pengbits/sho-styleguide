@@ -1,0 +1,20 @@
+
+	// block-level psuedo-content
+	@mixin shim($content:'.',$color:'') {
+		content:$content;
+		display:block;
+		position:absolute;
+		font-size:1px;		
+		@if($color != '')
+		{
+			@include shim-color($color);
+		}
+	}
+
+	// for overriding just the color
+	@mixin shim-color($color)
+	{
+		background-color:$color;
+		color:$color;
+	}
+	

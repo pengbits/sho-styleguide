@@ -1,0 +1,51 @@
+.footer {
+	@include full-width-container;
+	background-color: $colors-light-red;
+
+	&__inner{
+		@include full-width-container__inner;
+		//padding-top:$size-xl;
+
+		@include from-medium {
+			//padding-top:$size-l;
+		}
+	}
+
+	&__logo {
+		height: $size-xl;
+		width: 114px;
+		margin-bottom: $size-xl;
+		background-image: url("#{$icon-base-path}/showtime-logo.svg");
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		@include from-medium {
+			height: 53px;
+			width: 150px;
+			background-size: contain;
+		}
+	}
+
+	&__schedule-section {
+		padding: $size-xl 0 $size-l 0;
+
+		@include from-medium {
+			padding: $size-xxl 0;
+			height: $size-xxl * 7;
+		}
+	}
+
+	&__nav-section {
+		background: $colors-red;
+
+		@include until-medium {
+			padding: $size-xl 0 $size-m 0;
+		}
+
+		@include from-medium {
+      padding-top: $size-xl;
+			height: $size-xxl * 3;
+		}
+
+	}
+}

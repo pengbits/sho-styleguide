@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if !gt IE 9]>
+  <html class="oldie" lang="en">
+<![endif]-->
+<!--[if !IE]><!-->
+  <html lang="en" class="theme--dark">
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>{{#if name}}{{name}} - Sho.com Styleguide {{else}}Sho.com - Styleguide{{/if}}</title>
+    {{#if pageTracking}}<meta name="page-tracking" content="{{pageTracking}}">{{/if}}
+    <link rel="stylesheet" href="/styleguide/lib/photoswipe/photoswipe.css">
+    <link rel="stylesheet" href="/styleguide/lib/photoswipe/default-skin/default-skin.css"> 
+    <link rel="stylesheet" href="/styleguide.css">
+    <script>(function(d) {
+      var tkTimeout=3000;
+      if(window.sessionStorage){if(sessionStorage.getItem('useTypekit')==='false'){tkTimeout=0;}}
+      var config = {
+        kitId: 'try3fbz',
+        scriptTimeout: tkTimeout
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+      // set credentials for development reporting suite
+      var omniture_rsid = "cbsshodev,cbsshoglobaldev";
+    </script>
+   </head>
+
+  <body class="js-notification">
+    <div class="site-container">
+      <button class="site-sidebar-toggle">-</button>
+      <aside class="site-sidebar">
+        <header class="site-header">
+          <a href="/">
+            Sho.com Styleguide
+          </a>
+        </header>
+        <nav class="site-nav">
+          <section class="site-nav__section">
+            <h2 class="site-nav__heading">Articles</h2>
+            <ul class="site-nav__list">
+                {{#each articles}}
+                <li class="site-nav__item">
+                  <a class="site-nav__anchor" href="/{{this.dirname}}">{{this.name}}</a>
+                </li>
+                {{/each}}
+            </ul>
+          </section>
+          
+          <section class="site-nav__section">
+            <h2 class="site-nav__heading">Vendor</h2>
+            <ul class="site-nav__list">
+              {{#each vendor}}
+                <li class="site-nav__item">
+                  <a class="site-nav__anchor" href="/{{this.dirname}}">{{this.name}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+          
+          <section class="site-nav__section">
+            <h2 class="site-nav__heading">Base</h2>
+            <ul class="site-nav__list">
+              {{#each base}}
+                <li class="site-nav__item">
+                  <a class="site-nav__anchor" href="/{{this.dirname}}">{{this.name}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+
+          <section class="site-nav__section">
+            <h2 class="site-nav__heading">Elements</h2>
+            <ul class="site-nav__list">
+              {{#each elements}}
+                <li class="site-nav__item">
+                  <a class="site-nav__anchor" href="/{{this.dirname}}">{{this.name}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+
+          <section class="site-nav__section">
+            <h2 class="site-nav__heading">Components</h2>
+            <ul class="site-nav__list">
+              {{#each components}}
+                <li class="site-nav__item">
+                  <a class="site-nav__anchor" href="/{{this.dirname}}">{{this.name}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+        </nav>
+
+        <footer class="site-footer">
+          <div class="site-version">
+            <table class="build-versions">
+              <tr>
+                <th>CSS Version</th> <td class="css-build-version"></td>
+              </tr>
+              <tr>
+                <th>JS Version</th><td class="js-build-version"></td>
+              </tr>
+            </table>
+          </div>
+        </footer>
+      </aside>
+
+      <main class="site-main">
+        <div class="site-content">
+          {{{contents}}}
+        </div>
+      </main>
+    </div>
+    
+    <script type="text/javascript" src="/styleguide/lib/omniture/s_code.js"></script>
+
+    
+    {{!-- the charset and content-type are set due to an issue with the vendor code d3. It used greek characters which causes an issue in some browsers (Chrome). 
+    Using charset utf-8 converts it to ascii and so the sytax error does not occur--}} 
+
+    <script content-type="application/javascript" charset="utf-8" src="/styleguide.js"></script>
+
+    <script>
+      window.lazySizesConfig = window.lazySizesConfig || {};
+      window.lazySizesConfig.customMedia = {
+          '--small': '(max-width: 767px)',
+          '--medium': '(max-width: 991px)'
+      };
+    </script>
+    
+    
+    
+  </body>
+</html>

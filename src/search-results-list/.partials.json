@@ -1,0 +1,4 @@
+{
+  "target": "/usr/webapps/www/src/main/webapp/www/styleguide/src/search-results-list/index.md",
+  "styleguide/search-results-list/_serp_list_item.jsp.md": "/sho/views/partials/search/_serp_list_item.jsp"
+}

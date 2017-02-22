@@ -1,0 +1,29 @@
+.search-results {
+	&__header,
+	&__suggestion {
+		@include full-width-container__inner;
+		@include header--epsilon;
+		@include upcase;
+		color: $colors-text-dark;
+	}
+	
+	&__header {
+		margin-top: $size-l;
+		width: 100%;
+
+		&--keyword {
+			color: $colors-pure-white;
+			font-style: italic;
+		}
+	}
+
+	&__suggestion {
+		margin-top: $size-s;
+		color: $colors-red;
+		
+		&--keyword {
+			font-style: italic;
+			border-bottom: 1px solid $colors-red;
+		}
+	}
+}

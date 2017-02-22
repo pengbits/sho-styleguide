@@ -1,0 +1,12 @@
+
+
+.video-section__inner {
+  @include container;
+}
+
+.video-example {
+  @include from-medium {
+    @include span-columns(4);
+  }
+}
+ 

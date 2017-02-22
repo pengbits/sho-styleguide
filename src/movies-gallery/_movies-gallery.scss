@@ -1,0 +1,63 @@
+.movies-gallery {
+	&__inner {
+		@include full-width-container__inner;
+		@include container-equal;
+		@include flex-wrap(wrap);
+		margin-bottom: $size-l + $size-s;
+	}
+	
+	&__item {
+		display: block;
+		margin-bottom: $size-l;
+		overflow: hidden;
+		@include span-columns(4);
+		
+		@include from-medium {
+			@include span-columns(3);
+		}
+		
+		@include from-large {
+			@include span-columns(2);
+		}
+	}
+	
+	@include until-small {
+		margin-bottom: $size-xl;
+	}
+	
+	@include until-medium {
+		&__item:nth-child(3n) {
+		  margin-right: 0;
+		}
+	}
+	
+	@include from-medium {
+		&__item:nth-child(4n) {
+		  margin-right: 0;
+		}
+	}
+	
+	@include from-large {
+		&__item:nth-child(4n) {
+		  margin-right: 2%;
+		}
+		
+		&__item:nth-child(6n) {
+		  margin-right: 0;
+		}
+	}
+	
+	&__image {
+		margin-bottom: $size-m;
+		
+		img {
+			width: 100%;
+		}
+	}
+	
+	&__title {
+		@include header--epsilon;
+		@include upcase;
+		
+	}
+}

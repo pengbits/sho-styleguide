@@ -1,0 +1,10 @@
+// styles for analytics examples in styleguide
+
+.analytics-example {
+  padding: ($size-l + $size-m);
+  
+  a {
+    margin-right: $size-m;
+    @include button--solid-red;
+  }
+}

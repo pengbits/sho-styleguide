@@ -1,0 +1,194 @@
+@mixin button {
+  @include transition(background-color $transition-duration unquote($transition-easing),
+                      color $transition-duration unquote($transition-easing));
+  @include header--epsilon;
+  @include smallcaps;
+  text-align: center;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  background-color: transparent;
+  outline: 0;
+  transition: all .2s ease-out;
+
+  @include hover {
+    transform: scale(.97);
+  }
+}
+
+@mixin round-button {
+  @include button;
+  display: inline-block;
+  border: ($size-xxs * 2) solid;
+  border-radius: $size-l;
+  padding: $size-s;
+  padding-top: ($size-s + $size-xxs); // fixing vertical misalignment due to line height
+
+  @include from-small {
+    padding: ($size-s + $size-xxs) ($size-l + $size-s) $size-s;
+  }
+}
+
+@mixin button--solid-dark-blue {
+  @include round-button;
+  background-color: $colors-dark-blue;
+  color: $colors-pure-white;
+  border-color: $colors-dark-blue;
+  @include appearance(none);
+}
+
+@mixin button--solid-red {
+  @include round-button;
+  background-color: $colors-red;
+  border-color: $colors-red;
+  color: $colors-pure-white;
+
+  //@include hover {
+  //  background-color: darken($colors-dark-red, 5%);
+  //}
+}
+
+@mixin button--solid-white {
+  @include round-button;
+  background-color: $colors-pure-white;
+  color: $colors-pure-black;
+  border-color: $colors-pure-white;
+
+  //@include hover {
+  //  background-color: $colors-pure-black;
+  //  color: $colors-pure-white;
+  //}
+}
+
+@mixin button--outline-red {
+  @include round-button;
+  border-color: $colors-red;
+  color: $colors-red;
+
+  @include hover {
+    background-color: $colors-red;
+    color: $colors-pure-white;
+  }
+}
+
+@mixin button--outline-black {
+  @include round-button;
+  color: $colors-pure-black;
+  border-color: $colors-pure-black;
+
+  @include hover {
+    background-color: $colors-pure-black;
+    color: $colors-pure-white;
+  }
+}
+
+
+@mixin button--outline-mid-grey {
+  @include round-button;
+  color: $colors-mid-grey;
+  border-color: $colors-mid-grey;
+
+  @include hover {
+    background-color: $colors-mid-grey;
+    color: $colors-pure-white;
+  }
+}
+
+@mixin button--outline-light-grey {
+  @include round-button;
+  color: $colors-text-med;
+  border-color: $colors-text-med;
+
+  @include hover {
+    background-color: $colors-text-med;
+    color: $colors-pure-black;
+  }
+}
+
+@mixin button--outline-white {
+  @include round-button;
+  border-color: $colors-pure-white;
+  color: $colors-pure-white;
+
+  @include hover {
+    background-color: $colors-pure-white;
+    color: $colors-pure-black;
+  }
+}
+
+@mixin button--skinny {
+  padding: 7px 10px 5px 10px !important;  
+}
+
+.button--solid-red { @include button--solid-red }
+.button--solid-white { @include button--solid-white }
+.button--solid-dark-blue { @include button--solid-dark-blue }
+.button--outline-red { @include button--outline-red }
+.button--outline-black { @include button--outline-black }
+.button--outline-mid-grey { @include button--outline-mid-grey }
+.button--outline-light-grey { @include button--outline-light-grey }
+.button--outline-white { @include button--outline-white }
+
+.button--stream {
+	@include button--solid-red;
+	width: 100%;
+	border-radius: 50px;
+
+	&__icon {
+		float: left;
+	}
+
+	&__label {
+		@include header--epsilon;
+		@include upcase;
+	}
+
+  &__label {
+    line-height: 33px;
+  }
+}
+
+.button--stream {
+  padding: 7px 7px 6px;
+}
+
+.button--fixed-width {
+	max-width:($size-xxl * 4);
+}
+
+
+.button--stream__icon {
+  margin-top: -2px;
+  height: 33px;
+  width: 33px;
+  background: url("#{$icon-base-path}/sho-bug.svg") no-repeat;
+}
+
+.button--small {
+  @include header--zeta;
+  border: $size-xxs solid;
+  padding: 11px $size-l $size-s;
+}
+
+@mixin button--large {
+  margin: $size-l 0;
+  height: 50px;
+  width: 100%;
+  border-radius: $size-xl;
+
+  @include from-medium {
+    margin: $size-xl 0;
+    height: $size-xxl;
+    width: 462px;
+    font-size: 24px;
+    font-weight: 400;
+  }
+}
+
+.button--large {
+  @include button--large;
+}
+
+
+.button--skinny {
+  @include button--skinny;
+}

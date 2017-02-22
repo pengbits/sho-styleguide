@@ -1,0 +1,49 @@
+  
+  .placeholder-images {
+    @include clearfix;
+    
+    section {
+      float: left;
+      width: 30%;
+      margin: 0 1.5% 0 0;
+    }
+  }
+
+  .placeholder-image {
+    margin: 0;
+    background: $colors-light-grey;
+    font-family: "Consolas","Courier New", monospace;
+    
+    &__label {
+      padding: $size-m;
+      background: white;
+    }
+    
+    &--square {
+      @include proportions--square;
+    }
+    
+    &--landscape {
+      @include proportions--landscape;
+    }
+    
+    &--portrait {
+      @include proportions--portrait;
+    }
+    
+    &--fourbythree {
+      @include proportions--fourbythree;
+    }
+  }
+  
+  .responsive-placeholder-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    @include proportions--portrait;
+    
+    @include from-large {
+      @include proportions--fourbythree;
+    }
+  }
+  

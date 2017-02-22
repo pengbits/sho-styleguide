@@ -1,0 +1,27 @@
+
+// Video Text Link
+
+.video-text-link {
+  float:left;
+  padding-left:$size-l;
+  padding-right:$size-xxl;
+}
+
+.video-text-link__play {
+  @include icon('play','medium');
+	float: left;
+	width:25px;
+	margin-right: $size-m;
+}
+
+.video-text-link__headline {
+  @include header--epsilon;
+  float: left;
+  margin: $size-xxs 0px $size-xxs  0px;
+  color: $colors-pure-white;
+  text-transform: uppercase;
+}
+ 
+ 
+ 
+ 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>Check</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sports_event_mobile" transform="translate(-35.000000, -3303.000000)">
+            <g id="email_2.2-Thank-You_Check" transform="translate(12.000000, 3278.000000)">
+                <g id="play-copy-2-+-Env" transform="translate(14.000000, 25.000000)">
+                    <g id="Check" transform="translate(34.000000, 25.000000) scale(-1, -1) translate(-34.000000, -25.000000) translate(9.000000, 0.000000)">
+                        <path d="M25,50 C38.8071187,50 50,38.8071187 50,25 C50,11.1928813 38.8071187,0 25,0 C11.1928813,0 0,11.1928813 0,25 C0,38.8071187 11.1928813,50 25,50 Z" id="Oval-1" fill="#FFFFFF"></path>
+                        <path d="M27.6988273,16.4968242 L15,29.5931109" id="Line" stroke="#000000" stroke-width="2.5" stroke-linecap="round"></path>
+                        <path d="M28.1251526,16.871231 L32.9174895,21.7793838" id="Line" stroke="#1B1B1F" stroke-width="2.5" stroke-linecap="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+@mixin styleguide-panel {
+  padding: $medium;
+  margin: $medium 0;
+  border: 1px solid;
+}
+
+.styleguide-panel {
+  @include styleguide-panel;
+}
+
+@each $key, $color in $color-map {
+  .styleguide-panel--#{$key} {
+    @include styleguide-panel;
+    background-color: $color;
+    border-color: $colors-dark-grey;
+  }
+}

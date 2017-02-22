@@ -1,0 +1,31 @@
+.search-results__list-item--video {
+	.search-results__image .search-results__link:before {
+		position: absolute;
+		bottom: $size-s;
+		left: $size-xs;
+		content: "";
+		@include icon('play', 'medium');
+		@include from-medium {
+			bottom: $size-s;
+			left: $size-s;
+			@include icon('play', 'large');
+		}
+	}
+	.search-results__video-duration {
+		display: block;
+		position: absolute;
+		bottom: $size-s;
+		right: $size-xs;
+		padding: $size-xxs * 2 $size-xs;
+		background: rgba(0,0,0,0.75);
+		@include header--epsilon;
+		@include until-medium {
+			font-size: 12px;
+		}
+		@include from-medium {
+			bottom: $size-s;
+			right: $size-s;
+			padding: $size-xs $size-m;
+		}
+	}
+}

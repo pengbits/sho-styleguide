@@ -1,0 +1,121 @@
+// promo icon
+
+// promo icons take some divergent styles only at the medium breakpoint here, because below large we are
+// seeing smaller font sizes, but the large icon doesn't work with the smaller font size well.
+// Sizes below medium are OK but we don't but the icons and the text next to each other below medium.
+
+@mixin promo__icon {
+  @include icon-size('large');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 32px;
+
+  @include at-medium {
+     @include icon-size('medium');
+     background-size: 24px;
+  }
+}
+
+.promo__icon {
+  @include promo__icon;
+}
+
+.promo--icon {
+  .promo__icon {
+    z-index: 2;
+  }
+
+  .promo__body:before {
+    // when docked over image, icon appears next to text
+    @include promo__icon;
+    content: '';
+    position: absolute;
+    left: $size-m;
+    top: 8px;
+
+    @include at-medium {
+       top: 12px;
+    }
+
+    @include from-large {
+      left: $size-l;
+      top: 14px;
+    }
+  }
+
+
+  .promo__body > * {
+    padding-left: ($size-xl + $size-xs);
+
+    @include at-medium {
+       padding-left: ($size-xl);
+    }
+  }
+
+  @include from-large {
+    &.promo--large .promo__body:before {
+      left: ($size-l + $size-s);
+    }
+  }
+}
+
+.promo--icon--play .promo__body:before {
+  @include icon-image('play');
+}
+
+.promo--icon.promo--split-below, .promo--icon.promo--split-right {
+  @include until-medium {
+    .promo__image:after {
+      // at smaller breakpoints, icon needs to be relative to image instead of body copy
+      @include promo__icon;
+      content: '';
+      bottom: $size-s;
+      left: $size-m;
+      min-height: 32px;
+      z-index: 2;
+      @include pin;
+    }
+
+    .promo__body {
+      min-height: 0;
+    }
+
+    .promo__body:before {
+      display: none;
+    }
+
+    .promo__body > * {
+      padding-left: 0;
+    }
+  }
+
+  @include until-large {
+    .promo__body > * {
+      display: block;
+    }
+  }
+}
+
+.promo--icon--play.promo--split-below, .promo--icon--play.promo--split-right {
+  @include until-medium {
+    .promo__image:after {
+      @include icon-image('play');
+    }
+  }
+}
+
+
+.promo--icon.promo--split-below {
+  @include until-medium {
+    .promo__body {
+      position: relative;
+    }
+  }
+}
+
+// types
+.promo--video {
+  @extend .promo--docked;
+  @extend .promo--icon;
+  @extend .promo--icon--play;
+}

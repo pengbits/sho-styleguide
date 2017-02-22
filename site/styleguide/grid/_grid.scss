@@ -1,0 +1,26 @@
+// Grid
+
+// equal height columns
+@mixin container-equal() {
+  @include container;
+  @include display(flex);
+}
+
+// http://www.joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { 
+    margin-right: flex-gutter(); 
+  }
+  
+  &:nth-child(#{$nth}+1) { 
+    clear: none 
+  }
+}
+
+@mixin container {
+  @include outer-container($max-width);  
+}
+
+.container {
+  @include container;
+}

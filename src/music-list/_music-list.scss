@@ -1,0 +1,81 @@
+.music-list {
+  max-width: mq-breakpoint('medium');
+  padding: $size-m * 2 $size-l $size-m * 2 $size-l;
+  background: $colors-dark-grey;
+  @include from-medium {
+    padding: $size-m * 2;
+  }
+
+  .music-list__headline {
+    @include header--delta;
+    @include upcase;
+  }
+
+  .music-list__item {
+    border-bottom: 1px solid $colors-bg-light;
+    margin:0;
+	  overflow: hidden;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+
+  }
+
+  .music-list__item {
+    @include body-text;
+  }
+
+  &__title,
+  &__artist,
+  &__purchase {
+    margin:0;
+  }
+
+  &__title {
+	  width: 100%;
+	  padding-top: $size-m;
+  	color: $colors-text-med;
+  }
+
+  &__artist {
+    @include body-text;
+    float: none;
+    width: 100%;
+    color: $colors-mid-grey;
+    padding-bottom: $size-s;
+
+    @include from-small {
+	    width: 48%;
+      padding-bottom: $size-s;
+    }
+
+    @include from-large {
+	    float: left;
+      padding-bottom: $size-m;
+    }
+  }
+
+  &__artist--link {
+    width: auto;
+  }
+
+  &__purchase {
+    @include body-text;
+    width: 100%;
+    color: $colors-dark-red;
+
+    a {
+      float: left;
+      padding-bottom: 10px;
+    }
+
+    @include from-large {
+      a {
+        float: right;
+      }
+    }
+
+  }
+
+}

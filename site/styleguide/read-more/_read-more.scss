@@ -1,0 +1,38 @@
+//Styles for Read More functionality
+
+.read-more__content {
+  display: none;  
+}
+
+%read-more__label {
+  @extend .upcase;
+  display: inline-block;
+  margin-top: $size-m * 2;
+  padding-right: $size-s;
+  cursor: pointer;  
+}
+
+%read-more__icon {
+  content:"";
+  display: inline-block !important;
+  @extend .icon--small;
+}
+
+.read-more__toggle,
+.read-more__toggle--less {
+  @extend %read-more__label;
+}
+
+.read-more__toggle::after { 
+  @extend %read-more__icon;
+  @extend .icon--down-white; 
+  margin-left: $size-s; 
+} 
+
+.read-more__toggle--less::after { 
+  @extend %read-more__icon;
+  @extend .icon--up-white;
+  margin-left: $size-s;
+}
+
+ 

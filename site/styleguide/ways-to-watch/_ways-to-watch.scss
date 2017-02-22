@@ -1,0 +1,149 @@
+// default version and common styles
+.ways-to-watch {
+  background-color: $colors-bg-dark;
+  @include from-large {
+    @include container-equal;
+  }
+  
+  &__headline {
+    @include header('delta');
+    @include upcase;
+    margin-bottom: $size-xs;
+  }
+			
+  &__section {
+    // outline: $colors-mid-grey solid 1px;
+    position: relative;
+    
+    @include block-container;
+      
+    @include until-small {
+  	  padding-top: $size-l;
+    }
+		
+    @include from-large {
+      @include span-columns(4);
+  		// @include display(flex);
+  	  // @include flex-direction(column); 
+    }
+  }
+      
+  // these are the rules for the horizontal bar (smaller breakpoints) or vertical pipebar (larger breakpoints),
+  // that separates the sections visually, drawn with absolutely-positioned psuedo-content via the `shim()` mix-in
+  // because there are two options for the placement of the 'Stream' section,
+  // we are jumping through some hoops to target the last/first-child in each context.
+  &__section:after {
+	  @include shim('', $colors-bg-light);
+        
+    @include until-large {
+      left:   $size-l;
+	    right:  $size-l;
+		  bottom: 0;
+		  height: $size-xxs;   
+    }
+	  
+	  @include mq($from:'small', $until:'large'){
+	    left:   $size-m * 2;
+	    right:  $size-m * 2;
+	  }
+	
+    @include from-large {
+      top:    $size-m * 2;
+      bottom: $size-m * 2;
+      width:  $size-xxs;
+    }
+  }
+  
+  &__section:last-child:after {
+    display: none;
+  }
+  
+  @include from-large {
+    .ways-to-watch__section:after{
+      right:  -3.25%;
+    }
+    
+    &--stream-first .ways-to-watch__section:after{
+      left:   -3.25%;
+    }
+    
+    &--stream-first .ways-to-watch__section:last-child:after {
+      display: block;
+    }
+  }
+  
+  &__link {
+    @include cta;
+    display: block;
+    margin-top: $size-l;
+    
+    &:after {
+      @include icon('next');  
+    }
+    
+    @include from-large {
+      margin-top: auto;   // pin to bottom of module
+		  padding: $size-s 0;
+    }
+  }
+		
+  &__stream {
+	  @include block-container;
+	  position: relative;
+	  overflow: hidden;
+	   
+	  @include until-small {
+		  padding-top: $size-l;
+	  }
+	  
+	  @include from-large {
+		  @include display(flex);
+		  @include flex-direction(column); 
+//		  width: 32%;
+//		  min-width: 285px;
+	  }
+  }
+  
+  &__stream__button {
+    
+    @include until-small {
+      margin-top: $size-s; 
+    }
+    
+    .ways-to-watch__button {
+        @include button--skinny; 
+    }
+  }
+  
+  @include mq($from:'small', $until:'large'){
+    &__stream {
+      @include display(flex);
+      align-items: center;
+    }
+    
+    &__stream__headline,
+    &__stream__button {
+      @include display(flex);
+      display: block;
+      width:44%;
+    }
+    
+    &__stream__headline {
+      padding-right: $size-s;
+      margin-top: 7px;
+    }
+    
+    &__stream__button {
+		  // margin-top: $size-s;
+      width: 56%;
+      text-align: right;
+    }
+  }
+  
+  @include from-large {
+    &__stream__headline {
+      margin-bottom: $size-s;
+    }
+  }
+  
+}

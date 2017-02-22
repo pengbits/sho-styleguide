@@ -1,0 +1,251 @@
+.schedule-grid {
+	@include full-width-container;
+	position: relative;
+	overflow: hidden;
+
+	&__inner {
+		min-height: 100vh;
+		@include full-width-container__inner;
+		position: relative;
+		overflow: hidden;
+		@include display(flex);
+		@include flex-direction(row);
+		@include justify-content(space-around);
+	}
+}
+
+.schedule-grid__nav {
+	top: $size-xl;
+	left: 0;
+	width: 100%;
+	height: 70px;
+	background-color: $colors-bg-med;
+  z-index: 1;
+	@include until-tall {
+		position: absolute;
+	}
+	@include from-tall {
+		position: fixed;
+	}
+	@include from-medium {
+		top: 60px;
+	}
+
+	&-inner {
+		@include full-width-container__inner;
+		position: relative;
+		height: 100%;
+		@include display(flex);
+		@include flex-direction(row);
+		@include justify-content(space-around);
+		@include align-content(center);
+
+		.schedule-grid__channels-header {
+			@include header--zeta;
+			@include upcase;
+			position: absolute;
+			top: 7px;
+			left: calc(50% - 31px);
+			color: $colors-text-med;
+			z-index: 1;
+			@include from-medium {
+				top: 27px;
+				left: $size-m;
+			}
+		}
+
+		.schedule-grid__channel-prev {
+			@include icon('prev','small');
+			position: absolute;
+			top: 27px;
+			left: 0;
+			cursor: pointer;	
+		}
+
+		.schedule-grid__channel-next {
+			@include icon('next','small');
+			position: absolute;
+			top: 27px;
+			right: 0;
+			cursor: pointer;	
+		}
+	}
+
+	// shim emulates hour axis to keep headers same width / lined up with channels
+	&-shim {
+		width: $size-xxl;
+
+		@include until-medium {
+			display: none;
+		}
+	}
+}
+
+g.tick text {
+	fill: $colors-pure-white;
+}
+
+g.tick:first-child text {
+	fill: none;
+}
+
+.channel,
+.channel__header {
+	position: relative;
+	margin-right: $size-s;
+	width: 90%;
+	@include at-medium {
+		width: 20%;
+	}
+
+	@include from-large {
+		width: 22%;
+	}
+
+	&--hidden {
+		display: none;
+	}
+}
+
+.channel__header {
+	@include header--epsilon;
+	@include upcase;
+	@include display(flex);
+	@include justify-content(center);
+	@include flex-direction(column);
+	@include until-medium {
+		margin: 0 auto;
+	}
+	text-align: center;
+	background-color: $colors-bg-med;
+
+	&--hidden {
+		display: none;
+	}
+}
+
+.airing {
+	width: 100%;
+
+	&__content {
+		position: relative;
+		background-color: $colors-bg-dark;
+		height: 100%;
+		width: 100%;
+	}
+
+	&__image {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+
+		&:before {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: "";
+			@include linear-gradient(rgba(0,0,0,.1), $colors-bg-dark);
+		}
+
+	}
+
+	&__copy {
+		position: absolute;
+		padding: $size-s;
+		height: 100%;
+		width: 100%;
+		@include until-small {
+			top: 0;
+		}
+		@include at-small {
+			bottom: 20px;
+			height: 40%;
+		}
+		@include until-medium {
+			padding: $size-l;
+		}
+		@include from-medium {
+			top: 0;
+		}
+	}
+
+	&__title, &__time {
+		@include header--epsilon;
+		@include upcase;
+		position: relative;
+	}
+
+	&__subtitle {
+		@include header--zeta;
+		@include header-regular-weight;
+		position: relative;
+	}
+
+	&__description {
+		@include body-text;
+		position: relative;
+		height: 100%;
+
+		@include from-medium {
+			opacity: 0;
+		}
+
+		.touchevents & {
+			opacity: 1;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		p {
+			position: absolute;
+
+			@include until-small {
+				top: 140px;
+			}
+
+			@include at-small {
+				top: 0;
+			}
+
+			@include at-medium {
+				top: 0;
+			}
+
+			@include at-large {
+				top: 100px;
+			}
+
+			@include from-extra-large {
+				top: 150px;
+			}
+		}
+	}
+}
+
+.y-axis {
+	position: relative;
+	top: 0;
+	float: left;
+	margin-top: $size-xl;
+
+	&--hidden {
+		display: none;
+	}
+	
+	.domain {
+		display: none;
+	}
+}
+
+.schedule-grid__error {
+	margin: $size-xxl auto;
+	height: $size-l;
+	color: $colors-pure-white;
+	@include upcase;
+}

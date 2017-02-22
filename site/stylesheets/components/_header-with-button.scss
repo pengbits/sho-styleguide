@@ -1,0 +1,53 @@
+.header-with-button {
+  @include block-container;
+  background: $colors-bg-dark;
+  
+  @include at-medium {
+    @include display('flex');
+    align-items: center;
+      
+    &__header,
+    &__button {
+      display: block;
+      flex: 1;
+      max-width:50%;
+    }
+    
+    
+    &__button {
+      text-align: right;
+    }  
+  }
+  
+  &__header {
+    text-transform: uppercase;
+  }
+  
+  &--isolated-example {
+    @include from-large {
+      width: 33%
+    }
+  }
+}
+
+// nested example
+
+.header-with-button-outer {
+  background: $colors-bg-dark;
+  
+  @include from-large {
+    @include display(flex);
+    
+    &__column {
+      @include display(flex);
+      @include flex-direction(column); 
+      width: 33%;
+      outline: $colors-bg-light solid 1px;
+      
+      span {
+        padding: $size-m;
+      }
+      
+    }
+  }
+}

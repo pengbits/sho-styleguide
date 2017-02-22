@@ -1,0 +1,135 @@
+.order-promo {
+  @include block-container;
+  margin-bottom: $size-m;
+  padding-bottom: $size-l + $size-s;
+  background-color: $colors-red;
+
+  @include until-medium {
+    text-align: center;
+  }
+
+  @include from-medium {
+    @include display(flex);
+    @include flex-direction(column);
+    flex: 1 0 auto;
+    padding: $size-l $size-m;
+  }
+
+  @include from-large {
+    margin-bottom: $size-l + $size-s;
+  }
+
+  &__body {
+    position: relative;
+    width: 100%;
+  }
+  
+  &__body--bottom {
+    margin-top: auto;
+  }
+
+  &__logo {
+    display: none;
+    background: url('#{$icon-base-path}/showtime-logo.svg');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: $size-xxl + $size-l;
+    margin-bottom: $size-m;
+
+    @include from-medium {
+      display: block;
+    }
+  }
+
+  &__headline {
+    @include header--beta;
+    @include upcase;
+    padding-bottom: $size-l;
+  }
+
+  &__copy {
+    @include body-text;
+    color: $colors-pure-white !important;
+    display: none;
+
+    @include from-large {
+      display: block;
+      margin-bottom: $size-m;
+    }
+  }
+
+  &__button {
+    @include button--solid-white;
+    border-color: $colors-pure-white;
+    width: 250px;
+
+    @include from-small {
+      margin: 0 auto;
+      margin-top: auto;
+    }
+
+    @include from-medium {
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+    }
+  }
+}
+
+// the order promo is frequently (exclusively?) used in tandem with the order-banner - they have inverse
+// visibility setting so the banner will display only below medium while this component is only shown at medium+
+.until-medium {
+  @include from-medium {
+    display: none;
+  }
+}
+
+.order-promo--large {
+  // seen in entire showtime library section
+  @include at-large {
+    padding: $size-l;
+
+    .order-promo__headline {
+      padding-bottom: $size-s;
+    }
+  }
+
+  @include from-extra-large {
+    padding: ($size-l + $size-s);
+    padding-bottom: $size-l;
+  }
+}
+
+.order-promo--landscape {
+  @include at-large {
+    .order-promo__headline {
+      @include font(22,24,400);
+    }
+  }
+
+  @include from-large {
+    padding: $size-l;
+  }
+}
+
+// 'censored' version
+// Used in affiliate B2B video player -
+// the headline is replaced with a logo and color palette is muted
+// this mixin is used in order-banner.scss as well
+@mixin order-promo--censored__headline {
+  @include hide-text;
+  height:($size-s + $size-m + $size-l);
+  margin-bottom: $size-l;
+  background: transparent no-repeat url('#{$icon-base-path}/showtime-logo.svg') center center;
+}
+
+.order-promo--censored {
+  background-color: $colors-bg-light;
+
+  .order-promo__headline {
+    @include order-promo--censored__headline
+  }
+  .order-promo__copy {
+    display: none;
+  }
+}

@@ -1,0 +1,19 @@
+.order-tray__sidebar {
+  padding: $size-xl;
+  border-top-right-radius: $size-border-radius-m;
+  border-bottom-right-radius: $size-border-radius-m;
+  background-color: $colors-light-red;
+  // sidebar animation is not working at moment
+  // width: 25%; 
+  //I had to set a width here for initially only the content was animating not the div box.
+  
+  &-headline {
+    // even if the sidebar exapands in size slightly, this will prevent
+    // the text from wrapping differently between states
+    max-width: calc(24vw - ($size-xl * 2));
+    @include header--gamma;
+    @include upcase;
+    margin-bottom: $size-l;
+  }    
+}
+

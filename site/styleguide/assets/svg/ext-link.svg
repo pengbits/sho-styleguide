@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>PLAY Elsewhere</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="32" sketch:type="MSArtboardGroup">
+            <g id="PLAY-Elsewhere" sketch:type="MSLayerGroup">
+                <ellipse id="Oval-1" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="16" cy="16" rx="16" ry="16"></ellipse>
+                <path d="M12.6315789,10.9473684 L21.052545,10.9473684 L21.052545,19.3684211" id="Path-164" stroke="#222226" stroke-width="2.5" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
+                <path d="M20.6315789,11.3684211 L12.2105263,19.7894737" id="Line" stroke="#000000" stroke-width="2.5" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,19 @@
+.slider--example {
+  height: 230px;
+}
+
+.slider--example.slider--grid {
+  height: auto;
+}
+
+.slider-example__item {
+  color:$colors-pure-white;
+  background-color:$colors-red;
+  width:300px;
+}
+
+.slider-example__image {
+  @include proportions--landscape;
+  display:block;
+  background-color:darken($colors-red, 10%);  
+}

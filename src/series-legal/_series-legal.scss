@@ -1,0 +1,110 @@
+.series-legal {
+
+  .series-legal__icon {
+    position: relative;
+    top: -1px;
+    float:left;
+    margin-right: $size-s;
+    height: 30px;
+    width: 30px;
+  }
+
+  &__advisories {
+    @include header--zeta;
+    display: block;
+    overflow: hidden;
+    color: $colors-text-dark;
+  }
+
+  &__advisories--ratings {
+    @include upcase;
+  }
+
+  $ratings-icon-path: 'http://www.sho.com/assets/images/series/lib/tv-ratings/';
+
+  .tvma-dlvs {
+    background:transparent url(#{$ratings-icon-path}tvma-dlvs_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tv14-d {
+    background:transparent url(#{$ratings-icon-path}tv14-d_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tv14-dl {
+    background:transparent url(#{$ratings-icon-path}tv14-dl_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tv14-l {
+    background:transparent url(#{$ratings-icon-path}tv14-l_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tv14-lv {
+    background:transparent url(#{$ratings-icon-path}tv14-lv_24x24.png) no-repeat;
+    background-size: cover;
+  }
+  
+  .tv14-dlvs {
+    background:transparent url(#{$ratings-icon-path}tv14-dlvs_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma {
+    background:transparent url(#{$ratings-icon-path}tvma_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma-dl {
+    background:transparent url(#{$ratings-icon-path}tvma-dl_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma-ds {
+    background:transparent url(#{$ratings-icon-path}tvma-ds_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma-dls {
+    background:transparent url(#{$ratings-icon-path}tvma-dls_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma-dlv {
+    background:transparent url(#{$ratings-icon-path}tvma-dlv_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma-dvs {
+    background:transparent url(#{$ratings-icon-path}tvma-dvs_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma-l {
+    background:transparent url(#{$ratings-icon-path}tvma-l_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma-sl {
+    background:transparent url(#{$ratings-icon-path}tvma-sl_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvma-sv {
+    background:transparent url(#{$ratings-icon-path}tvma-sv_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvpg-ac {
+    background:transparent url(#{$ratings-icon-path}tvpg-ac_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+  .tvpg-l {
+    background:transparent url(#{$ratings-icon-path}tvpg-l_24x24.png) no-repeat;
+    background-size: cover;
+  }
+
+}

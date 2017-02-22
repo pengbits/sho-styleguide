@@ -1,0 +1,55 @@
+  
+  // define abstract classes and mixins since we can't use extends inside other mixins
+
+  // this is 1:1
+  @mixin proportions--square($limiter:1) {
+    padding-top:(100% * $limiter);
+  }
+  %proportions--square {
+    @include proportions--square;
+  }
+  
+  // this is 2:3
+  @mixin proportions--portrait($limiter:1) {
+      padding-top:(150% * $limiter);
+  }
+  %proportions--portrait {
+    @include proportions--portrait;
+  }
+  
+  // this is 4:3
+  @mixin proportions--fourbythree($limiter:1) {
+      padding-top:(75% * $limiter);
+  }
+  %proportions--fourbythree {
+    @include proportions--fourbythree;
+  }
+  
+  // this is 16:9
+  @mixin proportions--landscape($limiter:1) {
+      padding-top:(56.25% * $limiter);
+  }
+  %proportions--landscape {
+    @include proportions--landscape;
+  }
+  
+  // this is 2:1
+  @mixin proportions--twobyone($limiter:1) {
+      padding-top:(50% * $limiter);
+  }
+  %proportions--twobyone {
+    @include proportions--twobyone;
+  }
+  
+  // this is 8:5
+  @mixin proportions--eightbyfive($limiter:1) {
+      padding-top:(62.5% * $limiter);
+  }
+  %proportions--twobyone {
+    @include proportions--eightbyfive;
+  }
+  
+  
+  
+
+  

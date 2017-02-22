@@ -1,0 +1,5 @@
+{
+  "target": "/usr/webapps/www/src/main/webapp/www/styleguide/src/hero/index.md",
+  "styleguide/hero/_hero_inner.jsp.md": "/sho/views/partials/hero/_hero_inner.jsp",
+  "styleguide/hero/_hero_order.jsp.md": "/sho/views/partials/hero/_hero_order.jsp"
+}

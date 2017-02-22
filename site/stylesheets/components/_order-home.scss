@@ -1,0 +1,16 @@
+.order-home-container {
+  position: relative;
+}
+
+.asymmetrical-hero-container {
+  // todo: fix issue where hero__body gets extra 100px of psuedo-margins 
+  // and headline alignment is thrown off 
+  background-color: $colors-pure-black;
+  .hero__inner, 
+  .section {
+    @include from-order-tray-sidebar-visible {
+      margin-left: 30vw;
+      width:70vw;
+    }
+  }
+}

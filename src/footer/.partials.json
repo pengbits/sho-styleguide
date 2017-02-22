@@ -1,0 +1,5 @@
+{
+  "target": "/usr/webapps/www/src/main/webapp/www/styleguide/src/footer/index.md",
+  "styleguide/footer/_footer.jsp.md": "/sho/views/partials/_footer.jsp",
+  "styleguide/footer/_footer_nav.jsp.md": "/sho/views/partials/_footer_nav.jsp"
+}

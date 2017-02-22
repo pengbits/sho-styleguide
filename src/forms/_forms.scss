@@ -1,0 +1,73 @@
+.input {}
+.input--radio {}
+
+// super-radios
+//http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons/
+$radio-size: 36px;
+$radio-margin-right: $size-m;
+$radio-size-short: $radio-size * 0.75;
+$radio-margin-right-short: $size-s;
+
+@mixin super-radio-label {
+  display: inline-block;
+  padding-left: $radio-size + $radio-margin-right;
+  height: $radio-size;
+  line-height: $radio-size;
+  background: url("#{$icon-base-path}/super-radio_36x36.svg") no-repeat 0 0;
+  background-size: contain;
+  cursor: pointer;
+  
+  @include until-tall {
+    height: $radio-size-short;
+    line-height: $radio-size-short;
+    padding-left: $radio-size-short + $radio-margin-right;
+  }
+}
+
+.input--super-radio {
+  position: absolute;
+  left:0; 
+  top:0;
+  margin: 0;
+  padding: 0;
+  opacity:0;
+  -moz-appearance:none;
+  -webkit-appearance: none; 
+  appearance: none;
+  overflow: hidden;
+  
+  & + label {
+    @include super-radio-label();
+  }
+  
+  &:checked + label {
+    background: url("#{$icon-base-path}/super-radio-checked_36x36.svg") no-repeat 0 0;
+    background-size: contain;
+  }
+}
+
+// At the time of this writing IE11 is having a hard time with the applying of svg background-images to the `radio + label` elements and psuedo-selectors, manifesting in sporadic drop-out in the order-tray. 
+// To solve this, we are completely re-writing the markup, eschewing the form elments alltogether, since it's a pure javascript component that doesn't need to submit anything
+
+.input--faux-radio {
+  cursor: pointer;
+  display: inline-block;
+  line-height: $radio-size;
+  
+  @include until-tall {  
+    line-height: $radio-size-short;
+  }
+
+  .input__icon { // svg marked up as img element
+    vertical-align: middle;
+    margin-right: $radio-margin-right;
+    width: $radio-size;
+    height: $radio-size;
+    
+    @include until-tall {  
+      margin-right: $radio-margin-right-short;
+      width: $radio-size-short;
+      height: $radio-size-short;
+    }
+  }
+} 

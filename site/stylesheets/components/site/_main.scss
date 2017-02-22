@@ -1,0 +1,16 @@
+.site-main {
+  flex: 1;
+  padding:$size-m;
+
+
+  @include from-large {
+    padding: $large;
+  }
+  
+  .theme--dark & {
+    background-color: $colors-site-dark-blue-grey;
+    border: $colors-site-dark-blue-grey-accent solid 1px;
+    border-width:0 1px;
+    color: $colors-site-light-grey;
+  }
+}

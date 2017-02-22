@@ -1,0 +1,41 @@
+.countdown-widget {
+	background: $colors-mid-dark-grey;
+
+	@include from-medium {
+    max-width: 100%;
+    background: transparent;
+	}
+
+	&__title,
+	&__time-unit {
+		@include header--zeta;
+		@include header-regular-weight;
+		@include upcase;
+		color: $colors-light-grey;
+	}
+
+	&__title {
+		margin-bottom: $size-xs;
+	}
+
+	&__time-units {
+		display: inline-block;
+		margin-right: $size-xs;
+
+		&:not(:last-child) .countdown-widget__time:after {
+			content: ':'
+		}
+	}
+
+	&__time,
+	&__time-unit {
+		display: block;
+		width: 25%;
+		text-align: left;
+	}
+
+	&__time {
+		@include header--alpha;
+		@include font(38, 38);		
+	}
+}

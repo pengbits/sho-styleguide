@@ -1,0 +1,57 @@
+@mixin section {
+  margin-bottom: $size-xl;
+}
+
+@mixin section--large {
+  margin-bottom: $size-xl;
+
+  @include from-large {
+    margin-bottom: $size-xxl;
+  }
+}
+
+@mixin section--extra-large {
+  margin-bottom: $size-xxl;
+
+  @include from-medium {
+    margin-bottom: $size-xxl + $size-xl;
+  }
+}
+
+@mixin section--black {
+  background: $colors-pure-black;
+}
+
+@mixin section--gradient {
+  @include linear-gradient(to bottom, $colors-dark-grey 60%, $colors-pure-black);
+  padding: $size-xl 0 $size-l 0;
+
+  @include from-large {
+    padding-top: $size-xxl;
+  }
+}
+
+@mixin section--inner {
+  @include full-width-container__inner;
+}
+
+.section { @include section; }
+.section--large { @include section--large }
+.section--extra-large { @include section--extra-large }
+.section--black { @include section--black }
+.section--gradient { @include section--gradient }
+.section--inner { @include section--inner }
+
+// this is used on all-series.jsp, comedy, docs, movies & sports for featured series promo group.
+// each promo square has margin-bottom 15px mobile / 30px desktop
+// so we need to pad it a bit, as well as override section margin to even it out to 40px / 80px as per design instructions
+
+.section--pad-more {
+  @include at-medium {
+    margin-bottom: $size-l;
+    padding-bottom: $size-xs;
+  }
+  @include from-large {
+    padding-bottom: $size-s;
+  }
+}

@@ -1,0 +1,122 @@
+.global-navigation__breadcrumb-mobile {
+	@include header--epsilon;
+	@include upcase;
+  @include full-width-container__inner;
+	position: absolute;
+	width: 100%;
+	margin: 0;
+	padding: $size-s 0;
+	background: rgba($colors-dark-grey, .85);
+	display: block;
+	overflow: hidden;
+  z-index: 10;
+
+	@include from-large {
+		display: none;
+	}
+
+	.global-navigation__breadcrumb-mobile-item {
+		float: left;
+	}
+
+	.global-navigation__breadcrumb-mobile-item:nth-child(2){
+		margin-left: $size-s;
+		padding-left: $size-s;
+		border-left: 1px solid $colors-mid-grey;
+	}
+}
+
+.has-nav-solid  {
+	.global-navigation__breadcrumb-mobile {
+	  position: relative;
+	}
+}
+
+.global-navigation__primary-mobile {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: $colors-pure-black;
+	opacity: 0;
+	overflow: hidden;
+	z-index: 101;
+	@include transform(translateX(-101%));
+	@include transition(.25s ease-in-out);
+
+	@include from-large {
+		display: none;
+	}
+
+	.global-navigation__primary-mobile-menu {
+    @include full-width-container__inner;
+		@include header--delta;
+		@include upcase;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		.global-navigation__primary-mobile-menu-item {
+			padding: $size-m 0;
+
+			a {
+				display: block;
+			}
+		}
+
+		.global-navigation__primary-mobile-menu-item:first-child {
+			padding-top: ($size-xxl - $size-s);
+		}
+
+		.global-navigation__primary-mobile-menu-item:last-child {
+			padding-bottom: $size-m * 2;
+		}
+	}
+
+	.global-navigation__open-schedule-mobile-menu {
+		@include header--epsilon;
+		@include upcase;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid $colors-mid-grey;
+
+		.global-navigation__open-schedule-mobile-menu-item {
+      @include full-width-container__inner;
+			padding: $size-m 0;
+
+			a {
+				display: block;
+			}
+		}
+
+		.global-navigation__open-schedule-mobile-menu-item:first-child {
+			padding-top: $size-m * 2;
+		}
+
+		.global-navigation__open-schedule-mobile-menu-item:last-child {
+			padding-bottom: $size-m * 2;
+		}
+	}
+
+	.global-navigation__get-showtime-mobile-menu {
+		@include header--delta;
+		@include upcase;
+		margin: 0;
+		padding: $size-l+$size-xs 0 0 0;
+		list-style: none;
+		background: $colors-red;
+
+		.global-navigation__get-showtime-mobile-menu-item {
+			@include full-width-container__inner;
+		}
+
+		.global-navigation__get-showtime-mobile-menu-item a {
+			display: block;
+		}
+
+		.global-navigation__get-showtime-mobile-menu-item:last-child {
+			padding: $size-xs 0 $size-m * 2;
+		}
+	}
+}

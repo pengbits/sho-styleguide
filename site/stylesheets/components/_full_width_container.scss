@@ -1,0 +1,10 @@
+.my-full-width-component {
+  @include full-width-container;
+  @include body-text;
+  background-color: darken($colors-site-teal, 25%);
+  
+  &__inner {
+    @include full-width-container__inner;
+    background-color: darken($colors-site-teal, 20%);
+  }
+}

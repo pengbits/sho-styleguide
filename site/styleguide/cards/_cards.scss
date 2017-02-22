@@ -1,0 +1,95 @@
+  
+  // Cards provide an abstraction layer for promos - the focus here is on handling how the 
+  // body content is arranged in relation to the container across mobile/desktop contexts. 
+  // Cards are intentionally agnostic about the contents of the body
+
+  .card {
+    position: relative;
+    margin: 0 0 $size-m 0;
+    
+    @include from-large {
+      margin-bottom: ($size-s + $size-l);
+    }
+  }
+  
+  .card__mask,
+  %card-mask {
+    display: block;
+    @include proportions--landscape;
+    background-size: cover;
+    background-position: center center;
+    background-color: $colors-light-grey;
+  }
+  
+  @mixin dock-card-body {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  
+  .card__body {
+    display: block;
+    padding: $size-m;
+    padding-left: 0;
+  }
+
+  .card--docked .card__body {
+      padding: $size-m;
+      @include dock-card-body;
+  }
+  
+  .card--landscape-to-square .card__mask {
+    @include from-medium {
+      @include proportions--square;
+    }
+  }
+  
+  .card--square-to-landscape .card__mask {
+    @include proportions--square;
+    
+    @include from-medium {
+      @include proportions--landscape;
+    }
+  }
+  
+  .card--from-portrait .card__mask {
+    @include until-medium {
+      @include proportions--portrait;
+    }
+  }
+  
+  .card--split-right,
+  .card--split-left {
+    @include clearfix;
+  }
+  
+  @mixin split-region($direction) {
+    width: 50%;
+    float: #{$direction};
+  }
+  
+  @include until-medium {
+    .card--split-right {
+      .card__mask { 
+        @include proportions--landscape(0.5);
+        @include split-region(left); 
+      }
+      .card__body { 
+        position: relative; 
+        @include split-region(right); 
+      }
+    }
+    
+    .card--split-left {
+      .card__mask { 
+        @include proportions--landscape(0.5);
+        @include split-region(right); 
+      }
+      .card__body { 
+        position: relative;
+        @include split-region(left); 
+      }
+    }
+  }
+ 

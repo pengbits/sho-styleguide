@@ -1,0 +1,78 @@
+$order-tray-top-offset:     100px;
+
+.order-tray-active .order-masthead {
+  display: none;
+}
+
+.order-masthead {
+  position: absolute;
+  height: $size-xl;
+  top: 0;  
+  right:0; 
+  left:0;
+  z-index: 100;
+  @include background(
+    linear-gradient(
+      rgba(0,0,0,0.7) 0%,
+      rgba(0,0,0,0.5) 35%,
+      rgba(0,0,0,0)   100%
+    )
+  );
+  
+  @include from-small {
+    height: $order-tray-top-offset; // see order-tray-container.scss
+  };
+
+  &__logo,
+  &__sho-link {
+    position: absolute;
+    top: $size-l;
+    
+    @include from-small {
+      top:$size-l + $size-s;
+    }
+  }
+  
+  &__logo {
+    display: block;
+    position: absolute;
+    left: $size-m;
+    margin: 0;
+    @include hide-text;
+		background:transparent no-repeat url('#{$icon-base-path}/showtime-logo.svg') 0 0;
+    background-size: contain;
+    width: $logo-width;
+    height: $logo-height;
+    
+    @include from-small {
+      left:$size-xl;
+      width: $logo-width-small;
+      height: $logo-height-small;
+    }
+
+    @include from-large {
+      position: fixed;
+    }
+    
+    .order-tray-footer-collision & {
+      display: none;
+    }
+  }
+  
+  &__sho-link {
+    display: inline-block;
+    position: absolute;
+    right:$size-m;
+    width: auto;
+    height: $logo-height;
+    @include header--epsilon;
+    line-height: $logo-height;
+		color: $colors-light-grey;
+    
+    @include from-small {
+      right:$size-xl;
+      line-height: $logo-height-small;
+      height: $logo-height-small;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.typography-example {
+  .header, p {
+    //color: $colors-pure-black;
+  }
+}
+.weight-example {
+  @include body-text;
+  
+  &--medium {
+    @include header-medium-weight;
+  }
+  
+  &--regular {
+    @include header-regular-weight;
+  }
+
+  margin-bottom: $size-s;
+}
+
+.header-mixin-example .property-list {
+  &__key {
+    @include header('alpha');
+    padding: $size-m;
+  }
+  &__value {
+    @include header('delta');
+    padding: $size-s $size-m;
+  }
+}

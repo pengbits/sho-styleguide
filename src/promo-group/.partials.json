@@ -1,0 +1,7 @@
+{
+  "target": "/usr/webapps/www/src/main/webapp/www/styleguide/src/promo-group/index.md",
+  "styleguide/promo-group/_entire_sho_library.jsp.md": "/sho/views/partials/_entire_sho_library.jsp",
+  "styleguide/promo-group/_promo_group_large.jsp.md": "/sho/views/partials/_promo_group_large.jsp",
+  "styleguide/promo-group/_promo_group_with_header.jsp.md": "/sho/views/partials/_promo_group_with_header.jsp",
+  "styleguide/promo-group/_promo_group_test.jsp.md": "/sho/views/partials/_promo_group_test.jsp"
+}

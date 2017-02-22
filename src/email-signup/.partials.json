@@ -1,0 +1,4 @@
+{
+  "target": "/usr/webapps/www/src/main/webapp/www/styleguide/src/email-signup/index.md",
+  "styleguide/email-signup/_email_signup.jsp.md": "/sho/views/partials/_email_signup.jsp"
+}

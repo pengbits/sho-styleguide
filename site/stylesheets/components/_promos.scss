@@ -1,0 +1,34 @@
+// styles for promo examples in styleguide
+
+.promo-examples {
+  .promo {
+    // remove bottom margin to keep code samples closer visually in styleguide only
+    margin-bottom: 0;
+  }
+  
+  @include from-medium {
+    .promo {
+      max-width: 450px;
+    }
+  }
+}
+
+.promo-examples--large {
+  @extend .promo-examples;
+  
+  @include from-medium {
+    .promo {
+      max-width: 768px;
+    }
+  }
+}
+
+.promo--episode, 
+.promo-cast {
+  max-width: 252px; 
+}
+
+.promo--cast .promo__image {
+  max-height: 202px;
+}
+

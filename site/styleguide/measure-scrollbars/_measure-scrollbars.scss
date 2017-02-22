@@ -1,0 +1,9 @@
+// https://davidwalsh.name/detect-scrollbar-width
+.scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  background: green;
+  position: absolute;
+  top: -9999px;
+}

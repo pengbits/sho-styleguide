@@ -1,0 +1,74 @@
+
+  @mixin full-width-container {
+    // nothing needed yet
+    // display:block;
+    // width:100%;
+  }
+  
+  // define our inner-content container with a max-width and some psuedo-margins 
+  // for when content butts up against browser chrome
+  // using transparent borders because margins are already used to center horizontally,
+  // and padding is more likely to be tampered with in the component definition.
+  
+  @mixin full-width-container-inner-at-medium {
+    border: transparent solid ($size-xl + $size-s);
+    border-width: 0 ($size-xl + $size-s);
+  }
+  
+  @mixin full-width-container-inner-at-extra-large {
+    border: transparent solid ($size-xxl + $size-l);
+    border-width: 0 ($size-xxl + $size-l);
+  }
+  
+  @mixin full-width-container__inner {
+    border: transparent solid $size-m;
+    border-width: 0 $size-m;
+    @include outer-container($max-width);
+    
+    @include from-medium {
+      @include full-width-container-inner-at-medium;
+    }
+    
+    @include from-extra-large {
+      @include full-width-container-inner-at-extra-large;
+    }
+  }
+  
+  @mixin half-width-container {
+    @include until-large {
+      @include span-columns(12);
+    }
+
+    @include from-large {
+      @include span-columns(8);
+      @include shift(2);
+    }
+
+    @include from-extra-large {
+      @include span-columns(6);
+      @include shift(3);
+    }
+  }
+
+  @mixin third-width-container {
+    @include until-medium {
+      @include span-columns(12);
+    }
+
+    @include at-medium {
+      @include span-columns(6);
+      @include shift(3)
+    }
+
+    @include from-large {
+      @include span-columns(4);
+      @include shift(4);
+    }
+
+    @include from-extra-extra-large {
+      @include span-columns(3);
+      @include shift(4.5);
+    }
+  }
+  
+  

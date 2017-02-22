@@ -1,0 +1,32 @@
+.site-sidebar {
+  
+  // hide entirely on mobile context - we will probably need some kind of pivot nav here
+  display:none;
+  min-width: $site-sidebar-width;
+  position: relative;
+  
+  @include from-large {
+    display:block;
+  }
+}
+
+.site-sidebar-toggle {
+  position: absolute;
+  top: $size-s;
+  left: $size-s;
+  height: $size-s + $size-m;
+  width: $size-s + $size-m;
+  color: $colors-site-dark-blue;
+  background-color: $colors-site-mid-grey;
+  border: none;
+  outline: none;
+  border-radius: $size-xs;
+  z-index: 999;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.site-sidebar-toggle:focus {
+	outline: 0;
+}
