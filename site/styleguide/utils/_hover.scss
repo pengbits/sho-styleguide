@@ -1,7 +1,0 @@
-// Hover Utility
-
-@mixin hover {
-  .no-touchevents &:hover {
-    @content;
-  }
-}

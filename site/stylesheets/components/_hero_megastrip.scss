@@ -1,0 +1,61 @@
+// <div class="stream-showtime__hero hero__inner">
+//     <h1 class="stream-showtime__hero-header">Stream Showtime<sup><span class="stream-showtime--reg">®</span></sup> Now</h1>
+//     <h3 class="stream-showtime__hero-copy"> 
+//       Try free for 7 days, then only $10.99/month. Cancel anytime.
+//     </h3>
+//   </div>
+// mock up the stream showtine-specific styles for the styleguide context
+// so our megastrip can feel more at home...
+
+.hero--megastrip {
+  .hero__inner {
+    @include font-family;
+    display: block;
+    text-align: center;
+    border-width: 0 25px;
+    color: $colors-pure-black;
+    @include until-small {
+      margin-top: 275px;
+      background: $colors-pure-white;
+      padding-top: 25px;
+    }
+    
+    @include from-medium {
+      margin-top: 350px;
+      padding-bottom: 100px;
+      border-width: 0 65px;
+      color: $colors-pure-white;
+    }
+
+    @include from-large {
+      border-width: 0 90px;
+      margin-top: 40vmin;
+    }
+    
+    .stream-showtime--reg {
+      font-size: 8px;
+      position: relative;
+      top: -10px;
+      @include from-small {
+        top: -20px;
+      }
+    }
+  }
+  
+  .stream-showtime__hero-header {
+    padding-top: 10px;
+    @include font(36, 40, 600);    
+    @include upcase;
+    @include from-large {
+      @include font(64, 80, 600);
+    }
+  }
+
+  .stream-showtime__hero-copy {
+    @include font(18,20, 600);    
+    @include from-large {
+      @include  font(24, 29, 400);
+    }
+  }
+  
+}

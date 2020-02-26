@@ -11,20 +11,64 @@
     <title>{{#if name}}{{name}} - Sho.com Styleguide {{else}}Sho.com - Styleguide{{/if}}</title>
     {{#if pageTracking}}<meta name="page-tracking" content="{{pageTracking}}">{{/if}}
     <link rel="stylesheet" href="/styleguide/lib/photoswipe/photoswipe.css">
-    <link rel="stylesheet" href="/styleguide/lib/photoswipe/default-skin/default-skin.css"> 
+    <link rel="stylesheet" href="/styleguide/lib/photoswipe/default-skin/default-skin.css">
     <link rel="stylesheet" href="/styleguide.css">
-    <script>(function(d) {
-      var tkTimeout=3000;
-      if(window.sessionStorage){if(sessionStorage.getItem('useTypekit')==='false'){tkTimeout=0;}}
-      var config = {
-        kitId: 'try3fbz',
-        scriptTimeout: tkTimeout
-      },
-      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-    })(document);
+    <script>
       // set credentials for development reporting suite
       var omniture_rsid = "cbsshodev,cbsshoglobaldev";
     </script>
+    <style type="text/css">
+      @font-face{
+        font-family: ff-din-web;
+        src:url("/styleguide/assets/fonts/ff-din-web/woff2/ff-din-web-bold.woff2") format("woff2"),
+            url("/styleguide/assets/fonts/ff-din-web/woff/ff-din-web-bold.woff") format("woff");
+        font-weight: 700;
+        font-style: normal;
+      }
+      @font-face{
+        font-family: ff-din-web;
+        src:url("/styleguide/assets/fonts/ff-din-web/woff2/ff-din-web-light.woff2") format("woff2"),
+            url("/styleguide/assets/fonts/ff-din-web/woff/ff-din-web-light.woff") format("woff");
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face{
+        font-family: ff-din-web;
+        src:url("/styleguide/assets/fonts/ff-din-web/woff2/ff-din-web-light-italic.woff2") format("woff2"),
+            url("/styleguide/assets/fonts/ff-din-web/woff/ff-din-web-light-italic.woff") format("woff");
+        font-weight: 400;
+        font-style: italic;
+      }
+      @font-face{
+        font-family: ff-din-web;
+        src:url("/styleguide/assets/fonts/ff-din-web/woff2/ff-din-web-italic.woff2") format("woff2"),
+            url("/styleguide/assets/fonts/ff-din-web/woff/ff-din-web-italic.woff") format("woff");
+        font-weight: 600;
+        font-style: italic;
+      }
+      @font-face{
+        font-family: ff-din-web;
+        src:url("/styleguide/assets/fonts/ff-din-web/woff2/ff-din-web-medium.woff2") format("woff2"),
+            url("/styleguide/assets/fonts/ff-din-web/woff/ff-din-web-medium.woff") format("woff");
+        font-weight: 600;
+        font-style: normal;
+      }
+      @font-face{
+        font-family: ff-din-web;
+        src:url("/styleguide/assets/fonts/ff-din-web/woff2/ff-din-web-black.woff2") format("woff2"),
+            url("/styleguide/assets/fonts/ff-din-web/woff/ff-din-web-black.woff") format("woff"); 
+        font-weight: 900;
+        font-style: normal;
+      }
+    </style>
+    
+
+    <!-- Adobe Experience Cloud ID Service -->
+    <script src="/styleguide/lib/omniture/VisitorAPI.js"></script>
+
+    {{#if adobedtm}}
+    <script src="//assets.adobedtm.com/eca55fd08170af505e740f16d8cd90e78a06126b/satelliteLib-13a2374f510724dbaaae05d6b73711be54a02e7c.js"></script>
+    {{/if}}
    </head>
 
   <body class="js-notification">
@@ -47,7 +91,7 @@
                 {{/each}}
             </ul>
           </section>
-          
+
           <section class="site-nav__section">
             <h2 class="site-nav__heading">Vendor</h2>
             <ul class="site-nav__list">
@@ -58,9 +102,9 @@
               {{/each}}
             </ul>
           </section>
-          
+
           <section class="site-nav__section">
-            <h2 class="site-nav__heading">Base</h2>
+            <h2 class="site-nav__heading">Base &amp; Utils</h2>
             <ul class="site-nav__list">
               {{#each base}}
                 <li class="site-nav__item">
@@ -82,7 +126,17 @@
           </section>
 
           <section class="site-nav__section">
-            <h2 class="site-nav__heading">Components</h2>
+            <h2 class="site-nav__heading">Components: Order</h2>
+            <ul class="site-nav__list">
+              {{#each order}}
+                <li class="site-nav__item">
+                  <a class="site-nav__anchor" href="/{{this.dirname}}">{{this.name}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          </section>
+          <section class="site-nav__section">
+            <h2 class="site-nav__heading">Components: Global</h2>
             <ul class="site-nav__list">
               {{#each components}}
                 <li class="site-nav__item">
@@ -113,12 +167,12 @@
         </div>
       </main>
     </div>
-    
-    <script type="text/javascript" src="/styleguide/lib/omniture/s_code.js"></script>
 
-    
-    {{!-- the charset and content-type are set due to an issue with the vendor code d3. It used greek characters which causes an issue in some browsers (Chrome). 
-    Using charset utf-8 converts it to ascii and so the sytax error does not occur--}} 
+    <script type="text/javascript" src="/styleguide/lib/omniture/AppMeasurement.js"></script>
+
+
+    {{!-- the charset and content-type are set due to an issue with the vendor code d3. It used greek characters which causes an issue in some browsers (Chrome).
+    Using charset utf-8 converts it to ascii and so the sytax error does not occur--}}
 
     <script content-type="application/javascript" charset="utf-8" src="/styleguide.js"></script>
 
@@ -129,8 +183,8 @@
           '--medium': '(max-width: 991px)'
       };
     </script>
-    
-    
-    
+
+
+
   </body>
 </html>

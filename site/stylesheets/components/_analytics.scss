@@ -5,6 +5,7 @@
   
   a {
     margin-right: $size-m;
-    @include button--solid-red;
+    @include round-button;
+    @include button--solid($colors-red);
   }
 }

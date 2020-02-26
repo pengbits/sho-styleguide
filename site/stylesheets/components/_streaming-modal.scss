@@ -1,0 +1,16 @@
+.streaming-modal-example {
+  padding-bottom:$size-l;
+  .streaming-modal {
+    background-color: #1b1b1f
+  }
+  .streaming-modal__link {
+    @include header--epsilon;
+  }
+}
+
+.streaming-modal-example-buttons {
+  width:100%;
+  td {
+    padding: $size-s 0;
+  }
+}

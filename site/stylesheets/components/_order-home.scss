@@ -2,15 +2,30 @@
   position: relative;
 }
 
+// immitate the page styles defined in sho/stylesheets/base/_order,_global.scss
 .asymmetrical-hero-container {
-  // todo: fix issue where hero__body gets extra 100px of psuedo-margins 
-  // and headline alignment is thrown off 
   background-color: $colors-pure-black;
+  width: 100%;
+  overflow: hidden;
+  
+  .section-header,
+  .promo-group-header,
+  .slider, {
+    @include full-width-container__inner;
+  }
+  
   .hero__inner, 
-  .section {
+  .promo-group-header,
+  .slider,
+  .order-legal  {
     @include from-order-tray-sidebar-visible {
       margin-left: 30vw;
       width:70vw;
+      
+      .order-tray--two-col & {
+        margin-left: 33vw;
+        width: 67vw;
+      }
     }
   }
 }

@@ -1,5 +1,0 @@
-// blur
-@mixin blur($distance:15px) {
-  @include filter(blur($distance));
-  overflow: hidden;
-}
