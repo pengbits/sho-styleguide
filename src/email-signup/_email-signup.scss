@@ -4,7 +4,7 @@
 
   .email-signup__inner {
     @include from-medium {
-      display:table;
+      display: table;
       padding: $size-xl;
     }
     width: 100%;
@@ -43,9 +43,10 @@
     }
 
     .email-signup__label {
+      margin-bottom: 0;
       @include body-text;
       @include upcase;
-      color: $colors-text-dark;
+      color: $colors-pure-white;
     }
 
     .email-signup__form-fields {
@@ -67,6 +68,19 @@
       }
 
     }
+    
+    .email-signup__opt-in {
+      margin-bottom: $size-m;
+      
+      &__checkbox {
+        margin-right: $size-s;
+      }
+      
+      &__label {
+        @include header('zeta');
+        color: $colors-pure-white;
+      }
+    }
 
     input .input-box-email::-webkit-input-placeholder {
 			color: #7D7D7D;
@@ -85,6 +99,8 @@
 		}
 
     .input-box {
+      -webkit-border-radius: 0;
+      border-radius: 0;
       height: 25px;
       width: 100%;
       margin: $size-xs $size-l $size-m 0;
@@ -99,11 +115,13 @@
         @include span-columns(4 of 9);
         @include omega();
       }
-
     }
 
     .dob-select {
       padding: $size-xs;
+      @include at-medium {
+        padding-left: $size-xxs;
+      }
     }
 
     select {
@@ -120,7 +138,7 @@
       border: solid 1px $colors-light-grey;
       text-overflow: '';
       text-indent: 0.01px;
-      background-image: url(http://www.sho.com/assets/images/accounts/mobile/select_arrow.png);
+      background-image: url(https://www.sho.com/assets/images/accounts/mobile/select_arrow.png);
       background-color: $colors-pure-white;
       background-repeat: no-repeat;
       background-position: 90% 50%;
@@ -153,20 +171,17 @@
     }
 
     .email-signup__tos-input {
-
       @include from-medium {
         @include span-columns(9 of 9);
-      }
-
-      @include header--zeta;
-      color: $colors-text-dark;
-
+      } 
+      @include header--epsilon;
+      color: $colors-pure-white;
+ 
       .check-box {
-
         @include from-medium {
           margin: $size-xxs $size-s $size-xs 0;
         }
-
+        transform: scale(1.4);
         margin: $size-xxs $size-s $size-xl 0;
         box-sizing: border-box;
         -webkit-border-radius: 0;
@@ -187,7 +202,8 @@
     }
 
     .email-signup__submit-btn {
-      @include button--outline-white;
+      @include round-button;
+      @include button--outline($colors-pure-white);
       @include span-columns(12);
       float:none;
       text-align: center;
@@ -223,11 +239,10 @@
     }
 
   }
-
+  
   .email-signup__headline--success,
   .email-signup__headline--lockout,
   .email-signup__headline--error {
-    display:none;
     width: 100%;
     padding: $size-l $size-l $size-l $size-l;
     margin-bottom: $size-xl;
@@ -327,9 +342,10 @@
   }
 }
 
-/* Marketing Feed */
+/* Marketing Feed & Contact Us */
 
-.email-signup--marketing-feed {
+.email-signup--marketing-feed,
+.email-signup--contact-us {
   border: none; 
   .email-signup__inner {
     background-color: transparent;
@@ -357,7 +373,8 @@
 
     .email-signup__submit-btn {
       width: 100%;
-      @include button--solid-red;
+      @include round-button;
+      @include button--solid($colors-red);
       @include until-medium {
         margin-top: 0;     
       }
@@ -380,4 +397,49 @@
       @include upcase;
     }
   }
+}
+
+// as seen on /bulk/hotel-app
+.email-signup--contact-us {
+  padding: $size-xl;
+
+  .email-signup__inner .email-signup__headline {
+    @include header--delta;
+    justify-content: center;
+    padding-top: $size-m;
+  }
+
+  .email-signup__call {
+    text-align: center;
+
+    &-icon {
+      margin-top: $size-xs;
+      margin-bottom: -$size-xs;
+    }
+    
+    &-number {
+      @include header--delta;
+      display: inline-block;
+      margin-bottom: $size-s;
+    }
+
+    &-hours {
+      @include body-text;
+      margin-bottom: $size-l;
+      color: $colors-mid-grey;
+    }
+  }
+
+  .email-signup__required {
+    @include header--zeta;
+    color: $colors-mid-grey;
+    text-align: center;
+  }
+}
+
+// this separates original email signup from refactor which doesn't want these hidden
+.js-email-signup > .email-signup__headline--success,
+.js-email-signup > .email-signup__headline--lockout,
+.js-email-signup > .email-signup__headline--error {
+  display: none;
 }

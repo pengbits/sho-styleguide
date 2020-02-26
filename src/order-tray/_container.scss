@@ -1,14 +1,18 @@
-$order-tray-sidebar-width:  25%;
-$order-tray-body-width:     100% - $order-tray-sidebar-width;
-$order-tray-closer-size:   map-get($icon-sizes, 'medium');
-// see masthead.scss $order-tray-top-offset:     100px;
+$order-tray-sidebar-width           : 25%; 
+$order-tray-body-width              : 75%;
+$order-tray-sidebar-width--two-col  : 35%;
+$order-tray-body-width--two-col     : 65%;
+$order-tray-closer-size             : map-get($icon-sizes, 'medium');
+// see _order-masthead.scss for these values
+// $order-tray-top-offset              : 80px;
+// $order-tray-top-offset--medium-tall : 100px;
 
 @mixin order-tray-mask {
   background: $colors-pure-black;
   @include  from-order-tray-sidebar-visible {
     background: rgba(0,0,0,0.75);
   }
-  z-index: 99999;  
+  z-index: 200;  
 }
 
 .order-tray {
@@ -16,7 +20,7 @@ $order-tray-closer-size:   map-get($icon-sizes, 'medium');
 }
 
 .order-tray--chameleon {
-  padding:$size-m;
+  padding:$size-m $size-m $size-m * 2 $size-m;
   
   @include at-medium {
     padding-left: 0;
@@ -28,7 +32,7 @@ $order-tray-closer-size:   map-get($icon-sizes, 'medium');
   }
   
   @include from-large {
-    border: 0;
+    border: 0;     
   }
 
   @include from-order-tray-sidebar-visible {
@@ -37,10 +41,16 @@ $order-tray-closer-size:   map-get($icon-sizes, 'medium');
     position: fixed;
     top:0; //$order-tray-top-offset;
     left:0;
+    height: 0; //when cards are not open, 
     right:$order-tray-body-width;
+    
+    &.order-tray--two-col {
+      right:$order-tray-body-width--two-col;
+    }
 
     &.order-tray--stage-open {
       bottom:0;
+      height: 100%;
     }
   }
 }
@@ -59,15 +69,29 @@ $order-tray-closer-size:   map-get($icon-sizes, 'medium');
   }
 }
 
+.order-tray--overlay.order-tray--loading {
+  &:before {
+    content: '';
+    @extend .loading-animation;
+  }
+}
+
 .order-tray__sidebar {
   display: none;
 
   @include from-order-tray-sidebar-visible {
     display: block;
     position: absolute;
-    top:$order-tray-top-offset;
-    right:$order-tray-body-width;
     left: 0;
+    right:$order-tray-body-width;
+    top:$order-tray-top-offset;
+    @include from-medium-tall {
+      top:$order-tray-top-offset--medium-tall;
+    }
+    
+    .order-tray--two-col & {
+      right: $order-tray-body-width--two-col;
+    }
     .order-tray--chameleon & {
       position:fixed;
     }
@@ -75,28 +99,42 @@ $order-tray-closer-size:   map-get($icon-sizes, 'medium');
 }
 
 // see order-masthead.scss - we're using the same styles as the in-page logo and header,
-// overlaying it exactly on top, when the in-page version is hidden
+// overlaying it exactly on top, when the in-page version is hidden:
+// 1) on mobile, hide the logo entirely
+// 2) on desktop, in overlay version, show the logo
+// 3) on desktop, in chameleon version, show the logo 
+// 4) unless of course the page has been scrolled enough to collide with the global footer
 .order-tray__masthead__logo {
   @extend .order-masthead__logo;
-  display: none;
-
-  .order-tray--overlay &,
-  .order-tray--chameleon.order-tray--stage-open & {
-    @include from-order-tray-sidebar-visible {
+  display: none; // 1
+  
+  @include from-order-tray-sidebar-visible {
+    .order-tray-active .order-tray--overlay &, // 2
+    .order-tray--chameleon & { // 3
       display: block;
+    }
+    
+    .order-tray-footer-collision & { // 4
+      display: none;
     }
   }
 }
+
 
 .order-tray__body {
   @include body-text;
   @include from-order-tray-sidebar-visible {
     padding-left: $order-tray-sidebar-width;
+    
+    .order-tray--two-col & {
+      padding-left: $order-tray-sidebar-width--two-col;
+    }
   }
 }
 
 .order-tray__body-content {
   height:auto;
+  position: relative;
   
   @include from-order-tray-sidebar-visible {
     padding: 0 $size-l 0 $size-l;
@@ -106,12 +144,15 @@ $order-tray-closer-size:   map-get($icon-sizes, 'medium');
   .order-tray--chameleon.order-tray--stage-open & {
     padding-top: $size-m;
     height: 100vh;
-    // was overflow-y: auto, but this is works better now that we are compensating for scrollbar widths
     overflow-y: scroll; 
   }
   
   .order-tray--chameleon.order-tray--stage-open & {
     padding-top: $order-tray-top-offset;
+    
+    @include from-medium-tall {
+      padding-top: $order-tray-top-offset--medium-tall;
+    }
   }
 }
 

@@ -21,9 +21,9 @@
   $size-variants:
   (
     'xsmall': 1,
-    'small': 2,
+    'small' : 2,
     'medium': 3,
-    'large': 4,
+    'large' : 4,
     'xlarge': 5
   );
   
@@ -74,7 +74,7 @@
     @include icon;
     @include icon-size('xlarge');
   }
-
+  
   .icon--play {
     @include icon;
     @include icon-image('play');
@@ -149,10 +149,25 @@
     @include icon;
     @include icon-image('envelope');
   }
-
+  
+  .icon--check-alt {
+    @include icon;
+    @include icon-image('check-alt');
+  }  
+  
+  .icon--check-alt-grey {
+    @include icon;
+    @include icon-image('check-alt-grey');
+  }  
+  
   .icon--check-mark {
     @include icon;
     @include icon-image('check-mark');
+  }
+
+  .icon--check-mark-white {
+    @include icon;
+    @include icon-image('check-mark-white');
   }
 
   .icon--prev-dark-red {
@@ -188,6 +203,11 @@
   .icon--up-white {
     @include icon;
     @include icon-image('up-white');
+  }
+  
+  .icon--list--rounded {
+    @include icon
+    @include icon-image('list-rounded');
   }
 
   .icon--triangle-right-black {
@@ -248,6 +268,55 @@
   .icon--replay {
     @include icon;
     @include icon-image('replay');
+  }
+
+  .icon--phone {
+    @include icon;
+    @include icon-image('phone');
+  }
+
+  //msc icon devices used in coming soon. 
+  .icon--devices {
+    @include icon;
+    @include icon-image('devices');
+    width: $size-l * 9;
+    height: 46px;
+  }
+  
+  // xl devices icons used in ways-to-order for ppv event page 
+  .icon--devices-xl {
+    @include icon;
+  }
+  
+  .icon--devices-xl-tv {
+    @include icon-image('devices-xl-tv');
+    width: 160px;
+    height: 110px;
+  }
+  
+  .icon--devices-xl-computer {
+    @include icon-image('devices-xl-computer');
+    width: 152px;
+    height: 90px;
+  }
+  
+  .icon--devices-xl-mobile {
+    @include icon-image('devices-xl-mobile');
+    width: 95px;
+    height: 100px;
+  }
+  
+  
+  .icon--download {
+    @include icon;
+    @include icon-image('download');
+    width: 43px;
+    height: 46px;
+  }
+
+  .icon--sho-app-logo {
+    @include icon;
+    @include icon-image('sho-app-logo');
   }
 
   // SOCIAL ICONS

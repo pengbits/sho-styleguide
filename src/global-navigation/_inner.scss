@@ -14,6 +14,7 @@
 		padding-top: $size-m;
 		padding-bottom: $size-m;
 		border-bottom: 0 !important;
+		z-index: 200;
 		@include background($colors-pure-black);
 
 		@include from-small {
@@ -66,4 +67,9 @@
     height: auto;
     background-color: $colors-pure-black;
   }
+}
+
+// Styles that extend the to be used in TMC navigation
+.has-nav-transparent .global-navigation {
+	background-image: none;
 }

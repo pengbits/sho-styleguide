@@ -90,6 +90,9 @@
 @mixin from-short {
 	@include mq($from:'short', $axis:'height') { @content ; }
 }
+@mixin from-medium-tall {
+	@include mq($from:'medium-tall', $axis:'height') { @content ; }
+}
 @mixin from-tall {
 	@include mq($from:'tall', $axis:'height') { @content ; }
 }

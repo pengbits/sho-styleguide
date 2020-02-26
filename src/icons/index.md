@@ -101,19 +101,47 @@ collection: components
 ## Misc
 <article class="icons-example">
   <i class="icon icon--medium icon--close"></i>
+  <i class="icon icon--medium icon--check-alt"></i>
+  <i class="icon icon--medium icon--check-alt-grey"></i>
   <i class="icon icon--medium icon--envelope"></i>
   <i class="icon icon--medium icon--check-mark"></i>
+  <i class="icon icon--medium icon--check-mark-white"></i>
+  <i class="icon icon--medium icon--list--rounded"></i>
   <i class="icon icon--medium icon--search"></i>
+  <i class="icon icon--medium icon--phone"></i>
 </article>
 
 ```
 <article class="icons-example">
   <i class="icon icon--medium icon--close"></i>
+  <i class="icon icon--medium icon--check-alt"></i>
+  <i class="icon icon--medium icon--check-alt-grey"></i>
   <i class="icon icon--medium icon--envelope"></i>
   <i class="icon icon--medium icon--check-mark"></i>
+  <i class="icon icon--medium icon--check-mark-white"></i>
+  <i class="icon icon--medium icon--list--rounded"></i>
   <i class="icon icon--medium icon--search"></i>
+  <i class="icon icon--medium icon--phone"></i>
 </article>
 ```
+
+## Devices
+<article class="icons-example" style="background:0">
+  <i class="icon icon--devices"></i>
+  <i class="icon icon--devices-xl-tv"></i>
+  <i class="icon icon--devices-xl-computer"></i>
+  <i class="icon icon--devices-xl-mobile"></i>
+</article>
+
+```
+<article class="icons-example" style="background:0">
+  <i class="icon icon--devices"></i>
+  <i class="icon icon--devices-xl-tv"></i>
+  <i class="icon icon--devices-xl-computer"></i>
+  <i class="icon icon--devices-xl-mobile"></i>
+</article>
+```
+
 
 ## Sizes
 <article class="icons-example">
@@ -132,5 +160,20 @@ collection: components
   <i class="icon icon--medium icon--play"></i>
   <i class="icon icon--large icon--next-large"></i>
   <i class="icon icon--large icon--play"></i>
+```
+
+## logos
+<article class="icons-example">
+  <i class="icon icon--small icon--sho-app-logo"></i>
+  <i class="icon icon--medium icon--sho-app-logo"></i>
+  <i class="icon icon--large icon--sho-app-logo"></i>
+</article>
+
+```
+<article class="icons-example">
+  <i class="icon icon--small icon--sho-app-logo"></i>
+  <i class="icon icon--medium icon--sho-app-logo"></i>
+  <i class="icon icon--large icon--sho-app-logo"></i>
+</article>
 ```
 

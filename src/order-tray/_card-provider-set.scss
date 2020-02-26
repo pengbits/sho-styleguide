@@ -1,0 +1,160 @@
+// styles for the `additional-providers` card
+// https://issues.sho.com/browse/SITE-15784
+// later repurposed for the `showtime-app` direct card
+// https://issues.sho.com/browse/SITE-16124
+// and then returned for additional-providers redux!
+// https://issues.sho.com/browse/SITE-16633
+
+.order-card__provider-set {
+}
+
+.order-card__provider-entry {
+  @include from-order-tray-sidebar-visible {
+    border-bottom: $colors-light-grey solid 1px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__body {
+    position: relative;
+    padding: $size-s 0;
+    min-height: 40px;
+  }
+
+  &__details {
+    // padding: $size-s 0;
+    clear: both;
+  }
+
+  &__logo,
+  &__free-trial-callout,
+  &__provider-lead {
+    display: block;
+    margin-bottom: $size-s;
+  }
+  &__free-trial-callout {
+    margin-bottom: 0
+  }
+
+  &__logo {
+    @include from-large {
+      margin-bottom: 0
+    }
+
+    // adjust centering on disclosure arrow
+    &:before {
+      top:50%;
+      transform: translateY(unquote("-#{map-get($icon-sizes, 'small') / 2}"));
+    }
+
+    .order-card__logo {
+      margin-bottom: 0
+    }
+  }
+
+  &__free-trial-callout {
+    min-width: 140px;
+    color: $colors-mid-grey !important;
+    @include upcase;
+  }
+
+
+  &__provider-lead {
+    display: block;
+    @include round-button;
+    @include button--solid($colors-red);
+    height:$size-s;
+
+    @include until-small   {
+      line-height: $size-s;
+    }
+  }
+
+  // drawing a divider between description and price info is ok,
+  // but it shouldn't span the entire width of the card
+  & .order-card__divider:before {
+    position: static;
+  }
+
+  // drawing a divider between each provider-entry only makes sense on mobile
+  & + .order-card__divider {
+    @include from-order-tray-sidebar-visible {
+      display: none
+    }
+  }
+
+  @include from-small {
+    &__provider-lead {
+      display: block;
+      padding-top: $size-xs;
+      padding-bottom: ($size-s + ($size-xxs * 2));
+      width: 250px;
+      white-space: nowrap;
+    }
+  }
+
+  @include from-medium {
+    &__provider-lead {
+      position: absolute;
+      right:0;
+      top:$size-l + $size-s;
+    }
+  }
+
+  @include until-large {
+    &--no-free-trial &__free-trial-callout {
+      display: none;
+    }
+  }
+
+  @include from-large {
+    &__body {}
+    &__logo {
+      margin-right: $size-m
+    }
+    &__provider-lead  {}
+  }
+
+  &__details {
+    overflow: hidden;
+  }
+
+  &--expanded &__details--expanded {
+    overflow: visible; // allow price callouts to peek out of container
+  }
+
+  &--expanded &__details {
+    margin-bottom: $size-l;
+  }
+}
+
+.order-card--with-provider-set {
+  .order-card__headline {
+    @include from-medium {
+      margin-top:$size-s;
+      @include header('delta');
+      color: $colors-pure-black
+    }
+  }
+
+  .order-card__blurb--price {
+    padding-bottom: 0
+  }
+
+  // custom styles for samsung smart TVs
+  .order-card__provider-entry[data-provider-id="126"] {
+    .order-card__provider-entry__cta {
+      @include header('delta');
+      color: $colors-pure-black !important;
+      text-transform: uppercase;
+
+      @include from-medium {
+        @include header('epsilon');
+        margin-top: $size-m;
+      }
+
+    }
+  }
+}

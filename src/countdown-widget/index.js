@@ -1,11 +1,10 @@
-import _ from 'underscore';
 import $ from 'jquery';
 import moment from 'moment';
 
 class CountdownWidget {
 	constructor(cfg) {
 		this.el = $(cfg.el);
-		_.extend(this, {
+		Object.assign(this, {
 			title: this.el.data('title') ? this.el.data('title') : '',
 			timeUnits: this.el.data('timeUnits') ? this.el.data('timeUnits').split(' ').join('').split(',') : ['days', 'hrs', 'mins', 'secs'],
 			timer: this.el.data('timer') ? !!this.el.data('timer') : false,
@@ -32,7 +31,9 @@ class CountdownWidget {
 
 	setCallback() {
 		if (this.redirect) {
-			return () => { window.location = this.redirect }
+			return () => { 
+				window.location = this.redirect;
+		 	}
 		} else {
 			return () => { this.cancel() }
 		}
@@ -73,13 +74,14 @@ class CountdownWidget {
 		if (this.targetDate > moment()) {
 			this.appendTimes(this.getDiffs());
 		} else {
+			window.clearInterval(this.interval);
 			this.callback();
 		}
 	}
 
 	cancel() {
-		window.clearInterval(this.interval)
-		this.el.remove()
+		window.clearInterval(this.interval);
+		this.el.remove();
 	}
 }
 

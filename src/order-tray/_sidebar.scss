@@ -1,19 +1,31 @@
 .order-tray__sidebar {
-  padding: $size-xl;
   border-top-right-radius: $size-border-radius-m;
   border-bottom-right-radius: $size-border-radius-m;
   background-color: $colors-light-red;
-  // sidebar animation is not working at moment
-  // width: 25%; 
-  //I had to set a width here for initially only the content was animating not the div box.
-  
+  padding: $size-xl;
+  min-width: 260px;
+
   &-headline {
     // even if the sidebar exapands in size slightly, this will prevent
     // the text from wrapping differently between states
     max-width: calc(24vw - ($size-xl * 2));
     @include header--gamma;
     @include upcase;
-    margin-bottom: $size-l;
-  }    
+    margin-bottom: $size-m;
+
+    @include from-medium-tall {
+      margin-bottom: $size-l
+    }
+  }
 }
 
+.order-picker__provider__logo {
+  height: 23px;
+}
+
+// styles for Direct Prioritized A/B test SITE-18141
+.order-tray__sidebar {
+  &--direct-prioritized &-headline {
+    @include header('epsilon');
+  }
+}

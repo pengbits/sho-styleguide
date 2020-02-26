@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="list" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="list-rounded" transform="translate(-632.000000, -2426.000000)" fill="#000101">
+            <g id="Group-11-Copy-7" transform="translate(120.000000, 2373.000000)">
+                <g id="Group-18" transform="translate(484.000000, 40.000000)">
+                    <g id="Group-17" transform="translate(28.000000, 9.000000)">
+                        <g id="LIST" transform="translate(0.000000, 4.000000)">
+                            <circle id="Oval" cx="1" cy="1" r="1"></circle>
+                            <circle id="Oval-Copy" cx="1" cy="11" r="1"></circle>
+                            <circle id="Oval-Copy-2" cx="1" cy="6" r="1"></circle>
+                            <rect id="Rectangle-14" x="4" y="0" width="14" height="2" rx="1"></rect>
+                            <rect id="Rectangle-14-Copy" x="4" y="5" width="14" height="2" rx="1"></rect>
+                            <rect id="Rectangle-14-Copy-2" x="4" y="10" width="14" height="2" rx="1"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

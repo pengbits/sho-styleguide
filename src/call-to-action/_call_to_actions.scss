@@ -30,6 +30,24 @@
   content: "";
 }
 
+.cta--white {
+  color: $colors-pure-white;
+}
+
+.cta--white:before {
+  @include icon;
+  @include icon-image('prev');
+}
+
+.cta--next:after {
+	@include icon;
+	@include icon-size('small');
+	@include icon-image('next');
+  margin-left: $size-s;
+  margin-right: -$size-s;
+  content: "";
+}
+
 .cta--red {
   color: $colors-red;
 }

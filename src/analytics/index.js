@@ -3,7 +3,7 @@ import CampaignHelper from './campaign-helper';
 import PageTracking   from './page-tracking';
 import EventTracking  from './event-tracking';
 
-class Analytics {
+export class Analytics {
   constructor(cfg = {}) {
 
     this.debug = (cfg.debug ? cfg.debug : false);
@@ -20,14 +20,14 @@ class Analytics {
     if (this.ensureSCode()) {
       // this seems to help with issue where first-ever-load of page yields incomplete s object
       // https://issues.sho.com/browse/SITE-14432
-      _.delay(() => {
+      setTimeout(() => {
         this.pageTracking = new PageTracking({debug:this.debug, rsid:this.omniture_rsid});
         this.EventTracking = new EventTracking({debug:this.debug, rsid:this.omniture_rsid});
       }, 0);
 
     }
     else {
-      this.log('Omniture s_code.js not found');
+      this.log('AppMeasurement.js not found');
       return false;
     }
   }

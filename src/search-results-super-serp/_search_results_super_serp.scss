@@ -3,7 +3,7 @@
 	@include full-width-container__inner;
 
 	&:before, &:after {
-    display: block;
+		display: block;
 		border-bottom: 1px solid $colors-slate-grey;
 		content: "";
 		@include span-columns(12);
@@ -59,7 +59,7 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			z-index: 50;
+			z-index: 25;
 			height: 100%;
 			width: 100%;
 			content: "";

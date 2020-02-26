@@ -26,7 +26,7 @@ This is a countdown widget that is featured on the sports event pages. It counts
 	data-timer="true" 
 	// * optional boolean 
 	// ** if present, data-date MUST be formatted as "NUMBER TIMEUNIT" e.g. data-date="10 seconds"
-	data-redirect="http://www.sho.com" // * optional callback
+	data-redirect="https://www.sho.com" // * optional callback
 }
 ```
 

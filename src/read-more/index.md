@@ -1,18 +1,18 @@
---- 
-name: Read More Read Less 
-collection: components 
---- 
+---
+name: Read More Read Less
+collection: components
+---
 
-# Read More 
+# Read More
 
 Read More/Read Less is a reusable widget that allows you to hide and then reveal longer pieces of text by clicking on a Read More button. The text that is revealed is given a class
-name of "read-more". The Read More button will toggle between two modes, switching the Label accordingly. This is actually achieved by truncating the initial text at the first space, and appending either "More" or "Less".
+name of "read-more". The Read More button will toggle between two modes, switching the Label accordingly. The component searches the text string for "more" (case-insensitive), and replaces it with "LESS" (uppercase is the standard for these links), and vice versa when closing..
 
 <div class="about-bio  js-read-more">
   <div class="about-bio__person">
   <picture>
-    <source media="(max-width: 767px)" srcset="http://www.sho.com/assets/images/sho7/about/mblank_bio--small.jpg">
-    <source srcset="http://www.sho.com/assets/images/sho7/about/mblank_bio.jpg">
+    <source media="(max-width: 767px)" srcset="https://www.sho.com/assets/images/sho7/about/mblank_bio--small.jpg">
+    <source srcset="https://www.sho.com/assets/images/sho7/about/mblank_bio.jpg">
     <img alt="Matthew Blank" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
   </picture>
   </div>
@@ -45,6 +45,3 @@ name of "read-more". The Read More button will toggle between two modes, switchi
     <div class="read-more"><a class="read-more__toggle" href="#">Read More</a></div>
 </div>
 ```
-
- 
- 

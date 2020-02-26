@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SampleReactComponent /> matches snapshot 1`] = `
+<SampleReactComponent>
+  <div>
+    <h2
+      className="sample-react-component__header"
+    >
+      This is a Sample React Component
+    </h2>
+    <div
+      className="sample-react-component__button"
+      onClick={[Function]}
+    >
+      <i
+        className="sample-react-component__button-icon sample-react-component__button-icon--thumbsdown"
+      />
+    </div>
+  </div>
+</SampleReactComponent>
+`;

@@ -14,19 +14,22 @@ class CampaignHelper
         'cookie':'gvo_eVar52'
       }
     };
+    this.optimizelyCampaignValue = null;
     this.initialize();
   }
 
   initialize() {
     // check current URL for s_cid parameter, if none is found, then check cookie
-    this.setCampaignValue('external')
+    this.setCampaignValue('external');
 
     // check current URL for i_cid parameter, if none is found, then check cookie
-    this.setCampaignValue('internal')
+    this.setCampaignValue('internal');
+
+    // check custom Optimizely integrator for relevant campaigns
+    this.setOptimizelyCampaignValue();
 
     // if any value is found, update the links
-    if(this.externalCampaignValue || this.internalCampaignValue) this.updateLinks();
-
+    if(this.externalCampaignValue || this.internalCampaignValue || this.optimizelyCampaignValue) this.updateLinks();
   }
 
   // utility function for setting the internal campaignValue property
@@ -55,10 +58,39 @@ class CampaignHelper
     // if it's different from the cookie, should we update the cookie accordingly??
   }
 
+  setOptimizelyCampaignValue() {
+    // check optimizely integrator var for campaigns
+    if (window.optimizely && typeof window.optimizely.get === 'function' && window.optimizely.get("custom/queryParamIntegrator")) {
+      let queryParamArray = [],
+      campaignArray = window.optimizely.get("custom/queryParamIntegrator").campaignArray;
+
+      if (campaignArray.length > 0) {
+        let campaignSplit = campaignArray[0].split(/[:]+/);
+
+        for (let value of campaignSplit) {
+          // if current value has a numeric ID string enclosed in parentheses, grab those digits and discard all else
+          let regExp = /\(([0-9]+)\)/;
+          if(regExp.test(value)) {
+            let matches = regExp.exec(value);
+            queryParamArray.push(matches[1]);
+          }
+          else {
+            // otherwise keep as-is
+            queryParamArray.push(value);
+          }
+        }
+        // use '_' as delimiter in string join, for query param
+        if(queryParamArray.length > 0) {
+          this.optimizelyCampaignValue = queryParamArray.join('_');
+        }
+      }
+    }
+  }
+
   log(output) {
     if(this.debug && window.console && window.console.log)
     {
-      console.log('| campaign |', output);
+      console.log('| campaign helper |', output);
     }
   }
 
@@ -103,17 +135,18 @@ class CampaignHelper
       q = q.split('&');
       for(let i = 0; i < q.length; i++){
         hash = q[i].split('=');
-        hash[1] = hash[1].split('#')[0]; // hash fragments were being included
-        vars.push(hash[1]);
-        vars[hash[0]] = hash[1];
+        if(hash.length > 1) {
+          hash[1] = hash[1].split('#')[0]; // hash fragments were being included
+          vars.push(hash[1]);
+          vars[hash[0]] = hash[1];  
+        }
       }
     }
     return vars;
   }
 
   updateLinks() {
-    // console.log(`CampaignHelper#updateLinks`)
-    let elements = document.querySelectorAll('a[href*="showtime.com"],a[href*="kochava.com"]');
+    let elements = document.querySelectorAll('a[href*="showtime.com"],a[href*="kochava.com"],a[href*="showtimeppv.com"]');
 
     for (let i = 0; i < elements.length; ++i) {
       let contains_i_cid = /i_cid/.test(elements[i].href);
@@ -129,11 +162,21 @@ class CampaignHelper
         }
       }
 
-      let contains_s_cid = /s_cid/.test(elements[i].href);
-      if (!contains_s_cid && this.externalCampaignValue) {
-        // s_cid already present in link, or none found anywhere, move on
-        // otherwise, update link with s_cid
-        elements[i].href += this.getChar(elements[i].href) + 's_cid=' + this.externalCampaignValue;
+      let cids = [
+        { query: 's_cid', value: this.externalCampaignValue },
+        { query: 'o_cid', value: this.optimizelyCampaignValue }
+      ];
+
+      for (let cid of cids) {
+        let regex = new RegExp(cid.query);
+        let contains = regex.test(elements[i].href);
+
+        if (!contains && cid.value) {
+          // cid already present in link, or none found anywhere, move on
+          // otherwise, update link with cid
+          elements[i].href += `${this.getChar(elements[i].href)}${cid.query}=${cid.value}`;
+          this.log(`${cid.query}:${cid.value}`);
+        }
       }
     }
   }

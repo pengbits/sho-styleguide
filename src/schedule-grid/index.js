@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import d3 from 'd3';
 import moment from 'moment';
-import _ from 'underscore';
+import { throttle } from "lodash";
 import ScheduleModel from './schedule-model'
 import ScheduleView from './schedule-view'
 
@@ -44,10 +44,8 @@ export default class ScheduleGrid {
         this.loadSchedule(data.page);
       }
     });
-
-    $(window).scroll(() => {
-      _.throttle(this.updateSchedule(), 1000);
-    })
+    const throttledUpdateSchedule = throttle(this.updateSchedule.bind(this), 1000);
+    $(window).scroll(throttledUpdateSchedule) ;
   }
 
   loadSchedule(data){

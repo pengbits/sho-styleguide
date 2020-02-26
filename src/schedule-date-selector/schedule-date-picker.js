@@ -74,6 +74,7 @@ export default class ScheduleDatePicker {
             .attr('data-track','')
             .attr('data-context','schedule navigation')
             .attr('data-label','calendar date')
+            .attr('class', 'calendar__date-link')
             .text(day.toString());
             weekDay.append(dateLink)
           }

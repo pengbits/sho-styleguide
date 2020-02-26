@@ -9,24 +9,20 @@ $order-details-height-collapsed-medium: 50px;
 $order-details-height-expanded: auto;
 
 .order-card {
-
-  //&__details {
-  //  display: none;
-  //}
-
+  
   &__divider {
     display: block;
     height: 0;
     margin-top: $size-l;
     clear: both;
-    
+
     &--top {
       @include from-order-tray-sidebar-visible {
         margin-top:$size-m;
         height: $size-l;
       }
     }
-    
+
     &:before {
       @include shim('', $colors-light-grey);
       left: 0;
@@ -45,7 +41,7 @@ $order-details-height-expanded: auto;
     padding-left: map-get($icon-sizes, 'small') + $size-s;
     cursor: pointer;
     color: $colors-pure-black;
-  
+
     @include until-order-tray-sidebar-visible {
       padding-bottom: 0;
     }
@@ -58,7 +54,7 @@ $order-details-height-expanded: auto;
       @include icon('triangle-right-black');
     }
   }
-  
+
   &__details-toggle.order-card__details-toggle--active {
     &:before {
       @include icon('down');
@@ -70,7 +66,7 @@ $order-details-height-expanded: auto;
       @include icon('up');
     }
   }
-  
+
   // for SITE-15348 a/b test of exposed prices
   &__sticky-price {
     position: relative;
@@ -82,11 +78,11 @@ $order-details-height-expanded: auto;
       padding-left: $size-m;
       float: right;
     }
-    
+
     @include until-order-tray-sidebar-visible {
       padding-bottom: 0;
       display: none;
-      
+
       .order-card--selected & {
         display: inline-block;
       }
@@ -94,29 +90,14 @@ $order-details-height-expanded: auto;
   }
 
   &__details {
-    display: none;
     overflow: hidden;
     clear: both;
   }
-  
+
   &__details--expanded {
     overflow: visible; // allow price callouts to peek out of container
-    display: block;
   }
 
-  &__device-list {
-    @include clearfix;
-    padding-top: $size-m;
-    
-    ul {
-      @include unstyled-ul;
-      float:left;
-      margin-right: $size-m;
-      width:200px;
-      color: $colors-mid-grey;
-    }
-  }
-  
   &__blurb {
     // assuming this markup might come in the form of wysiwg edited html from PCE so avoiding classnames
     // Update: this turned out not to be the case, feel free to refactor into more class-based structures
@@ -144,7 +125,38 @@ $order-details-height-expanded: auto;
 
   &__blurb--devices {
     padding-top: $size-xl;
-    //padding-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &__devices {
+    @include clearfix;
+    padding-top: $size-m;
+  }
+
+  &__device-group  {
+    margin-bottom: $size-m;
+
+    @include from-small {
+      float:left;
+      margin-bottom: 0;
+      width: 50%;
+    }
+    
+    &:last-child {
+      margin-top: $size-m
+    }
+    
+    // this is in conflict with blurb > h5 above
+    & > &__heading {
+      @include header('epsilon');
+      text-transform: uppercase;
+      color: $colors-pure-black; 
+    }
+    
+    &__list {
+      @include unstyled-ul;
+      color: $colors-mid-grey;
+    }
   }
 }
 

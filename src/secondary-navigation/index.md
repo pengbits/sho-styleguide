@@ -9,7 +9,7 @@ collection: components
 
 <nav class="secondary-nav">
 	<div class="secondary-nav__content">
-		<select class="secondary-nav__dropdown" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		<select class="secondary-nav__dropdown select-navigation" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 			<option selected="selected" disabled="disabled">Genres</option>
 			<option value="#">Action</option>
 			<option value="#">Adult</option>
@@ -40,7 +40,7 @@ collection: components
 ```
 <nav class="secondary-nav">
 	<div class="secondary-nav__content">
-		<select class="secondary-nav__dropdown" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		<select class="secondary-nav__dropdown select-navigation" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 			<option selected="selected" disabled="disabled">Genres</option>
 			<option value="#">Action</option>
 			<option value="#">Adult</option>
@@ -73,7 +73,7 @@ collection: components
 
 <nav class="secondary-nav secondary-nav--red-from-medium">
 	<div class="secondary-nav__content">
-		<select class="secondary-nav__dropdown" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		<select class="secondary-nav__dropdown select-navigation" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 			<option selected="selected" disabled="disabled">Series</option>
 			<option value="#">Movies</option>
 			<option value="#">Documentary</option>
@@ -96,7 +96,7 @@ collection: components
 ```
 <nav class="secondary-nav secondary-nav--red-from-medium">
 	<div class="secondary-nav__content">
-		<select class="secondary-nav__dropdown" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		<select class="secondary-nav__dropdown select-navigation" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 			<option selected="selected" disabled="disabled">Series</option>
 			<option value="#">Movies</option>
 			<option value="#">Documentary</option>
@@ -121,7 +121,7 @@ collection: components
 
 <nav class="secondary-nav secondary-nav--red-always">
 	<div class="secondary-nav__content">
-		<select class="secondary-nav__dropdown" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		<select class="secondary-nav__dropdown select-navigation" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 			<option value="#" selected="true">Thurs, Jan. 7th</option>
 			<option value="#">Fri, Jan. 8th</option>
 			<option value="#">Sat, Jan. 9th</option>
@@ -133,7 +133,7 @@ collection: components
 ```
 <nav class="secondary-nav secondary-nav--red-always">
 	<div class="secondary-nav__content">
-		<select class="secondary-nav__dropdown" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		<select class="secondary-nav__dropdown select-navigation" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 		<option value="#" selected="true">Thurs, Jan. 7th</option>
 			<option value="#">Fri, Jan. 8th</option>
 			<option value="#">Sat, Jan. 9th</option>

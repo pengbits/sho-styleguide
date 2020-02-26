@@ -24,7 +24,7 @@ The Ways To Watch component includes three sections, which stack vertically on m
 			<h4 class="ways-to-watch__headline">Watch Episodes Instantly</h4>
 		</div>
 		<div class="ways-to-watch__stream__button">
-			<a class="ways-to-watch__button button--solid-red" href="#">Stream the Series</a>
+			<a class="ways-to-watch__button" href="#">Stream the Series</a>
 		</div>
 	</div>
 </div>
@@ -49,7 +49,7 @@ The Ways To Watch component includes three sections, which stack vertically on m
 			<h4 class="ways-to-watch__headline">Watch Episodes Instantly</h4>
 		</div>
 		<div class="ways-to-watch__stream__button">
-			<a class="ways-to-watch__button button--solid-red" href="#">Stream the Series</a>
+			<a class="ways-to-watch__button" href="#">Stream the Series</a>
 		</div>
 	</div>
 </div>
@@ -63,7 +63,7 @@ The Ways To Watch component includes three sections, which stack vertically on m
 			<h4 class="ways-to-watch__headline">Watch Episodes Instantly with Longer Headline</h4>
 		</div>
 		<div class="ways-to-watch__stream__button">
-			<a class="ways-to-watch__button button--solid-red" href="#">Stream the Series</a>
+			<a class="ways-to-watch__button" href="#">Stream the Series</a>
 		</div>
 	</div>
 	<div class="ways-to-watch__section">
@@ -88,7 +88,7 @@ The Ways To Watch component includes three sections, which stack vertically on m
 			<h4 class="ways-to-watch__headline">Watch Episodes Instantly with Longer Headline</h4>
 		</div>
 		<div class="ways-to-watch__stream__button">
-			<a class="ways-to-watch__button button--solid-red" href="#">Stream the Series</a>
+			<a class="ways-to-watch__button" href="#">Stream the Series</a>
 		</div>
 	</div>
 	<div class="ways-to-watch__section">
@@ -104,5 +104,70 @@ The Ways To Watch component includes three sections, which stack vertically on m
 	</div>
 </div>
 ```
+# W2W v2
+As seen on /bulk
 
+This version was created so that:
+
+1) Section 1 can "detach" from the other two on mobile.
+
+2) Logos are aligned vertically on mobile, while also being centered horizontally.
+
+<div class="w2w">
+  <div class="w2w__section">
+    <div class="w2w__ribbon"></div>
+    <div class="w2w__headline">
+      <div class="w2w__logo"></div>
+    </div>
+    <a class="w2w__button button--solid-red" href="/bulk/hotel-app">Learn More</a>
+  </div>
+  <div class="w2w__section">
+    <div class="w2w__headline">
+      <div class="w2w__logo"></div>
+    </div>
+    <a class="w2w__button button--solid-red" href="/bulk/package">Learn More</a>
+  </div>
+  <!--<div class="w2w__section">
+    <div class="w2w__headline">
+      <div class="w2w__logo"></div>
+    </div>
+    <a class="w2w__button button--solid-red" href="/bulk/package">Learn More</a>
+  </div>-->
+</div>
+
+# Ways to Order
+
+A sister component to the ways-to-watch module that was introduced for the custom wilder vs fury event page
+The component shows 3 different device categorys and outlines the ways to order a ppv event on each
+
+<figure class="ways-to-order">
+	<h3 class="ways-to-order__headline">
+		<i class="icon icon--sho-app-logo"></i> Buy online and stream live from the showtime app on all supported devices
+	</h3>
+	<div class="ways-to-order__devices-lockup">
+		<span class="ways-to-order__devices-lockup__icon"><i class="icon icon--sho-app-logo"></i></span>
+		<span class="ways-to-order__devices-lockup__pipe">|</span> 
+		<img class="ways-to-order__devices-lockup__image" src="/styleguide/assets/svg/devices-xl-lockup.svg" />
+	</div>
+	<figcaption class="ways-to-order__body">
+		<div class="ways-to-order__device-group">
+			<span class="ways-to-order__device-group__icon"><i class="icon icon--devices-xl-tv"></i></span>
+			<h3 class="ways-to-order__device-group__name">TV & Streaming Devices</h4>
+			<p class="ways-to-order__device-group__devices">Amazon Fire TV, Android TV, Apple TV (3rd Gen+), Chromecast, Roku, Xbox One</p>
+		</div>
+		<div class="ways-to-order__device-group">
+			<span class="ways-to-order__device-group__icon"><i class="icon icon--devices-xl-computer"></i></span>
+			<h3 class="ways-to-order__device-group__name">Computer</h4>
+			<p class="ways-to-order__device-group__devices">SHOWTIME.com</p>
+		</div>
+		<div class="ways-to-order__device-group">
+			<span class="ways-to-order__device-group__icon"><i class="icon icon--devices-xl-mobile"></i></span>
+			<h3 class="ways-to-order__device-group__name">Mobile & Tablet</h4>
+			<p class="ways-to-order__device-group__devices">iPhone, iPad, Android phones and tablets, Amazon Fire Tablet (3rd Gen+)</p>
+		</div>
+	</figcaption>
+</figure>
+
+<style>.site-sidebar { display: none }</style>
 <jsp-partials>styleguide/ways-to-watch/_ways_to_watch.jsp.md</jsp-partials>
+

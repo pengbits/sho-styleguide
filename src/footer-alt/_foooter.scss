@@ -1,0 +1,78 @@
+.foooter {
+	@include full-width-container;
+	background-color: $colors-red;
+  position: relative;
+	&__inner{
+    @include full-width-container__inner;
+    position: relative;
+    z-index: 98;
+  }
+  &__store-banner--container {
+    justify-content: center;
+    position: relative;
+    background: $colors-pure-white;
+  }
+  &__order-nav--container {
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+  }
+  &__store-banner {
+    z-index: 98;
+    display: flex;
+  }
+	&__order-promos {
+    display: flex;
+    padding-top: 80px;
+    padding-bottom: 80px;
+	}
+	&__nav-section {
+    display: flex;
+  }
+  &__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include until-large {
+      flex-direction: column;
+    }
+  }
+  &__sub-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 15px;
+    text-align: center;
+    width: 50%;
+    height: 390px;
+    position: relative;
+    @include until-large {
+      width: 100%;
+      min-height: 340px;
+    }
+    @include until-small {
+      width: 100%;
+      height: 360px;
+    }
+  }
+
+  .foooter__sub-section {
+    padding-top: 0;
+    padding-bottom: 0;
+    @include from-large {
+      padding-left: 50px;
+      padding-right: 15px
+    }
+  }
+  
+  .foooter__sub-section:first-child {
+    @include from-large {
+      padding-left: 15px;
+      padding-right: 50px
+    }
+  }
+  .order-promo__headline {
+    padding-bottom: 0;
+  }
+}

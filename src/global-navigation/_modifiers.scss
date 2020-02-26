@@ -86,13 +86,22 @@
 	}
 }
 
-.global-navigation--schedules-open {
+.global-navigation--flyout-open {
 	@include from-small {
-		.schedule-drawer {
+		.flyout-container {
 			opacity: 1;
 			@include transform(translateY(0));
 		}
 	}
+}
+
+.global-navigation--highlighted:after {
+	content: "";
+	display: block;
+	width: auto;
+	height: 3px;
+	background-color: $colors-red;
+	margin-top:-5px;
 }
 
 .global-navigation--search-open {
@@ -117,13 +126,27 @@
 	.global-navigation__circle {
 		@include transform(scale(.02));
 		@include transform-origin(30% 40%);
-		background: white;
-		border-color:white;
+		background: transparent;
+		border-color:transparent;
 	}
-	
+
+	.global-navigation__handle{
+		display: block;
+ 		top: 0px;
+		left: 10px;
+		height: 22px;
+	}
+
 	.global-navigation__handle:after {
-		@include transform-origin(center center);
-		@include transform(rotate(90deg));
+		animation: animate-search-handle ($duration + .1s);
+		animation-timing-function: $easing;
+		animation-delay: .1s;
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes animate-search-handle {
+		0% {}
+  	100% {@include transform-origin(center center); @include transform(rotate(90deg)); height: 22px;}
 	}
 }
 
@@ -138,5 +161,12 @@
 .global-navigation--hidden-md {
 	@include until-large {
 		display: none;
+	}
+}
+
+//variation for optimzely sticky global nav
+.global-navigation--sticky {
+	@include from-large {
+		position: fixed !important;
 	}
 }

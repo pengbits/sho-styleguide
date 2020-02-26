@@ -1,9 +1,9 @@
 ---
-name: Utility Methods
+name: Utility Styles
 collection: base
 ---
 
-# Utility Methods
+# Utility Styles
 
 ## Clearfix `%clearfix`
 

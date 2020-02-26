@@ -1,6 +1,6 @@
 ---
 name: Breakpoints
-collection: components
+collection: elements
 ---
 
 # Breakpoints

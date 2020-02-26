@@ -74,7 +74,7 @@
   
   &__link {
     @include cta;
-    display: block;
+    display: inline-block;
     margin-top: $size-l;
     
     &:after {
@@ -83,7 +83,7 @@
     
     @include from-large {
       margin-top: auto;   // pin to bottom of module
-		  padding: $size-s 0;
+		  margin: $size-s 0;
     }
   }
 		
@@ -111,7 +111,8 @@
     }
     
     .ways-to-watch__button {
-        @include button--skinny; 
+      @include button--skinny;
+      @include button--solid($colors-red);
     }
   }
   
@@ -146,4 +147,98 @@
     }
   }
   
+}
+
+.w2w {
+  position: relative;
+  @include display(flex);
+  @include flex-direction(column);
+  @include from-large {
+    @include flex-direction(row);
+  }
+
+  &__section {
+    position: relative;
+    padding: $size-xl;
+    background-color: $colors-bg-dark;
+    @include flex-grow(1);
+    @include display(flex);
+    @include flex-direction(column);
+    @include align-items(center);
+    
+    .w2w__headline {
+      width: 260px;
+      @include display(flex);
+      @include justify-content(flex-start);
+      @include from-large {
+        @include justify-content(center);
+      }
+    }
+    
+    &:nth-child(1) {
+      @include until-large {
+        margin-bottom: $size-m;
+      }
+      
+      .w2w__logo {
+        width: 260px;
+        background: url(https://downloads.sho.com/bulk/images/sho-hotel-app-logo.svg) no-repeat;
+      }
+
+      &:after {
+        position: absolute;
+        top: $size-l;
+        right: 0;
+        content: '';
+        height: 140px;
+        border-left: 2px solid $colors-bg-light;
+        @include until-large {
+          display: none;
+        }
+      }
+    }
+
+    &:nth-child(2) {  
+      .w2w__headline {
+        @include until-large {
+          width: 193px;
+        }
+      } 
+      .w2w__logo {
+        width: 193px;
+        background: url(https://downloads.sho.com/bulk/images/showtime-logo.svg) no-repeat;
+      }
+    }
+    
+    &:nth-child(3) .w2w__logo {
+      width: 260px;
+      background: url(https://downloads.sho.com/bulk/images/showtime-on-demand-logo.svg) no-repeat;
+    }
+  }
+
+  &__ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    background: url(https://downloads.sho.com/bulk/images/new-ribbon.png) no-repeat;
+    background-size: contain;
+    width: 70px;
+
+    @include from-large {
+      width: $size-m * 5;
+    }
+  }
+
+  &__logo {
+    margin-bottom: $size-l;
+    height: $size-m * 4;
+  }
+
+  &__button {
+    display: block;
+    margin: 0 auto;
+    width: 215px;
+  }
 }

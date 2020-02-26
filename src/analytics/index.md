@@ -79,21 +79,21 @@ The values noted above in the bullet list can be stored in related data attribut
 <div class="analytics-example">
   <a href="#" data-track data-context="global navigation" data-label="go to sho.com">Home</a>
   <a href="#" data-track data-context="promo group:see all series" data-label="series site: homeland" data-location="5">Homeland</a>
-  <a href="#" data-track data-context="provider card" data-label="provider lead" data-provider-id="63">Verizon</a> 
+  <a href="#" data-track data-context="provider card" data-label="provider lead" data-provider-id="63" target="_blank">Verizon</a> 
 </div>
 
 ```
 <div class="analytics-example">
   <a href="#" data-track data-context="global navigation" data-label="go to sho.com">Home</a>
   <a href="#" data-track data-context="promo group:see all series" data-label="series site: homeland" data-location="5">Homeland</a>
-  <a href="#" data-track data-context="provider card" data-label="provider lead" data-provider-id="63">Verizon</a> 
+  <a href="#" data-track data-context="provider card" data-label="provider lead" data-provider-id="63" target="_blank">Verizon</a> 
 </div>
 ```
 
 The above examples represent the most explicit and verbose possibilities. But to avoid a lot of duplicated markup, the JS layer is intelligent enough to look higher up in the DOM to find data-context or data-provider-id. So the Verizon example above could also be implemented like this if it keeps the mark up clean:
 
 <div class="analytics-example">
-  <div class="provider-card" data-context="provider card" data-provider-id="63">
+  <div class="provider-card" data-context="provider card" data-provider-id="63" target="_blank">
     <a href="#" data-track data-label="provider lead">Verizon Logo Here</a>
     <a href="#" data-track data-label="learn more">Learn More</a>
     <a href="#" data-track data-label="provider lead">Start Your Free Trial</a>
@@ -102,7 +102,7 @@ The above examples represent the most explicit and verbose possibilities. But to
 
 ```
 <div class="analytics-example">
-  <div class="provider-card" data-context="provider card" data-provider-id="63">
+  <div class="provider-card" data-context="provider card" data-provider-id="63" target="_blank">
     <a href="#" data-track data-label="provider lead">Verizon Logo Here</a>
     <a href="#" data-track data-label="learn more">Learn More</a>
     <a href="#" data-track data-label="provider lead">Start Your Free Trial</a>

@@ -1,25 +1,21 @@
-.schedule-drawer__inner,
-.schedule-drawer__footer__inner {
-  @include full-width-container__inner;
-}
 
 .schedule-drawer {
   display: none;
+  background-color: $colors-pure-black;
 
+ 
   @include from-large {
     display: block;
   }
 }
-
-.schedule-drawer__inner {
-  margin-top: $size-l + $size-s;
-}
-
 .schedule-drawer {
   @include header--delta;
   @include upcase;
-  background-color: $colors-bg-med;
-  box-shadow: 0 $size-l $size-xl $colors-pure-black;
+
+  .schedule-drawer__inner,
+  .schedule-drawer__footer__inner {
+    @include full-width-container__inner;
+  }
 
   .schedule-drawer__icon-close {
 	  @include icon('close','medium');
@@ -47,7 +43,6 @@
     overflow: hidden;
 
     .schedule-drawer__list-item {
-        padding-top: 30px;
         @include span-columns(4);
         @include omega(3n);
 
@@ -55,7 +50,7 @@
         float: left;
         margin: 0 5% $size-s 0;
         width: 50%;
-        max-width: 135px;
+        max-width: $size-xxl + $size-xl + $size-m;
         box-shadow: 6px 2px 11px -5px rgba(0,0,0,1);
       }
 
@@ -90,17 +85,35 @@
       }
     }
   }
+
+  .schedule-drawer__footer__inner{
+    display: flex;
+    align-items: center;
+    left: 0;
+    padding: $size-m 0 0 0;
+    width: 100%;
+    .pipebar {
+      height: $size-xl;
+      width: $size-xxs;
+      background-color: $colors-bg-light;
+      padding: 0;
+    }
+    i{
+      margin-left: $size-xs;
+      height: 16px;
+      width: 16px;
+    }
+  }
 }
 
 .schedule-drawer__link--view-more {
   @include header--epsilon;
   @include upcase;
-  display: inline-block;
-  padding: $size-l 0;
+  display: inline-flex;
   color: $colors-pure-white;
+  margin: 0 30px;
+  width: auto;
+  &:first-child {
+    margin: 0 25px 0 0;
+  }
 }
-
-.schedule-drawer__footer {
-  background-color: $colors-bg-light;
-}
-

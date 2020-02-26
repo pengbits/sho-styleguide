@@ -10,10 +10,10 @@ collection: components
 			<h1 class="super-serp__header">Homeland</h1>
 			<picture class="super-serp__image">
 				<source media="(max-width: 991px)"
-				data-srcset="http://www.sho.com/site/image-bin/images/804_5_0/804_5_0_01_704x588.jpg">
+				data-srcset="https://www.sho.com/site/image-bin/images/804_5_0/804_5_0_01_704x588.jpg">
 				<source media="(min-width: 992px)"
-				data-srcset="http://www.sho.com/site/image-bin/images/804_5_0/804_5_0_01_288x432.jpg">
-				<img class="lazyload" alt="Homeland" src="http://www.sho.com/assets/images/lib/blank.gif">
+				data-srcset="https://www.sho.com/site/image-bin/images/804_5_0/804_5_0_01_288x432.jpg">
+				<img class="lazyload" alt="Homeland" src="https://www.sho.com/assets/images/lib/blank.gif">
 				<div class="super-serp__button-container">
 					<a class="super-serp__button button--solid-red">Watch Now</a>
 				</div>
@@ -35,13 +35,13 @@ collection: components
 					</div>	
 				</a>
 				<a class="super-serp__link" href="#">
-					<div class="super-serp__link-video lazyload" data-bgset="http://www.sho.com/site/image-bin/images/804_1_0/804_1_0_01_140x80.jpg"></div>
+					<div class="super-serp__link-video lazyload" data-bgset="https://www.sho.com/site/image-bin/images/804_1_0/804_1_0_01_140x80.jpg"></div>
 					<div class="super-serp__link-text">
 						<h4 class="super-serp__link-title">Free Full Episode</h4>
 					</div>
 				</a>
 				<a class="super-serp__link" href="#">
-					<div class="super-serp__link-video lazyload" data-bgset="http://www.sho.com/site/image-bin/images/804_5_3422770/804_5_3422770_01_140x80.jpg"></div>
+					<div class="super-serp__link-video lazyload" data-bgset="https://www.sho.com/site/image-bin/images/804_5_3422770/804_5_3422770_01_140x80.jpg"></div>
 					<div class="super-serp__link-text">
 						<h4 class="super-serp__link-title">Trailer</h4>
 					</div>
@@ -62,7 +62,7 @@ collection: components
 				data-srcset="">
 				<source media="(min-width: 992px)"
 				data-srcset="">
-				<img class="lazyload" alt="Homeland" src="http://www.sho.com/assets/images/lib/blank.gif">
+				<img class="lazyload" alt="Homeland" src="https://www.sho.com/assets/images/lib/blank.gif">
 				<div class="super-serp__button-container">
 					<a class="super-serp__button button--solid-red">Watch Now</a>
 				</div>

@@ -13,7 +13,7 @@ The link banner is a jumbo-sized link element, that spans the full width of the 
 <section>
 	<div class="link-banner">
 		<a class="link-banner__link" href="#">
-			<img class="link-banner__image" src="http://www.sho.com/site/image-bin/images/1031103_0_0/1031103_0_0_97_100x150.jpg">
+			<img class="link-banner__image" src="https://www.sho.com/site/image-bin/images/1031103_0_0/1031103_0_0_97_100x150.jpg">
 			<div class="link-banner__title-container">
 				<h3 class="link-banner__title">The Affair</h3>
 				<h4 class="link-banner__sub-title">24 Episodes</h4>
@@ -25,7 +25,7 @@ The link banner is a jumbo-sized link element, that spans the full width of the 
 	</div>
 	<div class="link-banner">
 		<a class="link-banner__link" href="#">
-			<img class="link-banner__image" src="http://www.sho.com/site/image-bin/images/1002762_0_0/1002762_0_0_97_100x150.jpg">
+			<img class="link-banner__image" src="https://www.sho.com/site/image-bin/images/1002762_0_0/1002762_0_0_97_100x150.jpg">
 			<div class="link-banner__title-container">
 				<h3 class="link-banner__title">Masters of Sex</h3>
 				<h4 class="link-banner__sub-title">S3:E10 - Through a Glass, Darkly</h4>
@@ -37,7 +37,7 @@ The link banner is a jumbo-sized link element, that spans the full width of the 
 	</div>
 	<div class="link-banner">
 		<a class="link-banner__link" href="#">
-			<img class="link-banner__image" src="http://www.sho.com/site/image-bin/images/1003223_0_0/1003223_0_0_97_100x150.jpg">
+			<img class="link-banner__image" src="https://www.sho.com/site/image-bin/images/1003223_0_0/1003223_0_0_97_100x150.jpg">
 			<div class="link-banner__title-container">
 				<h3 class="link-banner__title">Penny Dreadful</h3>
 				<h4 class="link-banner__sub-title">S2:E3 - The Nightmare</h4>
@@ -52,7 +52,7 @@ The link banner is a jumbo-sized link element, that spans the full width of the 
 ```html
 <div class="link-banner">
 	<a class="link-banner__link" href="#">
-		<img class="link-banner__image" src="http://www.sho.com/site/image-bin/images/1031103_0_0/1031103_0_0_97_100x150.jpg">
+		<img class="link-banner__image" src="https://www.sho.com/site/image-bin/images/1031103_0_0/1031103_0_0_97_100x150.jpg">
 		<div class="link-banner__title-container">
 			<h3 class="link-banner__title">The Affair</h3>
 			<h4 class="link-banner__sub-title">24 Episodes</h4>
@@ -64,7 +64,7 @@ The link banner is a jumbo-sized link element, that spans the full width of the 
 </div>
 <div class="link-banner">
 	<a class="link-banner__link" href="#">
-		<img class="link-banner__image" src="http://www.sho.com/site/image-bin/images/1002762_0_0/1002762_0_0_97_100x150.jpg">
+		<img class="link-banner__image" src="https://www.sho.com/site/image-bin/images/1002762_0_0/1002762_0_0_97_100x150.jpg">
 		<div class="link-banner__title-container">
 			<h3 class="link-banner__title">Masters of Sex</h3>
 			<h4 class="link-banner__sub-title">S3:E10 - Through a Glass, Darkly</h4>
@@ -76,7 +76,7 @@ The link banner is a jumbo-sized link element, that spans the full width of the 
 </div>
 <div class="link-banner">
 	<a class="link-banner__link" href="#">
-		<img class="link-banner__image" src="http://www.sho.com/site/image-bin/images/1003223_0_0/1003223_0_0_97_100x150.jpg">
+		<img class="link-banner__image" src="https://www.sho.com/site/image-bin/images/1003223_0_0/1003223_0_0_97_100x150.jpg">
 		<div class="link-banner__title-container">
 			<h3 class="link-banner__title">Penny Dreadful</h3>
 			<h4 class="link-banner__sub-title">S2:E3 - The Nightmare</h4>

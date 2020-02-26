@@ -7,14 +7,26 @@
   opacity: 0;
   transition: opacity 0.2s, z-index 0s 0.2s;
   text-align: center;
-  // overflow: hidden;
-  // overflow-y: auto;
   white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: auto;
+  &--is-lower-third {
+    top: auto;
+    height: 215px;
+    background: transparent;
+    bottom:0;
+    @include at-large {
+      height: 235px;
+    }
+    @include until-large {
+      min-height: 160px;
+    }
+  }
 }
 
-.modal-open {
-  overflow: hidden;
+body.modal-open {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .modal > * {
@@ -30,21 +42,21 @@
   width: 0;
   height: 100%;
   vertical-align: middle;
-  content: "";
+  content: ""; 
 }
 
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
-  z-index: 199;
+  z-index: 210;
   opacity: 1;
   transition: opacity 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .modal__inner {
   position: relative;
   max-width: 90%;
-  max-height: 90%;
   min-height: $size-xxl;
   min-width: $size-xxl;
   background: $colors-bg-dark;
@@ -60,8 +72,12 @@
   }
   @include until-medium-tall {
     margin: 5% 0;
-    max-height: 100%;
   }
+}
+
+.modal__header,
+.modal__footer {
+  position: relative;
 }
 
 .modal-open .modal__inner {
@@ -105,11 +121,20 @@
   }
 }
 
-.modal-open .modal__close {
+
+.modal__close {
   @include icon('close','medium');
   position: absolute;
   z-index: 2;
-  right: $size-l;
-  top: $size-l;
   cursor: pointer;
+  
+  .modal__header & {
+    right: $size-l;
+    top: $size-l;
+  }
+  
+  .modal__footer & {
+    left: $size-l;
+    bottom: $size-l;
+  }
 }

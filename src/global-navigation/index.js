@@ -1,11 +1,12 @@
-import _ from 'underscore';
 import $ from 'jquery';
 import enquire from 'enquire.js';
+import {throttle} from "lodash";
+import Variations from '../variations/index';
 
 class GlobalNavigation {
   constructor(cfg) {
     var el = $(cfg.el);
-    _.extend(this, {
+    Object.assign(this, {
       'nav'              : el,
       'logo'             : el.find('.global-navigation__logo'),
       'menuToggle'       : el.find('.global-navigation__menu-toggle'),
@@ -14,42 +15,66 @@ class GlobalNavigation {
       'primary'          : el.find('.global-navigation__primary'),
       'primaryMenu'      : el.find('.global-navigation__primary-menu'),
       'primaryMobile'    : el.find('.global-navigation__primary-mobile'),
-      'schedulesOpenBtn' : el.find('.global-navigation__schedules'),
-      'schedulesCloseBtn': el.find('.schedule-drawer__icon-close'),
+      'flyoutContainer'  : el.find('.flyout-container'),
+      'flyoutOpenBtn'    : el.find('.global-navigation__flyout'),
+      'flyoutCloseBtn'   : el.find('.flyout-container__icon-close'),
       'schedulesDrawer'  : el.find('.schedule-drawer'),
+      'seriesDrawer'     : el.find('.series-drawer'),
       'searchIcon'       : el.find('.global-navigation__search-icon'),
       'rightMenu'        : el.find('.global-navigation__right-menu'),
       'searchBar'        : el.find('.global-navigation__search-bar'),
       'searchField'      : el.find('.global-navigation__search-field'),
       'searchForm'       : el.find('#results-search-form'),
+      'seriesBtn'        : el.find('.global-navigation__series'),
+      'scheduleBtn'      : el.find('.global-navigation__schedule'),
+      'seriesLink'       : el.find('.series__link'),
+      'seriesFlyout'     : el.find('.series__flyout'),
       // see _variables.scss, http://localhost:4000/styleguide/breakpoints/
       'breakpoints'      : {'large' : 992}
     });
-
+    this.win = $(window);
     this.isSearching = false;
 
     this.setHandlers();
     this.setEventListeners();
+    this.setVariationListeners();
   }
-
+  
   setHandlers() {
     $('body').on('click touchend', (event) => {
       this.onBodyClick(event);
     });
+
+    if ($('el').context.location.pathname == "/"){
+      this.seriesLink.css({"display":"none"})
+      this.seriesFlyout.show();
+    }else{
+      this.seriesFlyout.hide();
+      this.seriesLink.css({"display":"block"})
+    }
 
     this.menuOpenBtn.on('click touchend', (event) => {
       event.preventDefault();
       this.togglePrimaryNav();
     });
 
-    this.schedulesOpenBtn.on('click touchend', (event) => {
+    this.flyoutOpenBtn.on('click touchend', (event) => {
       event.preventDefault();
-      this.openSchedulesDrawer();
+      if(event.target.classList.contains('global-navigation--highlighted')){
+        this.closeFlyoutDrawer()
+      }else {
+        if(event.target.classList.contains('global-navigation__series') && $('el').context.location.pathname == "/") {
+          this.openFlyoutDrawer('series');
+        }
+        if(event.target.classList.contains('global-navigation__schedule')){
+          this.openFlyoutDrawer('schedule');
+        }
+      } 
     });
 
-    this.schedulesCloseBtn.on('click touchend', (event) => {
+    this.flyoutCloseBtn.on('click touchend', (event) => {
       event.preventDefault();
-      this.closeSchedulesDrawer()
+      this.closeFlyoutDrawer()
     });
 
     this.searchIcon.on('click touchend', (event) => {
@@ -80,7 +105,7 @@ class GlobalNavigation {
     });
 
     enquire.register(`screen and (max-width:${(this.breakpoints.large -1)}px)`, {
-      'match' : this.closeSchedulesDrawer.bind(this)
+      'match' : this.closeFlyoutDrawer.bind(this)
     })
   }
 
@@ -96,14 +121,14 @@ class GlobalNavigation {
 
   closePrimaryNav() {
     this.removeModifier(this.nav, 'open');
-    this.removeModifier(this.nav, 'schedules-open');
     this.removeModifier(this.nav, 'search-open');
+    this.closeFlyoutDrawer()
   }
 
   togglePrimaryNav() {
     this.addModifier(this.breadcrumb, 'hidden');
     this.toggleModifier(this.nav, 'open');
-    this.removeModifier(this.nav, 'schedules-open');
+    this.removeModifier(this.nav, 'flyout-open');
 
     if (this.navIsOpen()) {
       this.menuOpenBtn.attr("data-label", "menu open");
@@ -112,19 +137,40 @@ class GlobalNavigation {
     }
   }
 
-  openSchedulesDrawer() {
+  openFlyoutDrawer(type) {
     // need to set the drawer's display to none when its not in use to avoid collisions..
     // before toggling the classnames on for the active state and transitions, we have to restore display:block
-    this.schedulesDrawer.show();
+    this.flyoutContainer.show()
+    if(type === 'series'){
+      this.seriesDrawer.show()
+      this.schedulesDrawer.hide();
+    }
+    else if(type === 'schedule'){
+      this.schedulesDrawer.show();
+      this.seriesDrawer.hide()
+    }
 
     _.delay(() => {
-      this.addModifier(this.nav,    'schedules-open');
+      this.addModifier(this.nav,    'flyout-open');
       this.removeModifier(this.nav, 'open');
+
+      if(type === 'series'){  
+        this.addModifier(this.seriesBtn, 'highlighted')
+        this.removeModifier(this.scheduleBtn, 'highlighted')
+
+      }
+      else if(type === 'schedule'){
+        this.addModifier(this.scheduleBtn, 'highlighted')
+        this.removeModifier(this.seriesBtn, 'highlighted')
+      }
+
     }, 0)
   }
 
-  closeSchedulesDrawer() {
-    this.removeModifier(this.nav,    'schedules-open');
+  closeFlyoutDrawer() {
+    this.removeModifier(this.nav,    'flyout-open');
+    this.removeModifier(this.seriesBtn, 'highlighted')
+    this.removeModifier(this.scheduleBtn, 'highlighted')
   }
 
   toggleSearch() {
@@ -136,7 +182,7 @@ class GlobalNavigation {
 	    this.addModifier(this.rightMenu,  'hidden');
       this.addModifier(this.nav,        'search-open');
       this.removeModifier(this.nav,     'open');
-	    this.removeModifier(this.nav,     'schedules-open');
+      this.removeModifier(this.nav,     'flyout-open');
 		}
     else {
 			this.closePrimaryNav();
@@ -147,6 +193,7 @@ class GlobalNavigation {
     let transition_end = 'transitionend webkitTransitionEnd oTransitionEnd';
     this.primaryMenu.on(transition_end, (event) => {
       this.toggleModifier(this.breadcrumb, 'hidden', this.navIsOpen())
+      this.closeFlyoutDrawer()
     });
 
     this.primaryMobile.on(transition_end, (event) => {
@@ -170,10 +217,10 @@ class GlobalNavigation {
       }
     });
 
-    this.schedulesDrawer.on(transition_end, (event) => {
+    this.flyoutContainer.on(transition_end, (event) => {
       // if the drawer is not in use, it must be set to display:none;
-      if(!this.scheduleDrawerIsOpen()){
-        this.schedulesDrawer.hide();
+      if(!this.flyoutDrawerIsOpen()){
+        this.flyoutContainer.hide();
       }
     })
   }
@@ -199,8 +246,29 @@ class GlobalNavigation {
     return this.nav.hasClass('global-navigation--open')
   }
 
-  scheduleDrawerIsOpen(){
-    return this.nav.hasClass('global-navigation--schedules-open')
+  flyoutDrawerIsOpen(){
+    return this.nav.hasClass('global-navigation--flyout-open')
+  }
+
+//variation code for optimzely to stick the global navigation for desktop
+  setVariationListeners() {
+		Variations.on('variation:detected:sho', (event, data) => {
+			// console.log('|global_nav| sticky variations ready');
+				if (data && data.sticky_global_navigation) {
+				this.setStickyGlobalNavListner();
+				}
+		});
+  } 
+
+  setStickyGlobalNavListner () {
+    this.heightAboveFooter = $(".footer").offset().top;
+    this.throttledtoggleStickyGlobalNav = throttle(this.toggleStickyGlobalNav, 1000).bind(this);
+		this.win.resize(this.throttledtoggleStickyGlobalNav);
+		this.win.scroll(this.throttledtoggleStickyGlobalNav);
+  }
+
+  toggleStickyGlobalNav () {
+    this.nav.toggleClass('global-navigation--sticky', this.heightAboveFooter >= this.win.scrollTop());
   }
 }
 

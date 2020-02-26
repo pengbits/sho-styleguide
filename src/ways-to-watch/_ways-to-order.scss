@@ -1,0 +1,116 @@
+// A sister component to the ways-to-watch module that was introduced for the custom wilder vs fury event page
+// The component shows 3 different device categorys and outlines the ways to order a ppv event on each
+$sho-app-logo-size : 50px;
+$sho-app-logo-size-medium: 60px;
+$colors-other-grey: #5A5A5A;
+
+.ways-to-order {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  // @include full-width-container__inner;
+  
+  &__headline {
+    margin-bottom: $size-l;
+    @include header('beta');
+    @include upcase;
+  }
+  
+  &__headline .icon {
+    display: none;
+  }
+  
+  &__devices-lockup {    
+    @include from-medium { display: none }
+    position: relative;
+    margin-bottom: $size-l;
+    padding-left: ($sho-app-logo-size + ($size-m + $size-m + 1));
+    
+    &__icon { 
+      position: absolute;
+      left: 0;
+      top:25%;
+      
+      &,
+      & .icon {
+        @include size($sho-app-logo-size);
+      }
+    }
+    
+    &__image {
+      width: 100%;
+      height: auto;
+    }  
+    
+    &__pipe {
+      display: block;
+      position: absolute;
+      left: ($sho-app-logo-size + $size-m);
+      width: 1px;
+      top:0; bottom: 0;
+      background-color: $colors-other-grey;
+      color: $colors-other-grey;
+      overflow: hidden;
+    }
+    
+  }
+  &__body {
+    border-bottom: $colors-other-grey solid 1px;
+    padding-bottom: ($size-xxl);
+    margin-bottom:  ($size-xxl);
+
+  }
+  &__device-group {
+    &__icon {
+      display: none;
+      margin-bottom: $size-l;
+    }
+    
+    &__name {
+      margin-bottom: $size-s;
+      @include header('epsilon');
+      @include upcase;
+      color: $colors-text-dark;
+    }
+  
+    &__devices {
+      margin-bottom: $size-xl;
+      @include header('epsilon');
+      @include body-text
+    }
+  } 
+}   
+
+@include from-medium {
+  .ways-to-order {
+    &__headline {
+      position: relative;
+      padding-left: ($sho-app-logo-size-medium + ($size-l + $size-s));
+      margin: 0 15% $size-xl 15%;
+    }
+    
+    &__headline .icon {
+      display: block;
+      position: absolute;
+      left: 0;
+      @include size($sho-app-logo-size-medium);
+    }
+    
+    
+    &__body {
+      text-align: center;
+      display: flex;
+      padding-bottom: ($size-xxl + $size-l);
+      margin-bottom:  ($size-xxl + $size-xl);
+    }
+    
+    &__device-group {
+      width: 33.33%;
+    }
+    
+    &__device-group__icon {
+      display: inline-block;
+    }
+  }
+  
+}

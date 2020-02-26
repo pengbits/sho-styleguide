@@ -1,5 +1,11 @@
-.series-legal {
+$ratings-icon-path: 'https://downloads.sho.com/images/series/lib/tv-ratings/';
 
+@mixin ratings-icon($icon) {
+  background: transparent url(#{$ratings-icon-path}#{$icon});
+  background-size: cover;
+}
+
+.series-legal {
   .series-legal__icon {
     position: relative;
     top: -1px;
@@ -20,91 +26,99 @@
     @include upcase;
   }
 
-  $ratings-icon-path: 'http://www.sho.com/assets/images/series/lib/tv-ratings/';
-
   .tvma-dlvs {
-    background:transparent url(#{$ratings-icon-path}tvma-dlvs_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-dlvs_24x24.png');
   }
 
   .tv14-d {
-    background:transparent url(#{$ratings-icon-path}tv14-d_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tv14-d_24x24.png');
   }
 
   .tv14-dl {
-    background:transparent url(#{$ratings-icon-path}tv14-dl_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tv14-dl_24x24.png');
   }
 
   .tv14-l {
-    background:transparent url(#{$ratings-icon-path}tv14-l_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tv14-l_24x24.png');
   }
 
   .tv14-lv {
-    background:transparent url(#{$ratings-icon-path}tv14-lv_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tv14-lv_24x24.png');
   }
-  
+
+  .tv14-lvd {
+    @include ratings-icon('tv14-lvd_24x24.png');
+  }
+
   .tv14-dlvs {
-    background:transparent url(#{$ratings-icon-path}tv14-dlvs_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tv14-dlvs_24x24.png');
   }
 
   .tvma {
-    background:transparent url(#{$ratings-icon-path}tvma_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma_24x24.png');
   }
 
   .tvma-dl {
-    background:transparent url(#{$ratings-icon-path}tvma-dl_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-dl_24x24.png');
   }
 
   .tvma-ds {
-    background:transparent url(#{$ratings-icon-path}tvma-ds_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-ds_24x24.png');
   }
 
   .tvma-dls {
-    background:transparent url(#{$ratings-icon-path}tvma-dls_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-dls_24x24.png');
   }
 
   .tvma-dlv {
-    background:transparent url(#{$ratings-icon-path}tvma-dlv_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-dlv_24x24.png');
   }
 
   .tvma-dvs {
-    background:transparent url(#{$ratings-icon-path}tvma-dvs_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-dvs_24x24.png');
   }
 
   .tvma-l {
-    background:transparent url(#{$ratings-icon-path}tvma-l_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-l_24x24.png');
+  }
+
+  .tvma-lv {
+    @include ratings-icon('tvma-lv_24x24.png');
   }
 
   .tvma-sl {
-    background:transparent url(#{$ratings-icon-path}tvma-sl_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-sl_24x24.png');
   }
 
   .tvma-sv {
-    background:transparent url(#{$ratings-icon-path}tvma-sv_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvma-sv_24x24.png');
   }
 
   .tvpg-ac {
-    background:transparent url(#{$ratings-icon-path}tvpg-ac_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvpg-ac_24x24.png');
   }
 
   .tvpg-l {
-    background:transparent url(#{$ratings-icon-path}tvpg-l_24x24.png) no-repeat;
-    background-size: cover;
+    @include ratings-icon('tvpg-l_24x24.png');
   }
 
+  .tvpg-acv {
+    @include ratings-icon('tvpg-acv_24x24.png');
+  }
+
+  .tvma-acvl {
+    @include ratings-icon('tvma-acvl_24x24.png');
+  }
+
+  .tvma-acglnv {
+    @include ratings-icon('tvma_acglnv_60x60.png');
+  }
+
+  .tvma-acal {
+    @include ratings-icon('tvma-acal_60x60.png');
+  }
+
+  .tvma-al {
+    @include ratings-icon('tvma-al_60x60.png');
+  }
 }

@@ -1,0 +1,166 @@
+.pseudo-table-container {
+  background-color: $colors-pure-white;
+  margin-bottom: $size-xl;
+}
+
+.pseudo-table {
+  padding: $size-l 0;
+  
+  &__header {
+    padding-top:    $size-m;
+    padding-bottom: $size-m;
+    margin-bottom:  $size-m;
+    color: $colors-pure-black !important;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid $colors-light-red;
+  }
+  
+  &--primary {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $colors-light-red;
+    @include until-medium {
+      display: block; //keeps everything from piling on top of each other in ie11
+    }
+  }
+  
+  &--secondary {
+    display: none;
+    @include until-medium {
+      padding: 0 0 $size-l;
+    }
+  }
+
+  &__toggle {
+    @include header('epsilon');
+    @include upcase;
+    display: flex;
+    justify-content: center;
+    color: black;
+    width: 100%;
+    padding: 30px 0;
+  }
+  &__toggle-button {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  &__toggle-button:after {
+    content: "";
+    margin-left: $size-xs;
+  }
+}
+
+.pt-provider {
+  display: flex;
+  justify-content: space-between;
+  padding: $size-l 0;
+
+  &--primary {
+    flex-direction: column;
+    flex-basis: 30%;
+    @include until-medium {
+      border-bottom: 1px solid $colors-text-med;
+      display: block;//ie11 fix
+    }
+  }
+  
+  &--primary:last-of-type {
+    @include until-medium {
+      border-bottom: none;
+    }
+  }
+
+  &--secondary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $colors-text-med;
+    @include from-medium {
+      padding: $size-l 0 0;
+    }
+  }
+  &--secondary:last-of-type {
+    border-bottom: none; 
+  }
+
+  &__sub-container {
+    @include until-large {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__sub-container:last-of-type{
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include until-medium {
+      align-items: center;
+      flex-basis: 100%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 225px;
+    @include until-medium {
+      width: 225px; //was 180px (these are 450px wide images, render at 50%)
+    }
+  }
+
+  &__copy {
+    margin: $size-s $size-s $size-l 0;
+    @include header('epsilon');
+    color: black;
+  }
+
+  &__button {
+    @include round-button;
+    @include button--outline($colors-pure-white);
+    @include upcase;
+    border-color: $colors-pure-black;
+    font-weight: 600 !important;
+    color: $colors-pure-black;
+    cursor: pointer;
+    @include until-medium {
+      max-width: 300px;
+    }
+    @include at-medium {
+      padding-left: $size-xs;
+      padding-right: $size-xs;
+    }
+  } 
+}
+
+.pt-provider--primary:nth-child(2n) {
+  @include from-medium {
+    margin: 0 $size-m;
+  }
+} 
+
+.pseudo-table--primary .pt-provider__button {
+  width: 100%;
+}
+
+.pseudo-table--secondary .pt-provider__button {
+  width: 300px;
+  @media screen and (max-width: 300px) {
+     width: 100%;
+  }
+}
+
+.pseudo-table--secondary .pt-provider__sub-container:first-of-type {
+  @include from-medium {
+    flex-basis: 48%;
+  }
+}
+
+.pseudo-table__toggle--top .pseudo-table__toggle-button:after {
+  @include icon('down-arrow-black', 'small');
+}
+
+.pseudo-table__toggle--bottom .pseudo-table__toggle-button:after {
+  @include icon('up-arrow-black', 'small');
+}

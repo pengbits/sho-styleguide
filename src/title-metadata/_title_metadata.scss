@@ -79,10 +79,10 @@
 			margin-left: 0;
 			@include from-medium {
 				@include span-columns(6)
-				text-align:right; 
+				text-align:right;
 			}
 		}
-		
+
 		&:last-child {
 			margin-bottom: $size-m;
 			@include from-medium {

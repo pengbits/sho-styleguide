@@ -8,11 +8,13 @@
   }
   
   &__toggle {
-    @include button--outline-mid-grey;
+    @include round-button;
+    @include button--outline($colors-mid-grey);
     min-width: 100px; // undo strange compression at mobile
   }
   
   &__toggle--on {
-    @include button--solid-white;
+    @include round-button;
+    @include button--solid($colors-pure-white);
   }
 }

@@ -18,6 +18,16 @@
   }
 }
 
+// in refactor, cards are housed in extra container element, because 
+// React won't allow iterating without a wrapper, so we're applying a margin here
+// to keep bottom card colliding with legal. this was previously handled 
+// with the last card, and limited to desktop, but it should be on mobile as well.
+.order-tray__order-card-collection {
+  margin-bottom: $size-s;
+}
+
+.order-tray__legal-card-collection {}
+
 // rules for the card container and rounded corners
 .order-card {
   margin:0;
@@ -84,10 +94,13 @@
   
     // don't apply margin-top to the card that is literally first in the stack,
     // because the header has its own margin-bottom.
-    .order-tray__masthead + & {
+    .order-tray__masthead + &, 
+    .order-tray__body-content > div > &:first-child {
       margin-top: 0;
     }
+    // (the second selector is for the refactored react component)
   }
+  
   
   
   
@@ -122,8 +135,16 @@
     @include upcase;
   }
 
+  &__header {
+    @include display(flex);
+  }
+
   &__headline {
     @include header--gamma;
+  }
+
+  &__toggle {
+    @include display(flex);
   }
 
   &,
@@ -133,9 +154,11 @@
   }
 
   &__headline,
-  &__description {
+  &__description,
+  &__provider-set,
+  &__blurb {  
     display: none;
-
+    
     @include from-order-tray-sidebar-visible-or-when-selected {
         display: block;
     }

@@ -4,148 +4,40 @@ collection: components
 ---
 
 # Email Signup
+*if you don't see anything, you might need to clear your cookies*
 
-<div id="email-signup-widget" class="email-signup js-email-signup">
-  <div class="email-signup__inner">
-    <div class="email-signup__headline">
-      <i class="icon icon--large icon--envelope"></i>
-      <span class="email-signup__headline--text">Get The United States of Tara Email Updates</span>
-    </div>
-    <div class="email-signup__validation" style="display:none;">
-    </div>
-    <form name="email-signup-form" id="email-signup-form">
-      <div class="email-signup__form-fields">
-        <div class="email-signup__email-input">
-          <p class="email-signup__label">email</p>
-          <input class="input-box input-box-email" id="email-address" name="email" placeholder="name@example.com" type="text" value="" autocomplete="off">
-        </div>
-        <div class="email-signup__dob-select">
-          <p class="email-signup__label">date of birth</p>
-          <select class="dob-select select-month" id="select-month" name="birthdate_month">
-            <option selected hidden>MM</option>
-          </select>
-          <select class="dob-select select-day" id="select-day" name="birthdate_day">
-            <option selected hidden>DD</option>
-          </select>
-          <select class="dob-select select-year" id="select-year" name="birthdate_year">
-            <option selected hidden>YYYY</option>
-          </select>
-        </div>
-        <div class="email-signup__tos-input">
-          <input class="check-box" id="tos-agree" name="accepts_terms" type="checkbox">
-          <span>I have read and agree to the <a href="/about/terms">Terms of Use</a>, <a href="/about/privacy">Privacy Policy</a>, and <a href="/about/video-services">Video Services Policy</a>. I agree to receive updates, alerts and promotions from Showtime.</span>
-        </div>
-      </div><!-- /form-fields -->
-      <input type="hidden" name="pubId" id="pubId" value="38881">
-      <button class="email-signup__submit-btn" id="submit" data-context="">
-        Sign up
-      </button>
-    </form>
-  </div>
-  <div class="email-signup__headline--success"><i class="icon icon--large icon--check-mark"></i><span>Thank you for signing up for Showtime email updates.</span></div>
-  <div class="email-signup__headline--lockout"><i class="icon icon--large icon--close"></i><span>Sorry, but you are ineligible for registering on sho.com</span></div>
-  <div class="email-signup__headline--error"><i class="icon icon--large icon--close"></i><span>Sorry, but something went wrong, please try again.</span></div>
+Note: the id="email-signup-widget" is present to allow for anchor links.
+
+<div id="email-signup-widget"
+  class="js-react-email-signup"
+  data-pub-id="46169"
+  data-headline="GET SHOWTIME EMAIL UPDATES"
+  data-cta="Sign Up"
+  data-tracking-context="styleguide"
+  data-host="http://localhost:8080"
+>
 </div>
 
-## --alt 
+```
+<div id="email-signup-widget"
+  class="js-react-email-signup"
+  data-pub-id="46169" <!-- REQUIRED -->
+  data-headline="GET SHOWTIME EMAIL UPDATES" <!-- OPTIONAL - this is the default if ommitted -->
+  data-cta="Sign Up" <!-- OPTIONAL - this is the default if ommitted -->
+  data-tracking-context="styleguide" <!-- OPTIONAL - 'email signup:' is the default if ommitted -->
+  data-host="http://localhost:4000" <!-- OPTIONAL - '' (for relative path) is the default if ommitted -->
+>
+</div>
+```
 
-### Roadies Test
-<section class="section">
-  <div id="email-signup-widget" class="email-signup email-signup--alt email-signup--roadies js-email-signup">
-    <div class="email-signup__inner">
-      <div class="email-signup__headline">
-        <i class="icon icon--large icon--envelope"></i>
-        <span class="email-signup__headline--text">Get Roadies Updates</span>
-      </div>
-      <div class="email-signup__validation" style="display:none;">
-      </div>
-      <form name="email-signup-form" id="email-signup-form">
-        <div class="email-signup__form-fields">
-          <div class="email-signup__email-input">
-            <p class="email-signup__label">email</p>
-            <input class="input-box input-box-email" id="email-address" name="email" placeholder="name@example.com" type="text" value="" autocomplete="off">
-          </div>
-          <div class="email-signup__dob-select">
-            <p class="email-signup__label">date of birth</p>
-            <select class="dob-select select-month" id="select-month" name="birthdate_month">
-              <option selected hidden>MM</option>
-            </select>
-            <select class="dob-select select-day" id="select-day" name="birthdate_day">
-              <option selected hidden>DD</option>
-            </select>
-            <select class="dob-select select-year" id="select-year" name="birthdate_year">
-              <option selected hidden>YYYY</option>
-            </select>
-          </div>
-          <div class="email-signup__tos-input">
-            <input class="check-box" id="tos-agree" name="accepts_terms" type="checkbox">
-            <span>I have read and agree to the <a href="/about/terms">Terms of Use</a>, <a href="/about/privacy">Privacy Policy</a>, and <a href="/about/video-services">Video Services Policy</a>. I agree to receive updates, alerts and promotions from Showtime.</span>
-          </div>
-        </div><!-- /form-fields -->
-        <input type="hidden" name="pubId" id="pubId" value="38881">
-        <button class="email-signup__submit-btn" id="submit" data-context="">
-          Sign up
-        </button>
-      </form>
-    </div>
-    <div class="email-signup__headline--success"><i class="icon icon--large icon--check-mark"></i><span>Thank you for signing up for Showtime email updates.</span></div>
-    <div class="email-signup__headline--lockout"><i class="icon icon--large icon--close"></i><span>Sorry, but you are ineligible for registering on sho.com</span></div>
-    <div class="email-signup__headline--error"><i class="icon icon--large icon--close"></i><span>Sorry, but something went wrong, please try again.</span></div>
-  </div>
-</section>
-
-### Ray Donovan Test
-<section class="section">
-  <div id="email-signup-widget" class="email-signup email-signup--alt email-signup--ray-donovan js-email-signup">
-    <div class="email-signup__inner">
-      <div class="email-signup__headline">
-        <i class="icon icon--large icon--envelope"></i>
-        <span class="email-signup__headline--text">Get Ray Donovan Updates</span>
-      </div>
-      <div class="email-signup__validation" style="display:none;">
-      </div>
-      <form name="email-signup-form" id="email-signup-form">
-        <div class="email-signup__form-fields">
-          <div class="email-signup__email-input">
-            <p class="email-signup__label">email</p>
-            <input class="input-box input-box-email" id="email-address" name="email" placeholder="name@example.com" type="text" value="" autocomplete="off">
-          </div>
-          <div class="email-signup__dob-select">
-            <p class="email-signup__label">date of birth</p>
-            <select class="dob-select select-month" id="select-month" name="birthdate_month">
-              <option selected hidden>MM</option>
-            </select>
-            <select class="dob-select select-day" id="select-day" name="birthdate_day">
-              <option selected hidden>DD</option>
-            </select>
-            <select class="dob-select select-year" id="select-year" name="birthdate_year">
-              <option selected hidden>YYYY</option>
-            </select>
-          </div>
-          <div class="email-signup__tos-input">
-            <input class="check-box" id="tos-agree" name="accepts_terms" type="checkbox">
-            <span>I have read and agree to the <a href="/about/terms">Terms of Use</a>, <a href="/about/privacy">Privacy Policy</a>, and <a href="/about/video-services">Video Services Policy</a>. I agree to receive updates, alerts and promotions from Showtime.</span>
-          </div>
-        </div><!-- /form-fields -->
-        <input type="hidden" name="pubId" id="pubId" value="38881">
-        <button class="email-signup__submit-btn" id="submit" data-context="">
-          Sign up
-        </button>
-      </form>
-    </div>
-    <div class="email-signup__headline--success"><i class="icon icon--large icon--check-mark"></i><span>Thank you for signing up for Showtime email updates.</span></div>
-    <div class="email-signup__headline--lockout"><i class="icon icon--large icon--close"></i><span>Sorry, but you are ineligible for registering on sho.com</span></div>
-    <div class="email-signup__headline--error"><i class="icon icon--large icon--close"></i><span>Sorry, but something went wrong, please try again.</span></div>
-  </div>
-</section>
-
-### Marketing Feed Sign Up
+### Marketing Feed Sign Up (no js)
 
 <section class="section">
   <div class="section--inner">
-    <div id="email-signup-widget" class="email-signup email-signup--marketing-feed js-email-signup">
+    <div id="email-signup-widget" class="email-signup email-signup--marketing-feed">
       <div class="email-signup__inner">
         <div class="email-signup__validation" style="display:none;">
+          <span class="email-signup__validation--error"></span>
         </div>
         <form name="email-signup-form" id="email-signup-form" action="/network-feed/home">
           <div class="email-signup__form-fields">
@@ -171,12 +63,6 @@ collection: components
           </button>
         </form>
       </div>
-      <div class="email-signup__headline--success">
-        <h1>Thank You</h1>
-        <p>A Showtime representative will contact you shortly.</p>
-      </div>
-      <div class="email-signup__headline--lockout"><i class="icon icon--large icon--close"></i><span>Sorry, but you are ineligible for registering on sho.com</span></div>
-      <div class="email-signup__headline--error"><i class="icon icon--large icon--close"></i><span>Sorry, but something went wrong, please try again.</span></div>
     </div>
   </div>
 </section>
@@ -185,17 +71,17 @@ collection: components
   .site-sidebar-toggle {
     display: none;
   }
-  
+
   .simplified-global-navigation {
     position: absolute;
     top: 0;
     z-index: 9999;
   }
-  
+
   .site-main {
     padding: 0;
   }
-  
+
   .site-content {
     max-width: none;
   }

@@ -1,0 +1,31 @@
+.sample-react-component{
+	margin: $size-xxl;
+	padding: $size-xl;
+  border: 2px solid $colors-red;
+	text-align: center;
+	@include flex-vertical-center;
+
+	&__header {
+		@include header--beta;
+	}
+
+	&__button {
+		margin: 0 auto;
+		height: $size-xl;
+		width: $size-xl;
+		background-color: $colors-mid-grey;
+		border-radius: $size-s;
+		@include flex-vertical-center;
+
+		&-icon {
+			margin-left: -7px;
+
+			&--thumbsup:before {
+				content: '👍';
+			}
+			&--thumbsdown:before {
+				content: '👎';
+			}
+		}
+	}
+}

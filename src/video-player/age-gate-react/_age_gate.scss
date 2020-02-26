@@ -1,0 +1,120 @@
+
+//age-gate
+  
+$player-footprint-height-sm: 388px;
+$player-footprint-height-md: 380px;
+$player-footprint-height-lg: 464px;
+$age-gate-height:  66px;
+
+@mixin video-playr__mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.8);
+  
+  & {
+    padding-top: ($player-footprint-height-sm - $age-gate-height) / 2;
+  }
+  
+  @include at-medium {  
+    padding-top: ($player-footprint-height-md - $age-gate-height) / 2; 
+  }
+  
+   @include from-large {
+    padding-top: ($player-footprint-height-lg - $age-gate-height) / 2;  
+  }
+}
+  
+.video-playr__age-gate {
+  @include video-playr__mask;
+  z-index: 1; 
+  padding-top: 20%;
+  padding-bottom: 15%;
+    @include until-small {
+    padding-top: 5%;
+  }
+  
+  form {
+    text-align: center;
+    height: $age-gate-height;
+    
+    input {
+      height: $size-m * 2;
+      width: $size-xl;
+      margin-right: $size-xs;
+      padding: 0 $size-xs;
+      background-color: $colors-dark-grey;
+      border: $colors-mid-grey solid 1px;
+      color: $colors-light-grey;
+      outline: 0;
+      text-align: center;
+      vertical-align: middle;
+      &:last-child {
+        margin-right: 0;
+        //width: $size-m * 2;
+        width: 60px; 
+      } 
+    }
+  }
+
+  &_form.has_errors {
+    border: 1px solid $colors-red;
+  }
+  
+  &__message {
+    @include header--epsilon;
+    margin-bottom: $size-s;
+    color: $colors-pure-white;
+    text-align: center;
+    &.has_errors {
+      @include header--epsilon; 
+      color: $colors-red;
+    }
+  }
+    
+  &__date-of-birth {
+    display: inline-block; 
+    margin-right: $size-m;
+    @include until-small {
+      display: block; 
+      margin-bottom: $size-s;
+      margin-right: 0;
+    }
+  }
+
+  .btn-submit {
+    display: inline-block; 
+    min-width: 144px;
+  }
+}
+  
+  .has_errors .video-playr__age-gate__date-of-birth input {
+    border: 1px solid $colors-red;
+  }
+
+  // .has_errors .video-playr__age-gate__message {
+  //   @include header--epsilon; 
+  //   color: $colors-red;
+  // }
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder	{
+  padding: 10px;
+  color:  $colors-mid-grey;
+	text-align: center;
+	font-size:  $size-m;
+	text-align: center;
+} 
+
+
+
+
+
+
+
+
+
+

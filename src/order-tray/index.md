@@ -1,9 +1,11 @@
 ---
-name: Order Tray
-collection: components
+name: Order Tray (overlay)
+collection: order
 ---
 
-# Order Tray
+# Order Tray Redux
+
+A complete re-code of the order-tray, using [React](https://facebook.github.io/react/) + [Redux](http://redux.js.org/) instead of [Backbone](http://backbonejs.org/)
 
 [SITE-13037](https://issues.sho.com/browse/SITE-13037)
 
@@ -50,22 +52,27 @@ the Order Tray is the primary means of communicating the Showtime offering acros
 <a href="#/order/int-default-3784" class="button--solid-red">Got Showtime?</a>
 ```
 
-_note: this is not testable in the styleguide because the sage-code detection is an aspect of analytics, which is only running in the webapp_
 
-
-## Example 4: Open Tray with Theme (Simulate Optimizely experiment)
-
-<a href="#/order/theme/8173424711" class="button--solid-red">Get Showtime A/B test</a>
+## Example 4: Open Tray with Sage Code and Provider Focused
+<a href="#/order/provider/92/int-default-3784" class="button--solid-red">Order with Apple</a>
 
 ```
-<a href="#/order/theme/8173424711" class="button--solid-red">Get Showtime A/B test</a>
+<a href="#/order/provider/92/int-default-3784" class="button--solid-red">Order with Apple</a>
+```
+
+## Example 5: Open Tray with Theme (Simulate Optimizely experiment)
+
+<a href="#/order/theme/8373912671" class="button--solid-red">Get Showtime A/B test</a>
+
+```
+<a href="#/order/theme/8373912671" class="button--solid-red">Get Showtime A/B test</a>
 ```
 
 _this is just a way to preview the content changes that correspond to an optimizely experiment, 
 which is not quite the same as testing the experiment itself. When a real experiment is running, the theme will be stored in a variable on the window object:_
 
 ```
-  window.sho_variations.order_tray.theme = 8173424711;
+  window.sho_variations.order_tray.theme = 8373912671;
 ```
 
 
@@ -78,4 +85,3 @@ Aliquam tempor velit non pharetra elementum. Sed venenatis lorem et cursus pelle
 Nam rhoncus justo quis sapien elementum, nec rhoncus velit finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed felis ante, facilisis vel rhoncus a, varius nec arcu. Vestibulum vestibulum faucibus risus, id efficitur ex. Aenean orci augue, sagittis sit amet ullamcorper a, auctor in arcu. Ut euismod sit amet dolor et volutpat. Morbi faucibus vel neque id aliquet. Etiam ornare efficitur suscipit. Vivamus vitae nunc nec justo fermentum facilisis in suscipit turpis. Morbi condimentum a odio vitae tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris fringilla justo eros, euismod laoreet ipsum laoreet quis.
 
 Nunc vestibulum urna enim. Cras ornare nunc eu convallis blandit. Quisque tempus eros ac tortor dignissim, eget pellentesque sapien vestibulum. Proin dignissim neque vitae congue tristique. Fusce placerat euismod vestibulum. Integer a tincidunt nulla. Donec in scelerisque eros, eu blandit leo. Sed porta dolor nec turpis vestibulum pharetra. Aliquam dapibus libero ac elit malesuada posuere porttitor sed metus. Vestibulum quam purus, consequat sed tortor ut, cursus pulvinar nisi. Nunc tellus tortor, dictum sit amet dignissim nec, varius in libero. Nam maximus finibus diam, ut tincidunt est suscipit in. Vestibulum lacus nibh, vestibulum eu laoreet vitae, pharetra at elit. Sed et fringilla dolor.
-

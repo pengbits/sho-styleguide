@@ -9,13 +9,36 @@ collection: components
 The notification component allows for  strip of messaging to be inserted into the top of the page, above the global navigation
 
 <aside class="notification js-notification">
-    <h1 class="notification__message">Our <a href="/terms">Terms of Use</a> have changed effective as of July 12, 2016. By using our services, you consent to the updated <a href="/terms">Terms of Use</a>  <em class="notification__closer"></em></h1>
+  <div class="notification__content">  
+    <h1 class="notification__message">Our <a href="/terms">Terms of Use</a> have changed effective as of July 12, 2016. By using our services, you consent to the updated <a href="/terms">Terms of Use</a></h1>
+    <em class="notification__closer"></em>
+  </div>  
 </aside>
 
 ```
 <aside class="notification js-notification">
-  <h1 class="notification__message">Our <a href="/terms">Terms of Use</a> have changed effective as of July 12, 2016. By using our services, you consent to the updated <a href="/terms">Terms of Use</a>   <em class="notification__closer"></em>
-</h1>
+  <div class="notification__content">  
+    <h1 class="notification__message">Our <a href="/terms">Terms of Use</a> have changed effective as of July 12, 2016. By using our services, you consent to the updated <a href="/terms">Terms of Use</a></h1>
+    <em class="notification__closer"></em>
+  </div>  
+</aside>
+```
+
+### --white --no-closer (optional icon) As seen on /bulk/hotel-app
+
+<aside class="notification notification--white notification--no-closer">
+  <div class="notification__content">
+    <i class="icon icon--medium icon--check-mark-white notification__icon"></i>
+    <h1 class="notification__message">Thanks! A SHOWTIME Representative will be in touch shortly.</h1>
+  </div>
+</aside>
+
+```
+<aside class="notification notification--white notification--no-closer">
+  <div class="notification__content">
+    <i class="icon icon--medium icon--check-mark-white notification__icon"></i>
+    <h1 class="notification__message">Thanks! A SHOWTIME Representative will be in touch shortly.</h1>
+  </div>
 </aside>
 ```
 

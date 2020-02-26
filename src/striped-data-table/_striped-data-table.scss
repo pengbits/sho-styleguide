@@ -1,0 +1,94 @@
+.striped-data-table {
+  display: flex;
+  flex-direction: column;
+  &__row {
+    display: flex;
+    padding: $size-l + $size-s;
+    @include at-large {
+      padding: ($size-l + $size-s) $size-m;
+    }
+    @include until-large {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: $size-xl $size-m $size-l;
+      width: 100%;
+    }
+  }
+  &__row:nth-child(even) {
+    background-color: $colors-bg-dark;
+  } 
+  &__highlight {
+    color: $colors-pure-white;
+  }
+}
+
+.striped-data-table__row:first-child {
+  display: flex;
+  padding: 30px 30px 15px 30px;
+  @include until-large {
+    display: none;
+  }
+  @include at-large {
+    padding: 30px 15px 15px;
+  }
+  .striped-data-table__item {
+    flex-direction: row;
+    color: $colors-text-med;
+    font-size: $size-s;
+    line-height: 0;
+  }
+  .striped-data-table__item--centered {
+    justify-content: center;
+  }
+}
+
+.striped-data-table__item {
+  flex: 1;
+  padding: $size-xs;
+  display: flex;
+  flex-direction: column;
+  color: $colors-text-med;
+  font-size: 14px;
+  line-height: $size-l;
+  width: 100%;
+  margin: 0 $size-s;
+  @include from-large {
+    max-width: 250px;
+  }
+  @include until-large {
+    margin: 0;
+    padding: 0px $size-xs $size-l $size-xs;
+    flex: none;
+  }
+  @include at-large {
+    padding: 0px $size-s $size-s;
+  }
+  p {
+    //undo default padding set by defaults.scssd
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+.striped-data-table__item:first-child {
+  color: $colors-pure-white;
+  flex: .75;
+  margin: 0;
+  @include until-large {
+    padding-bottom: 0px;
+    flex: none;
+  }
+}
+.striped-data-table__item:last-child {
+  flex: 1;
+  margin: 0;
+  @include until-large {
+    margin-top: $size-m;
+    flex: none;
+  }
+}
+
+.striped-data-table__item > a {
+  text-decoration: underline;
+  color: $colors-pure-white;
+}

@@ -64,24 +64,21 @@ The section--gradient variation include a subtle background gradient from top to
         <div class="slider__content" style="touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;">
           <ul class="slider__items promo-group promo-group--to-three-up">
               <li class="promo promo--docked promo--square promo--large slider__item">
-                <div class="promo__image lazyloaded" data-bgset="http://www.sho.com/site/image-bin/images/323_0_0/323_0_0_01_568x568.jpg" style="background-image: url(&quot;http://www.sho.com/site/image-bin/images/323_0_0/323_0_0_01_568x568.jpg&quot;);">
-                <picture style="display: none;"><source data-srcset="http://www.sho.com/site/image-bin/images/323_0_0/323_0_0_01_568x568.jpg" sizes="384px" srcset="http://www.sho.com/site/image-bin/images/323_0_0/323_0_0_01_568x568.jpg"><img alt="" data-parent-fit="cover" class="lazyautosizes lazyloaded" data-sizes="auto" sizes="384px"></picture></div>
+                <div class="promo__image lazyload" data-bgset="https://www.sho.com/site/image-bin/images/323_0_0/323_0_0_01_568x568.jpg" ></div>
                 <div class="promo__body">
                   <h3 class="promo__headline">Dexter</h3>
                 </div>
                 <a class="promo__link" href="/sho/dexter/home">Dexter</a>
               </li>
               <li class="promo promo--docked promo--square promo--large slider__item">
-                <div class="promo__image lazyloaded" data-bgset="http://www.sho.com/site/image-bin/images/411_0_0/411_0_0_01_568x568.jpg" style="background-image: url(&quot;http://www.sho.com/site/image-bin/images/411_0_0/411_0_0_01_568x568.jpg&quot;);">
-                <picture style="display: none;"><source data-srcset="http://www.sho.com/site/image-bin/images/411_0_0/411_0_0_01_568x568.jpg" sizes="384px" srcset="http://www.sho.com/site/image-bin/images/411_0_0/411_0_0_01_568x568.jpg"><img alt="" data-parent-fit="cover" class="lazyautosizes lazyloaded" data-sizes="auto" sizes="384px"></picture></div>
+                <div class="promo__image lazyload" data-bgset="https://www.sho.com/site/image-bin/images/411_0_0/411_0_0_01_568x568.jpg" ></div>
                 <div class="promo__body">
                   <h3 class="promo__headline">Californication</h3>
                 </div>
                 <a class="promo__link" href="/sho/californication/home">Californication</a>
               </li>
               <li class="promo promo--docked promo--square promo--large slider__item">
-                <div class="promo__image lazyloaded" data-bgset="http://www.sho.com/site/image-bin/images/754_0_0/754_0_0_01_568x568.jpg" style="background-image: url(&quot;http://www.sho.com/site/image-bin/images/754_0_0/754_0_0_01_568x568.jpg&quot;);">
-                <picture style="display: none;"><source data-srcset="http://www.sho.com/site/image-bin/images/754_0_0/754_0_0_01_568x568.jpg" sizes="384px" srcset="http://www.sho.com/site/image-bin/images/754_0_0/754_0_0_01_568x568.jpg"><img alt="" data-parent-fit="cover" class="lazyautosizes lazyloaded" data-sizes="auto" sizes="384px"></picture></div>
+                <div class="promo__image lazyload" data-bgset="https://www.sho.com/site/image-bin/images/754_0_0/754_0_0_01_568x568.jpg" ></div>
                 <div class="promo__body">
                   <h3 class="promo__headline">The Borgias</h3>
                 </div>

@@ -27,12 +27,16 @@
   @extend %read-more__icon;
   @extend .icon--down-white; 
   margin-left: $size-s; 
+  margin-top: 3px;
+  position: absolute;
 } 
 
 .read-more__toggle--less::after { 
   @extend %read-more__icon;
   @extend .icon--up-white;
   margin-left: $size-s;
+  position: absolute;
+  margin-top: 3px;
 }
 
  

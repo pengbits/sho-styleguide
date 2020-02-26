@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import _ from 'underscore';
+import _ from 'lodash';
 
 let instance = null;
   
@@ -28,11 +28,11 @@ class Variations {
     // the sho_variations object is set, so we can't abort on finding the presence of optimizely object.
 
     if(this.foundShoVariation() || this.polling_attempts > 9){
-      console.log('|variations| found variation or timed out, aborting loop');
+      // console.log('|variations| found variation or timed out, aborting loop');
       clearInterval(this.polling_id);
       
       if(this.foundShoVariation()){
-        console.log('|variations| found sho variation');
+        // console.log('|variations| found sho variation');
         //console.log(this.getVariationMap('sho'))
         this.fire({
           'type':'variation:detected',
@@ -43,7 +43,7 @@ class Variations {
       }
       
       if(this.foundVendorVariation()){
-        console.log('|variations| found vendor variation');
+        // console.log('|variations| found vendor variation');
         this.fire({
           'type':'variation:detected', 
           'variation_type':'vendor'
@@ -118,7 +118,9 @@ class Variations {
   
   // public
   on(eventName, callback){
-    $(document).on(eventName, callback)
+    $(document).on(eventName, (e,data) => {
+      callback(e,data)
+    })
   }
   
 }

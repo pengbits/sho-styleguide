@@ -165,13 +165,6 @@
     // for reasons that may need to be further investigated
     margin-right: 2%;
   }
-
-  .promo:nth-child(n+4) {
-    // hide all beyond first three until medium
-    @include until-medium {
-      display: none;
-    }
-  }
 }
 
 // converts to list (no images) below medium

@@ -1,0 +1,106 @@
+.cast-details {
+  &__heading {
+    @include header('alpha');
+    @include upcase;
+    border-bottom: 1px solid $colors-red;
+    display: flex;
+    justify-content: center;
+    padding: $size-m;
+    margin-top: $size-xxl;
+    @include until-large {
+      margin-top: $size-s;
+    }
+  }
+}
+
+.grid-container {
+  padding-top: ($size-l + $size-s - 2px);
+
+  //Flex fallback support for old browsers, CSS Grid overwrites this property in new browsers,
+  display: flex;  
+  flex-wrap: wrap; 
+  justify-content: flex-start;
+  margin: 0 -15px;
+
+  //CSS Grid
+  @supports(display: grid) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: ($size-l + $size-s); 
+    margin: 0;
+  }
+
+  @include until-large {
+    padding-top: ($size-l - 2px); 
+    @supports(display: grid) {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: $size-l;
+    }   
+  }
+
+  @include until-medium {
+    padding-top: $size-m; 
+    @supports(display: grid) {
+      grid-gap: $size-m;
+    }   
+  }
+}
+
+.grid-container:last-of-type {
+  margin-bottom: $size-xxl;
+}
+
+.grid-item {
+  margin-bottom: 30px;
+  
+  //More support IE11 support
+  width: 25%;
+  padding: 0 15px;
+  @include until-large {
+    padding: 10px 15px 0;
+    width: 50%;
+  }
+
+  //More CSS grid stuff
+  @supports(display: grid) {
+    width: auto;
+    padding: 0;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 100%;
+  }
+  &__title {
+    @include upcase;
+    @include header('gamma');
+    padding: $size-m 0px 0px;
+    position: relative;
+    display: block;
+  }
+  &__subtitle {
+    @include header('epsilon');
+    padding: 0 0 $size-m;
+    color: white;
+  }
+  &__copy {
+    color: $colors-text-med;
+    line-height: $size-l;
+  }
+}
+
+.grid-item__title--last-word {
+  display: inline-block;
+}
+.grid-item__title--cta {
+  @include icon;
+  @include icon-image('next');
+  height: 16px;
+  width: 16px;
+  margin-left: $size-s;
+  margin-top: $size-xxs;
+  content: "";
+  @include until-large {
+    margin-left: $size-xs;
+  }
+}

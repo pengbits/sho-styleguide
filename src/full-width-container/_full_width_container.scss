@@ -50,6 +50,8 @@
     }
   }
 
+  // heads up this does not work inside a modal (throws off vertical centering)
+  
   @mixin third-width-container {
     @include until-medium {
       @include span-columns(12);

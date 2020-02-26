@@ -1,0 +1,44 @@
+.full-episode-banner {
+  margin-bottom: $size-m;
+  &__inner {
+    background-color: $colors-pure-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: $size-l;
+  }
+  &__cta {
+    @include upcase;
+    @include header--gamma;
+    @include cta;
+    color: $colors-pure-black;
+    margin-top: 7px;
+    @include until-medium {
+      margin-right: 12px; //hack to make sure cta:after wraps with preceeding word on mobile
+    }
+    @include until-large {
+      margin-top: $size-xs;
+    }
+  }
+  &__cta:after {
+      @include icon;
+      @include icon-image('next-black');
+      width: $size-m;
+      height: $size-m;
+      margin-left: $size-xs;
+      content: "";
+      display: inline-block;
+      @include until-medium {
+        position: absolute; //hack to make sure cta:after wraps with preceeding word on mobile
+        margin-top: 3px;
+      }
+      @include from-medium {
+        margin-top: 0;
+        margin-bottom: 1px;
+      }
+      @include until-large {
+        @include icon-size('small');
+      }
+  }
+}

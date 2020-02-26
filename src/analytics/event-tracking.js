@@ -1,5 +1,7 @@
 import $ from 'jquery';
+import Cookies from '../utils/Cookies'
 import CampaignHelper from './campaign-helper';
+import GenerateTimestamp from './generate-timestamp';
 
 class EventTracking
 {
@@ -18,8 +20,29 @@ class EventTracking
   setHandlers() {
     // user-initiated click events
     $(document).on( "click", "[data-track]", event => { this.trackClick(event) });
+
     // events broadcast from other JS contexts
-    $(document).on( "selectNavigation orderProviderUnselect orderProviderSelectNone orderTrayClose order:opened orderProviderSelect orderProviderSelectAll searchFormSubmit stream:opened scheduleDateSelected emailSubmit emailSignupError emailSignupSuccess", event => { this.eventTriggered(event) });
+    $(document).on([
+      "selectNavigation",
+      "cart-modal:opened",
+      "cart-modal:closed",
+      "orderProviderUnselect",
+      "orderProviderSelectNone",
+      "orderTrayClose",
+      "order:opened",
+      "orderProviderClick",
+      "orderProviderOpen",
+      "orderProviderClose",
+      "orderProviderLearnMore",
+      "orderProviderSelectAll",
+      "orderVariationActivated",
+      "searchFormSubmit",
+      "stream:opened",
+      "scheduleDateSelected",
+      "emailSubmit",
+      "emailSignupError",
+      "emailSignupSuccess"
+    ].join(' '), event => { this.eventTriggered(event) });
   }
 
   eventTriggered(e) {
@@ -29,9 +52,6 @@ class EventTracking
       case "orderTrayClose":
         this.eventData.events = ['107'];
         this.trackEvent(this.eventData, false, true);
-      break;
-      case "orderProviderUnselect":
-        this.removeCards(e.id);
       break;
       case "orderProviderSelectNone":
         this.openCards = [];
@@ -45,6 +65,14 @@ class EventTracking
         };
         this.trackEvent(this.eventData);
         break;
+      case "cart-modal:opened":
+        this.eventData.events = ['108'];
+        this.trackEvent(this.eventData);
+        break;
+      case "cart-modal:closed":
+        this.eventData.events = ['109'];
+        this.trackEvent(this.eventData);
+        break;
       case "stream:opened":
         this.eventData.events = ['88'];
         this.trackEvent(this.eventData);
@@ -52,16 +80,42 @@ class EventTracking
       case "order:opened":
         this.openCards = [];
         this.eventData.events = ['97'];
+        this.setCookie("order_tray_opened", true);
         this.trackEvent(this.eventData);
         break;
-      case "orderProviderSelect":
+      case "orderProviderClick":
+        this.eventData = {
+          providerId : e.id,
+          context : 'order tray',
+          label : e.selected ? "open card" : "close card",
+          events : ['63']
+        };
+        this.trackEvent(this.eventData);
+        break;
+      case "orderProviderOpen":
         this.eventData = {
           providerId : e.id,
           events : ['99']
         };
         this.addCards(e.id);
+        this.setCookie("order_card_opened", true);
         this.trackEvent(this.eventData, true);
         break;
+      case "orderProviderClose":
+        this.eventData = {
+          providerId : e.id
+        };
+        this.removeCards(e.id);
+        break;
+      case "orderProviderLearnMore":
+        this.eventData = {
+          providerId : e.id,
+          context: 'provider card',
+          label : e.expanded ? "learn more" : "learn less",
+          events : [63]
+        }
+        this.trackEvent(this.eventData);
+        break
       case "orderProviderSelectAll":
         this.eventData = {
           context : 'order tray',
@@ -119,9 +173,13 @@ class EventTracking
         break;
     }
 
-   // quick fix to help campaign links when DOM is refreshed
-   // card redraw on select all was too quick; added 500ms delay here
-   setTimeout(() => new CampaignHelper({debug:this.debug}), 500);
+    // quick fix to help campaign links when DOM is refreshed
+    // card redraw on select all was too quick; added 500ms delay here
+    setTimeout(() => new CampaignHelper({debug:this.debug}), 500);
+  }
+
+  setCookie(name, value) {
+    Cookies.set(`sho_${name}`, value);
   }
 
   removeCards(id) {
@@ -144,13 +202,25 @@ class EventTracking
     }
   }
 
+  setLinkTrackVars(key) {
+    // build up linkTrackVars with all relevant vars to be sent with s.tl
+    this.s.linkTrackVars = (this.s.linkTrackVars != '' ? this.s.linkTrackVars + ',' : '') + key;
+  }
+
   setData(key, value) {
+    if (key == 'clickContext' || key == 'clickLabel') {
+      value = value.toLowerCase();
+    }
     this.s.contextData[key] = value;
+    this.setLinkTrackVars('contextData.' + key);
   }
 
   setCustomEvent(index) {
     this.s.events = (this.s.events != '' ? this.s.events + ',' : '') + 'event' + index;
     this.s.linkTrackEvents = (this.s.linkTrackEvents != '' ? this.s.linkTrackEvents + ',' : '') + 'event' + index;
+    if(!this.s.linkTrackVars.includes("events")) {
+      this.setLinkTrackVars('events');
+    }
   }
 
   trackEvent(data, isCardOpenEvent = false, isCloseTrayEvent = false) {
@@ -159,29 +229,31 @@ class EventTracking
 
     if(data.list && data.listEVar) {
       this.s[data.listEVar] = data.list;
+      this.setLinkTrackVars(data.listEVar);
       this.log(data.listEVar + ' | ' + data.list);
     }
 
     if(data.context && data.label) {
-      data.context = data.context.toLowerCase();
-      data.label = data.label.toLowerCase();
       this.setData('clickContext',data.context);
       this.setData('clickLabel',data.label);
     }
 
-    data.providerId = data.providerId != null ? this.mapProviderGroups(data.providerId) : null;
-    this.setData('providerId',data.providerId);
+    if(data.providerId || data.providerId === 0) {
+      this.setData('providerId',data.providerId);
+    }
 
-    data.searchTerm = data.searchTerm ? data.searchTerm : null;
-    this.setData('searchTerm',data.searchTerm);
-
+    if(data.searchTerm) this.setData('searchTerm',data.searchTerm);
     if(isCardOpenEvent) this.setData('cardOpens',this.numberOfCardsOpened);
     if(isCloseTrayEvent) this.setCardCombo();
 
     data.events.forEach(this.setCustomEvent, this);
 
+    // set timestamp
+    this.s.eVar56 = GenerateTimestamp();
+    this.setLinkTrackVars('eVar56');
+
     // make impression
-    this.s.tl(true,'o');
+    this.s.tl(true,'o','Custom Event');
 
     if(this.debug) {
       this.log('events | ' + s.events);
@@ -223,8 +295,6 @@ class EventTracking
     if(!data.label) { data.label = label ? label : el.textContent; }
 
     if(data.context && data.label) {
-      data.context = data.context.toLowerCase();
-      data.label = data.label.toLowerCase();
       this.setData('clickContext',data.context);
       this.setData('clickLabel',data.label);
     }
@@ -232,24 +302,25 @@ class EventTracking
       return;
     }
 
-    if(data.label == 'provider lead') {
-      // if provider lead event, send current opened card combination to analytics
+    if(data.label == 'provider lead' && this.openCards.length) {
+      // if provider lead event, and there are open cards, send current opened card combination to analytics
       this.setCardCombo();
     }
 
-    data.searchTerm = data.searchTerm ? data.searchTerm : null;
-    this.setData('searchTerm',data.searchTerm);
-
-    data.location = data.location ? data.location : null;
-    this.setData('clickLocation',data.location);
-
-    data.providerId = data.providerId != null ? this.mapProviderGroups(data.providerId) : null;
-    this.setData('providerId',data.providerId);
+    if(data.searchTerm) this.setData('searchTerm',data.searchTerm);
+    if(data.location) this.setData('clickLocation',data.location);
+    if(data.providerId || data.providerId === 0) {
+      this.setData('providerId',data.providerId);
+    }
 
     this.setCustomEvent(63);
 
+    // set timestamp
+    this.s.eVar56 = GenerateTimestamp();
+    this.setLinkTrackVars('eVar56');
+
     // make impression
-    this.s.tl(true,'o');
+    this.s.tl(true,'o','Custom Click Event');
 
     this.log('events | ' + this.s.events);
     this.log('context | ' +  data.context);
@@ -261,8 +332,10 @@ class EventTracking
 
     // delay to allow for analytics success, when href is present and does not include #
     if (el.href && /^[^#]+$/.test(el.href) && data.noRedirect == null) {
-      event.preventDefault();
-      setTimeout(() => { window.location = el.href; }, 250);
+      if(!data.providerId) {
+        event.preventDefault();
+        setTimeout(() => { window.location = el.href; }, 350);
+      }
     }
 
     this.resetVariables();
@@ -272,22 +345,7 @@ class EventTracking
     this.openCards.sort(function(a,b){return a - b}); // sort numerically first
     this.openCardsStr = this.openCards.join('|'); // pass to analytics as string, not array
     this.setData('cardCombo', this.openCardsStr);
-    this.log('cards currently open | ' + this.openCardsStr);
-  }
-
-  mapProviderGroups(id) {
-    // map invented group IDs to strings for proper classifications
-    id = id.toString();
-    switch (id) {
-      case "0":
-        return "tv-providers-group";
-      case "888888":
-        return "smart-tvs-group";
-      case "999999":
-        return "amazon-group";
-      default:
-        return id;
-    }
+    this.log('cards currently open | ' + (this.openCardsStr ? this.openCardsStr : 'none'));
   }
 
   findClosest(el, attribute) {
@@ -305,17 +363,13 @@ class EventTracking
 
   resetVariables()  {
     this.s.events = '';
-    this.s.linkTrackEvents='';
-    this.s.linkTrackVars='';
+    this.s.linkTrackEvents = '';
+    this.s.linkTrackVars = '';
     this.s.list2 = '';
 
     ['clickContext','clickLabel','clickLocation','providerId','searchTerm', 'cardOpens', 'cardCombo'].forEach(function (key) {
       this.s.contextData[key] = null;
     }, this);
-  }
-
-  test(string) {
-    alert(string);
   }
 
   log(output) {

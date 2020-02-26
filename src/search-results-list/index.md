@@ -18,7 +18,7 @@ collection: components
 			<li class="search-results__list-item">
 				<div class="search-results__image">
 					<a class="search-results__link" href="#">
-						<img src="http://www.sho.com/site/image-bin/images/804_0_0/804_0_0_97_1280x640.jpg">
+						<img src="https://www.sho.com/site/image-bin/images/804_0_0/804_0_0_97_1280x640.jpg">
 						<h6 class="search-results__video-duration"></h6>
 					</a>
 				</div>
@@ -38,7 +38,7 @@ collection: components
 <li class="search-results__list-item">
 	<div class="search-results__image">
 		<a class="search-results__link" href="#">
-			<img src="http://www.sho.com/site/image-bin/images/804_0_0/804_0_0_97_1280x640.jpg">
+			<img src="https://www.sho.com/site/image-bin/images/804_0_0/804_0_0_97_1280x640.jpg">
 			<h6 class="search-results__video-duration"></h6>
 		</a>
 	</div>
@@ -60,7 +60,7 @@ collection: components
 			<li class="search-results__list-item search-results__list-item--video">
 				<div class="search-results__image">
 					<a class="search-results__link" href="#">
-						<img src="http://www.sho.com/site/image-bin/images/804_5_0/804_5_0_pro17_640x360.jpg">
+						<img src="https://www.sho.com/site/image-bin/images/804_5_0/804_5_0_pro17_640x360.jpg">
 						<h6 class="search-results__video-duration">2:46</h6>
 					</a>
 				</div>
@@ -80,7 +80,7 @@ collection: components
 <li class="search-results__list-item search-results__list-item--video">
 	<div class="search-results__image">
 		<a class="search-results__link" href="#">
-			<img src="http://www.sho.com/site/image-bin/images/804_5_0/804_5_0_pro17_640x360.jpg">
+			<img src="https://www.sho.com/site/image-bin/images/804_5_0/804_5_0_pro17_640x360.jpg">
 			<h6 class="search-results__video-duration">2:46</h6>
 		</a>
 	</div>
@@ -144,7 +144,7 @@ collection: components
 			<li class="search-results__list-item search-results__list-item--order">
 				<a class="search-results__link" href="#">
 					<div class="search-results__image">
-						<img src="http://www.sho.com/site/image-bin/images/0_0_0/0_0_0_prm-ogseries_1280x640.jpg">
+						<img src="https://www.sho.com/site/image-bin/images/0_0_0/0_0_0_prm-ogseries_1280x640.jpg">
 					</div>
 					<div class="search-results__text">
 						<h4 class="search-results__title">DON’T HAVE SHOWTIME? TRY IT NOW FOR FREE.</h4>
@@ -160,7 +160,7 @@ collection: components
 <li class="search-results__list-item search-results__list-item--order">
 	<a class="search-results__link" href="#"> <!-- note order list item has wrapping anchor tag -->
 		<div class="search-results__image">
-			<img src="http://www.sho.com/site/image-bin/images/0_0_0/0_0_0_prm-ogseries_1280x640.jpg">
+			<img src="https://www.sho.com/site/image-bin/images/0_0_0/0_0_0_prm-ogseries_1280x640.jpg">
 		</div>
 		<div class="search-results__text">
 			<h4 class="search-results__title">DON’T HAVE SHOWTIME? TRY IT NOW FOR FREE.</h4>

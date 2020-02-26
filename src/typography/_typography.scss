@@ -1,18 +1,13 @@
   // DIN Condensed is Showtime's font of choice
   @mixin font-family($ff: "ff-din-web, Calibri, Arial, sans-serif") {
     font-family: #{$ff};
-    color: $colors-pure-white;
+    color: $global-text-color
   }
 
   html,
   body {
     @include font-family($ff);
   }
-
-  // https://helpx.adobe.com/typekit/using/font-events.html
-  html.wf-loading {
-    visibility: hidden;
-   }
 
   // mini-reset for headings. previously, this was in the header mix-in itself,
   // but it seemed likelty to interfere with the cascade, so moving it out:
@@ -178,6 +173,14 @@
 
   .smallcaps {
     @include smallcaps;
+  }
+
+  @mixin italic {
+    font-style: italic;
+  }
+
+  .italic {
+    @include italic;
   }
 
   @mixin underline {

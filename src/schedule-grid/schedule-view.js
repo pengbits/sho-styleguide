@@ -2,7 +2,7 @@ import $ from 'jquery'
 import Hammer from 'hammerjs';
 import moment from 'moment-timezone';
 import d3 from 'd3';
-import _ from 'underscore';
+import { throttle } from 'lodash';
 var touch = require('browsernizr/test/touchevents');
 var Modernizr = require('browsernizr')
 
@@ -72,10 +72,9 @@ export default class ScheduleView {
       this.setChannelView();
       $('.y-axis').removeClass('y-axis--hidden');
     })
-
-    $(window).resize(() => {
-      _.throttle(this.setChannelView(), 500);   
-    })
+    
+    const throttleSetChannelView = throttle(this.setChannelView.bind(this), 500);
+    $(window).resize(throttleSetChannelView);
   }
 
   setChannelView(){
@@ -303,7 +302,14 @@ export default class ScheduleView {
       .attr({
         class: "airing__image"
       })
-      .append("img")
+      .append(d => {
+        let showLengthInMinutes = (d.endAiringDateTime - d.startAiringDateTime) / 60000;
+        if (showLengthInMinutes > 30) {
+          return document.createElement("img")
+        } else {
+          return document.createElement("div") // placeholder div fixes IE bug in SITE-16612 caused by src-less img gradient :before pseudo element
+        }
+      })
       .attr({
         style: "width: 100%; height: auto;",
         src: (d, i) => {

@@ -7,12 +7,16 @@ collection: elements
 
 ## Solid Buttons
 
-<div class="styleguide-panel--pure-black">
+<div class="styleguide-panel">
   <button class="button--solid-red">
     Sign up now
   </button>
 
   <button class="button--solid-white">
+    Sign up now
+  </button>
+
+  <button class="button--solid-dark-blue">
     Sign up now
   </button>
 </div>
@@ -25,11 +29,15 @@ collection: elements
 <button class="button--solid-white">
   Sign up now
 </button>
+
+<button class="button--solid-dark-blue">
+    Sign up now
+</button>
 ```
 
 ## Outlined Buttons
 
-<div class="styleguide-panel--pure-white">
+<div class="styleguide-panel">
   <button class="button--outline-red">
     Sign up now
   </button>
@@ -42,7 +50,13 @@ collection: elements
     Sign up now
   </button>
 
+  <button class="button--outline-light-grey">
+    Sign up now
+  </button>
 
+  <button class="button--outline-white">
+    Sign up now
+  </button>
 </div>
 
 ```html
@@ -58,15 +72,10 @@ collection: elements
   Sign up now
 </button>
 
-```
-
-<div class="styleguide-panel">
-  <button class="button--outline-white">
+<button class="button--outline-light-grey">
     Sign up now
-  </button>
-</div>
+</button>
 
-```html
 <button class="button--outline-white">
   Sign up now
 </button>
@@ -128,12 +137,12 @@ collection: elements
 
 ## Skinny Button
 
-<button class="button--solid-red button--skinny">
+<button class="button--skinny">
   Stream the Series
 </button>
 
 ```html
-<button class="button--solid-red button--skinny">
+<button class="button--skinny">
   Get Showtime
 </button>
 ```

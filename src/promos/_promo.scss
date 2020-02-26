@@ -169,13 +169,66 @@
   @extend .promo--fourbythree;
   @extend .promo--reveal;
   @extend .promo--docked;
+}
 
-  .promo__copy {
-    color: $colors-pure-white;
+//styles specific to episodes in season landing page
+
+.promo-season-group {  
+  @include from-medium {
+    @include display(flex);
+    @include flex-wrap(wrap);
   }
 
-  .promo__headline {
+  .promo {
+    float:left;
+    @include span-columns(12);
+    @include from-large {
+      @include span-columns(4);
+      margin-bottom: $size-xl; 
+    }
+  }
+  .promo__body {
+    float: none;
+    padding-bottom: $size-xl;
+    padding-left: 0;
+    @include from-large{
+      @include span-columns(8);
+      float: left;
+      padding-top: 0;         
+      margin-right: 0px;
+    }
+  } 
+
+  .promo__headline {    
     @include header--delta;
+    @include upcase;
+    padding-top: $size-l;
+    @include from-medium {
+      padding-top: 0;
+    }
+    &::after {
+      @include icon('next','small');  
+      content: '';
+      margin-right: -$size-xl;
+    }
+  }
+  
+  .promo__image:before {
+    background: none;
+  }
+
+  .promo__date_time {
+    padding: $size-s 0;
+  }
+
+  .promo__copy {
+    padding-bottom: $size-l;
+  }
+
+  .promo__copy, .promo__date_time {
+    @include body-text;
+    margin: 0;
+    color: $colors-pure-white;
   }
 }
 

@@ -1,0 +1,31 @@
+.foooter__order-promos {
+	.order-promo__copy {
+		display: inline-block;
+		margin: 20px;
+		width: 100%;
+		@include until-large {
+			max-width: 400px;
+			;
+			padding: 0 0 5px; 
+		}
+		@include until-medium {
+			margin: 20px 0;
+		}
+	}
+	.foooter__sub-section {
+		min-height: 100%;
+		height: auto;
+	}
+	.foooter__sub-section--sign-up .store-banner__button {
+		margin-bottom: 0 !important;
+	}
+	.foooter__sub-section:first-child {
+		@include until-large {
+			margin-bottom: 80px;
+		}
+	}
+
+	.foooter__sub-section--sign-in .store-banner__button:first-of-type {
+		margin-bottom: 40px;
+	}
+}

@@ -6,7 +6,6 @@
 		
 		@include from-medium {
 			@include span-columns(5);
-			@include shift(7);
 		}
 
 		li {
@@ -67,7 +66,6 @@
 	&__disclaimer {
 		@include from-medium {
 			@include span-columns(7);
-			@include shift(-12);
 		}
 
 		& p {

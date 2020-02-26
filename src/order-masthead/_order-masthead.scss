@@ -1,6 +1,8 @@
-$order-tray-top-offset:     100px;
+  // see order-tray-container.scss
+$order-tray-top-offset:     80px;
+$order-tray-top-offset--medium-tall:     100px;
 
-.order-tray-active .order-masthead {
+.order-tray-active .order-masthead__sho-link {
   display: none;
 }
 
@@ -19,16 +21,20 @@ $order-tray-top-offset:     100px;
     )
   );
   
-  @include from-small {
-    height: $order-tray-top-offset; // see order-tray-container.scss
-  };
+  @include at-small {
+    height: $order-tray-top-offset;
+  }
+  @include from-medium-tall {
+    height: $order-tray-top-offset--medium-tall; 
+  }
 
   &__logo,
-  &__sho-link {
+  &__sho-link,
+  &__section {
     position: absolute;
-    top: $size-l;
+    top: $size-l + ($size-xxs * 2);
     
-    @include from-small {
+    @include from-medium-tall {
       top:$size-l + $size-s;
     }
   }
@@ -52,12 +58,45 @@ $order-tray-top-offset:     100px;
 
     @include from-large {
       position: fixed;
-    }
-    
-    .order-tray-footer-collision & {
       display: none;
+      
+      &--visible {
+        position: relative;
+        left: 100px;
+        display:block;
+      }
     }
   }
+  
+  &__section {
+    @include header('delta');
+    @include upcase;
+    position: absolute;
+    top: 26px;
+    left : 110px;
+    
+    @include mq($from:375px, $until:'small'){
+      top:33px
+    }
+    
+    @include from-small {
+      top:35px;
+      left : 155px;
+    }      
+    
+    @include from-large {
+      left: 215px;
+    }
+    
+    &:before {
+      @include shim('', rgba(255,255,255,0.5));
+      top    : -8px;
+      left   : -11px;
+      width  : 1px;
+      height : 36px;
+    }
+  }
+
   
   &__sho-link {
     display: inline-block;

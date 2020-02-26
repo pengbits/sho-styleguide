@@ -1,0 +1,247 @@
+$item-widths : (
+  'small'  : 100px,
+  'medium' : 125px,
+  'large'  : 175px
+);
+
+$item-margins : (
+  'small'  : $size-s,
+  'medium' : $size-m,
+  'large'  : $size-xl
+);
+
+$items-in-row : (
+  'small' : 3,
+  'medium' : 14,
+  'large' : 14
+);
+
+$item-ratio : 1.5;
+
+
+// set width in pixels for inner track 
+// (optionally set to 2x the desired width for IE's benefit, since it is compressing the items when they are cloned)
+@mixin apply-width-to-track($size, $magnify:2) {
+  width: $magnify * ((map-get($item-widths, $size) + map-get($item-margins, $size)) * map-get($items-in-row, $size)) - map-get($item-margins, $size);
+}
+
+// set width in pixels for individual item (and image element)
+@mixin apply-width-to-item($size) {
+  width  : map-get($item-widths, $size);
+}
+
+// set height in pixels for items (and inner container) to the size of artwork
+// (or optionally), to 2x the  size of the art, to allow space for reflection effect + stacked type
+@mixin apply-height($size, $magnify:2) {
+  height: ((map-get($item-widths, $size) * $item-ratio) * $magnify);
+}
+
+
+
+$logo-heights : (
+  'small' : 38,
+  'medium': 49,
+  'large' : 63
+);
+
+// set the offset top needed to clear logo for breakpoint
+@mixin apply-clear-logo($size) {
+  top: ((map-get($logo-heights, $size)) + $size-l + $size-m);
+}
+
+.hero--megastrip,
+.hero--stream-showtime {  
+  .hero__logo {
+    position: absolute;
+    top: 10px;
+    z-index: 999;
+    margin-left: 50%; 
+    transform: translateX(-50%);
+    width: 110px;
+    
+    @include from-small  { width: 140px }
+    @include from-medium { width: 180px }
+  }
+}
+  
+.hero--megastrip {
+  .hero__inner {
+    display: block; // undo flex2
+    text-align: center;
+    margin-top: 300px;
+    
+    @include from-large {
+      margin-top: 380px
+    }
+  }
+  
+  // undo padding and shader from standard hero
+  // (hero__image in this variant is more of a container than anything else)
+  .hero__image {
+    padding-top: 0; 
+    &:before {
+      content: none;
+      display: none;
+    }
+    
+    &.megastrip--active {
+      @include apply-clear-logo('small');
+      @include from-small  { @include apply-clear-logo('medium') };
+      @include from-medium { @include apply-clear-logo('large')  };
+    } 
+    overflow: hidden;
+    
+    height: 700px;
+  }
+}
+
+.megastrip {
+  position: relative;
+  width: 100%;
+  
+  
+  &__inner {
+    opacity: 0; // cloak on startup to avoid jump when we set margin
+    display: flex;
+    @include unstyled-list;
+    @include apply-width-to-track('small', 1); // override 2x multiplier for smallest breakpoint
+    @include apply-height('small');
+    
+    @include from-medium {
+      @include apply-width-to-track('medium');
+      @include apply-height('medium');
+    }
+    
+    @include from-large {
+      @include apply-width-to-track('large');
+      @include apply-height('large');
+      background-color: $colors-pure-black;
+    }
+    
+    // center content for 3-up static view
+    // margin: 0 auto;
+
+    // at larger sizes, we will be animating the offset so set position tor relative 
+    @include from-medium  {
+      opacity: 1;
+      position: relative;
+      margin: 0;
+      left: 0px;
+      top: 0;  
+    }
+  }
+  
+  &__inner--clone { // only used for <medium aka DISSOLVE
+    position: absolute;
+    top:0;
+    left: 0;
+  }
+
+  &__inner--clone &__image {
+  }
+  
+  &__item {
+    display: none;
+    margin-right: $size-s;
+    position: relative;
+    @include overlay(gradient);
+    
+    &:before {
+      top:50%; 
+      // override the gradient applied via overlay() with something a little more reflection-like,
+      // but make shader slightly less opaque on mobile because it seems two shaders are stacked on top of each other
+                             background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 1) 60%);
+      @include from-medium { background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 1) 60%)}
+    }  
+    
+    & {
+      @include apply-width-to-item('small');
+      @include apply-height('small');
+    }
+    & > img {
+      @include apply-width-to-item('small');
+      @include apply-height('small', 1);
+    }
+    
+    @include from-medium { 
+      & {
+        @include apply-width-to-item('medium');
+        @include apply-height('medium');
+        margin-right: (map-get($item-margins, 'medium'));
+      }
+      & > img {
+        @include apply-width-to-item('medium');
+        @include apply-height('medium', 1);
+      }
+    }
+    
+    @include from-large { 
+      & {
+        @include apply-width-to-item('large');
+        @include apply-height('large');
+      }
+      & > img {
+        @include apply-width-to-item('large');
+        @include apply-height('large', 1);
+        margin-right: (map-get($item-margins, 'large'));
+      }
+    }
+    
+    // debugging
+    .badge {
+      font-family: monospace;
+      font-style: normal;
+      display: block;
+      position: absolute;
+      background-color: purple;
+      top:0;
+      left:0;
+      padding: $size-s;
+      z-index: 9999999;
+      font-size:14px;
+      
+    }    
+  }
+  
+  &.transition--dissolve .badge {
+    display: none;
+  }
+  
+  
+  
+  // only 3 visible items at mobile
+  // 6 elements have display block because of cross-fade animation
+  &__item-1,
+  &__item-2,
+  &__item-3 {
+    display: block;
+  }
+  
+  @include until-medium {
+    &__item-3 {
+      margin-right: 0
+    }
+  }
+  
+  // all items at larger sizes
+  @include from-medium {
+    &__item { display: block}
+    &__item:last-child { margin-right: 0}
+  }
+  
+  // todo - dont inherit width from parent and flex setup...
+  // it is too brittle as its impacted by number of items in row
+  &__image {
+    background-size: cover;
+    -webkit-box-reflect: below 0px;
+    // -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.20)))
+  }
+  
+}
+  
+.site-container {
+  .hero > br,
+  .hero__inner > br {
+    display: none;
+  }
+}

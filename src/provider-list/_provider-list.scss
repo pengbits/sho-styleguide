@@ -1,0 +1,16 @@
+.provider-list {
+  list-style: none;
+  padding-left: 0;
+  
+  &__item {
+    margin-bottom: 15px;
+
+    span {
+      @include header--epsilon;
+    }
+  }
+  
+  &__item:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,12 @@
+
+//variation where order banner sticks to the top for mobile for AB testing
+.stickybanner--sticky { 
+	@include until-large {
+		position: fixed;
+		top: 0px;
+		left:0px;
+		z-index: 30;
+		width: 100%;
+		border-width: 0;
+		}
+	}

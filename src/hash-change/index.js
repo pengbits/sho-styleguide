@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import { filter } from 'lodash';
 import $ from 'jquery';
 
 class HashChange {
@@ -13,10 +13,13 @@ class HashChange {
     // #/stream/movie/3418468 => 'stream','movie','3418468'
     // #/order/provider/92/theme/1 =>  "order", "provider", "92", "theme", "1"
     // #/order/provider/92/theme/1/int-default-3784 => "order", "provider", "92", "theme", "1", "int-default-3784"
+    
+    //The type of event 
+    //#/cart/closed => 'cart', 'closed'
 
     this.route =        /^#\/([^/?]+)\/*([^/?]+)*\/*([^/?]+)*\/*([^/?]+)*\/*([^/?]+)*\/*([^/?]+)*\/*/;
     // define the hash fragments that we will trigger events for
-    this.event_types =  ['order','slideshow','stream','closed'];
+    this.event_types =  ['order','slideshow','stream','closed','preview','tvproviders','contact', 'cart', 'cart-lower-third'];
     this.initialize();
   }
 
@@ -29,25 +32,39 @@ class HashChange {
       }
     })
   }
-
+  
   onHashChange() { 
-    let matches = this.route.exec(window.location.hash);
+    const {hash} = window.location 
+    const matches = this.route.exec(hash);
     if(matches && matches.shift()) {
-      let filtered =  _.filter(matches, (m) => {
+      let filtered =  filter(matches, (m) => {
         return !!m  // reject the empty match tokens
       })
+      let eventName;
+      let componentType = matches[0];
 
-      let match =       matches[0];
-      let eventName =   match == 'closed' ? 'closed' : `${match}:opened`;
-      let params =      filtered.slice(1);
-      if(this.event_types.indexOf(match) > -1){
+      if ((matches).indexOf('closed') == -1) {
+        eventName = `${componentType}:opened`
+     
+      } 
+      if ((matches).indexOf('closed') == 0) {
+        eventName = `closed`
+      }
+      if ((matches).indexOf('closed') == 1) {
+        eventName = `${componentType}:closed`
+      }
+
+      let params = filtered.slice(1);
+
+      
+      if (this.event_types.indexOf(componentType) > -1){
         this.trigger(eventName, params)
       }
     }
   }
 
   trigger(eventName, params) {
-    console.log(`HashChange#trigger '${eventName}'`)
+    // console.log(`HashChange#trigger '${eventName}'`)
     let event = {
       'type':     eventName
     };
@@ -67,14 +84,21 @@ class HashChange {
   }
 }
 
-HashChange.close = function(){
+HashChange.close = function(type){
   // history.pushState can be used to reset the hash without resulting in a scroll..
   // unfortunately, in Win7IE11 this also results in any subsequent links to the hash failing silently
   // it seems there are issues with mixing the use of regular, dumb, hash links to open the modal,
   // and then using the history API to pack it back up again - as opposed to trapping the clicks and using history API end-to-end??
 
   //console.log('HashChange#close')
-  window.location.hash = '/closed';
+
+  //We have the option of passing in the type of the event which can be declared in the component if necessary as eventType
+  if (type) {
+    window.location.hash = '/' + type + '/closed';
+  } else {
+    window.location.hash = '/closed';
+  }
 };
 
 export default HashChange;
+ 

@@ -23,7 +23,7 @@
     position: relative;
     width: 100%;
   }
-  
+
   &__body--bottom {
     margin-top: auto;
   }
@@ -56,10 +56,17 @@
       display: block;
       margin-bottom: $size-m;
     }
+
+    &--b2b {
+      display: block;
+      margin-top: $size-m;
+      text-align: center;
+    }
   }
 
   &__button {
-    @include button--solid-white;
+    @include round-button;
+    @include button--solid($colors-pure-white);
     border-color: $colors-pure-white;
     width: 250px;
 
@@ -112,24 +119,32 @@
   }
 }
 
-// 'censored' version
+// 'censored'/dark version
 // Used in affiliate B2B video player -
 // the headline is replaced with a logo and color palette is muted
 // this mixin is used in order-banner.scss as well
-@mixin order-promo--censored__headline {
+.order-promo__headline--logo {
   @include hide-text;
-  height:($size-s + $size-m + $size-l);
+  height:($size-m + $size-l);
   margin-bottom: $size-l;
   background: transparent no-repeat url('#{$icon-base-path}/showtime-logo.svg') center center;
+
+  .order-promo--dark & {
+    height:($size-s + $size-m + $size-l);
+  }
 }
 
-.order-promo--censored {
+.order-promo--dark {
   background-color: $colors-bg-light;
 
-  .order-promo__headline {
-    @include order-promo--censored__headline
-  }
   .order-promo__copy {
     display: none;
   }
+}
+
+// bulk hotel app variation
+.order-promo--hotel-app .order-promo__headline--logo,
+.order-promo--hotel-app .order-banner__headline--logo {
+  background: transparent no-repeat url(http://downloads.sho.com/bulk/images/hotel-app/showtime-hotel-app-logo.svg) center center;
+  height: 70px;
 }

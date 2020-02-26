@@ -1,0 +1,79 @@
+// https://codepen.io/designcouch/pen/sDAvk
+.console-toggle {
+  display: block;
+  margin-left: $size-xl;
+  width: $size-xxl;
+  height: $size-xl + 4;
+  position: relative;
+  border-radius: $size-xl;
+  border:$colors-mid-grey solid 2px;
+  cursor: pointer;
+  
+  &,
+  &__toggle,
+  &__toggle:before,
+  &__toggle:after {
+    @include transition($transition-duration #{$transition-easing});
+  }
+  
+  &__toggle {
+    display: inline-block;
+    position: absolute;
+    top:0;
+    left: 0;
+    text-align: right;
+    height: $size-xl;
+    width: auto;
+    font-style: normal;
+    
+    
+    &:before,
+    &:after {
+      top:0;
+      display: block;
+      position: absolute;
+    }
+    
+    &:before {
+      content: '';
+      left: 0;
+      right: auto;
+      background-color: $colors-mid-grey;
+      @include size($size-xl);
+      border-radius: 100%;
+    }
+    
+    &:after {
+      left: -$size-xxl;
+      width: $size-xxl;
+      padding: 0 $size-s;
+      height: $size-xl;
+      white-space: nowrap;
+      content: attr(data-off);
+      @include header('epsilon');
+      line-height: $size-xl !important;
+      text-transform: uppercase;
+      color: $colors-mid-grey
+    }
+  }
+  
+  &--on {
+    background-color: green;
+    border-color: $colors-pure-white;
+  }
+  
+  &--on .console-toggle__toggle {
+    left: calc(100% - #{$size-xl});
+    
+    &:before {
+      background-color: $colors-pure-white;
+    }
+    
+    &:after {
+      left: $size-xl;
+      text-align: left;
+      content: attr(data-on);
+      color: $colors-pure-white
+    }
+  }
+}

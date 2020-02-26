@@ -35,7 +35,7 @@
   &__title {
 	  width: 100%;
 	  padding-top: $size-m;
-  	color: $colors-text-med;
+  	color: $colors-pure-white;
   }
 
   &__artist {
@@ -46,7 +46,6 @@
     padding-bottom: $size-s;
 
     @include from-small {
-	    width: 48%;
       padding-bottom: $size-s;
     }
 
@@ -59,23 +58,4 @@
   &__artist--link {
     width: auto;
   }
-
-  &__purchase {
-    @include body-text;
-    width: 100%;
-    color: $colors-dark-red;
-
-    a {
-      float: left;
-      padding-bottom: 10px;
-    }
-
-    @include from-large {
-      a {
-        float: right;
-      }
-    }
-
-  }
-
 }

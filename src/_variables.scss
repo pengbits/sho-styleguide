@@ -1,5 +1,7 @@
 // paths that don't change by environment
-$assets-image-base: "http://www.sho.com/assets/images";
+$assets-image-base: "https://www.sho.com/assets/images";
+$assets-image-base-new: "https://downloads.sho.com/images";
+$assets-shoplace-base-new: "https://downloads.sho.com/shoplace";
 
 // font-family name
 $ff: "ff-din-web, Calibri, Arial ,sans-serif";
@@ -30,10 +32,13 @@ $colors-bright-red: #CA2200;
 $colors-deep-red: #77171E;
 $colors-dark-red: #500207;
 
-
 $colors-dark-blue: #0A3854;
 $colors-pure-white: #FFFFFF;
 $colors-pure-black: #000101;
+
+// body/html color palette
+$global-bgcolor:    $colors-pure-black;
+$global-text-color: $colors-pure-white;
 
 // sizes to be used
 $size-xxs: 1px;

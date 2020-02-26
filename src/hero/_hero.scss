@@ -54,6 +54,21 @@
   }
 }
 
+.hero__inner--short {
+  @include full-width-container__inner;
+  position: relative;
+  @include clearfix;
+  @include display(flex);
+  @include hero-offset(80px);
+  @include from-medium {
+    @include hero-offset(120px);
+  }
+  @include from-large{
+    @include hero-offset(180px);
+  }
+}
+
+
 .hero__body {
   padding-bottom: $size-xl;
   width: 98%;
@@ -119,6 +134,10 @@
     vertical-align: middle;
     top: -$size-xs;
   }
+}
+
+.hero__headline--episode > span {
+  display: block;
 }
 
 // accent
@@ -288,7 +307,7 @@
 
 .hero > .order-banner {
   margin-bottom: $size-m;
-  
+
   @include from-medium {
     margin-bottom: $size-xxl;
   }
@@ -437,7 +456,7 @@
    }
 }
 
-/* /bulk */
+/* no longer in use */
 .hero--multi-headline {
   .hero__body {
     padding-bottom: $size-l;
@@ -453,19 +472,77 @@
   }
 }
 
+/* /bulk */
 .hero__top-line--logo {
   margin-bottom: $size-m * 2;
-  background: url("#{$icon-base-path}/showtime-logo.svg") no-repeat;
+  background: url(https://downloads.sho.com/bulk/images/showtime-logo.svg) no-repeat;
   background-size: contain;
-  width: 260px;
-  height: 91px;
-  @include until-medium {
-    margin-bottom: $size-m;
-    width: 200px;
-    height: 73px;
-  }
+  height: 70px;
+  width: 300px;
 }
 
 .hero__headline-emphasis {
   color: $colors-light-red;
+}
+
+/* hero--order (asymmetrical) */
+.hero--order.hero--video {
+  .hero__inner {
+    @include from-large {
+      margin-top: -12%;
+      margin-left: 25%;
+      width: 75%;
+    }
+  }
+}
+
+/* hero--video */
+.hero--video {
+  .hero__image {
+    @include from-large {
+      display: none;
+    }
+  }
+
+  .hero__inner {
+    @include from-large {
+      margin-top: -22%;
+    }
+  }
+
+  .video-player-standard {
+    max-width: 100%;
+    margin-top: -15px;
+    display: none;
+    @include from-large {
+      display: block;
+    }
+  }
+
+  .video-player-standard:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    @include linear-gradient(to bottom, transparent 75%, $colors-pure-black);
+  }
+
+  .video-player {
+    border: 0;
+    border-width: 0;
+    max-width: 100%;
+
+    &__video {
+      min-width: 100%;
+    }
+  }
+
+  .vjs-control-bar,
+  .vjs-loading-spinner,
+  .vjs-big-play-button {
+    display: none !important;
+  }
 }

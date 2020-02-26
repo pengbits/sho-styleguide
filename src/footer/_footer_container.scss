@@ -49,3 +49,12 @@
 
 	}
 }
+
+.footer__nav-section__inner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	@include until-medium {
+		flex-direction: column-reverse;
+	}
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="190px" height="130px" viewBox="0 0 190 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-19.7%" y="-33.3%" width="139.5%" height="166.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.7 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <polygon id="path-2" points="0 89.9326619 151.901223 89.9326619 151.901223 -2.84217094e-14 0 -2.84217094e-14"></polygon>
+    </defs>
+    <g id="----PPV-Page---New-Hero-v8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DirectPrioritized_closed" transform="translate(-623.000000, -857.000000)">
+            <g id="Group-14" transform="translate(553.000000, 877.000000)">
+                <g id="Group-7" filter="url(#filter-1)" transform="translate(89.000000, 0.000000)">
+                    <path d="M90.5034173,82.4684892 L90.5034173,83.2020863 C90.5034173,84.5216547 89.4240647,85.6010072 88.1044964,85.6010072 L63.7967266,85.6010072 C62.4771583,85.6010072 61.3978058,84.5216547 61.3978058,83.2020863 L61.3978058,82.4684892 L0.000323741007,82.4684892 L0.000323741007,86.3346043 C0.000323741007,88.3133094 1.61967626,89.9326619 3.59838129,89.9326619 L148.302842,89.9326619 C150.281547,89.9326619 151.900899,88.3133094 151.900899,86.3346043 L151.900899,82.4684892 L90.5034173,82.4684892 Z" id="Fill-1" fill="#7D7D7D"></path>
+                    <path d="M134.57577,79.5276259 L17.3251942,79.5276259 C13.7640432,79.5276259 10.8503741,76.6139568 10.8503741,73.0528058 L10.8503741,6.47482014 C10.8503741,2.91366906 13.7640432,-2.84217094e-14 17.3251942,-2.84217094e-14 L134.57577,-2.84217094e-14 C138.136921,-2.84217094e-14 141.05059,2.91366906 141.05059,6.47482014 L141.05059,73.0528058 C141.05059,76.6139568 138.136921,79.5276259 134.57577,79.5276259" id="Fill-3" fill="#7D7D7D"></path>
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <g id="Clip-6"></g>
+                    <polygon id="Fill-5" fill="#010202" mask="url(#mask-3)" points="15.5479856 75.3863309 136.353237 75.3863309 136.353237 4.14194245 15.5479856 4.14194245"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

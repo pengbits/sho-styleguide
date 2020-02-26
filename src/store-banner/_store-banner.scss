@@ -17,18 +17,15 @@
   }
 
   .store-banner__image {
+    margin-top: $size-m;  
     height:120px;
     background-size: contain;
     background-position-x: center;
     background-position-y: bottom;
     background-repeat: no-repeat;
-
-    @include at-small {
-      display:block;
-      margin-top: $size-m;
-    }
-
+    
     @include from-medium {
+      margin-top: 0;
       @include span-columns(5);
       @include shift(-12);
       height: auto;
@@ -42,7 +39,6 @@
   }
 
   .store-banner__body {
-
     position: relative;
     @include from-medium {
 		  @include span-columns(7);
@@ -64,9 +60,9 @@
     text-align: center;
     padding: $size-l $size-s $size-m $size-s;
 
-    @include from-medium {
-      text-align: center;
-      padding: 4% 0;
+    @include at-medium {
+      padding: $size-l;
+      padding-bottom: $size-s;
 		}
 
     @include from-large {
@@ -81,19 +77,17 @@
   }
 
   .store-banner__button {
-    padding: 4% 0;
     text-align: center;
     white-space: nowrap;
-
-    @include until-medium {
-      padding: 0;
-    }
+    padding: 0;
 
     @include from-medium {
-			@include span-columns(12 of 12);
-		}
+      padding-bottom: $size-l;
+  		@include span-columns(12 of 12);
+    }
 
     @include from-large {
+      padding: 4% 0;
       @include span-columns(4 of 9);
     }
 

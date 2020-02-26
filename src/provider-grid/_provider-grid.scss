@@ -1,0 +1,107 @@
+.provider-grid {
+  
+  &__inner {
+    @include clearfix;
+    position: relative;
+    left: -1%;
+    // pulling entire inner-container outwards with negative margins a/la bootstrap
+    // spares us from having to keep track of first/last item in row with nth-child etc..
+    // ... although we end up doing exactly that to clear the copy below
+    margin-left: -1%;
+    margin-right: -1%;
+    padding: 1%;
+  }
+  
+  &__header {
+    display: block;
+    margin-bottom: $size-s;
+    @include header('delta');
+    text-transform: uppercase;  
+    & > em {
+      font-style: normal;
+      color: $colors-text-dark
+    }
+  }
+  
+  &__entry {
+    position: relative;
+    float: left;
+    margin: 1%;
+    width: 48%;
+    
+    @include from-medium { 
+      width: 23%; 
+    }
+    
+    a, img {
+      display: block;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    &__copy,
+    &__header {
+      @include header('zeta');
+      padding-top: $size-s;
+      color: $colors-text-dark;
+    }
+
+    &__header {
+      @include upcase;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding-top: $size-s;
+      text-align: center;
+    }
+    
+    // don't know why styleguide randomly throws br's in
+    br {
+      display: none;
+    }
+  }
+  
+}
+// in the absence of row markup, use :nth-child selectors to wrap items
+// onto new line at various breakpoints, simulating row behavior... 
+// this is just in case there is copy of varying lengths/placement
+// while this is technically harmless to original version, provided the items
+// are wrapped in an inner container, it's worrysome enough
+// to be isolated in a variant, at least for now
+  
+.provider-grid--with-copy .provider-grid__entry {
+  @include until-medium {
+    &:nth-child(odd){
+      clear: both;
+    }
+  }
+
+  @include from-medium { 
+    &:nth-child(4n+1) {
+      clear:both;
+    }
+  } 
+}
+
+.provider-grid--dynamic-grid {
+	/* note IE does not support @supports or css grid */
+  @supports (display: grid) {
+    .provider-grid__inner {
+      display: grid;
+      /* while technically IE supports -ms-grid & -ms-grid-columns, repeat and auto-fit do no exist in that spec */
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-gap: $size-l;
+      @include from-small {
+        grid-gap: $size-xl;
+      }
+    }
+
+    .provider-grid__entry {
+      width: 100%;
+    }
+  }
+}

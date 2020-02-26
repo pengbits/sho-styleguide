@@ -1,0 +1,167 @@
+.cart-modal--lower-third {
+	@include full-width-container;
+	height: 175px;
+	@include at-large {
+		height: 200px;
+	}
+	@include until-large {
+		height: auto;
+	}
+}	
+
+.cart-modal--lower-third .cart-modal{
+	&__inner {
+		display: flex;
+		height: 100%;
+	}
+	&__right-container {
+		display: flex;
+		@include until-extra-large {
+			flex-direction: column;
+			padding: $size-l;
+			padding-right: $size-s;
+			margin: $size-s 0px;
+		}
+		@include until-large {
+			max-width: 90%;
+			overflow: hidden;
+		}
+	}
+	&__img-container{
+		width: 300px;
+		min-width: 290px;
+		@include until-large {
+			display: none;
+		}
+	}
+	&__text-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		text-align: left;
+		margin: $size-xl $size-l;
+		width: 100%;
+		max-width: 720px;
+		@include until-extra-large {
+			margin: 0px $size-l 0px 0px;
+			padding: 0;
+		}
+	}
+	&__button-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 260px;
+		margin: $size-xl 7% $size-xl 0;
+		@include until-extra-large {
+			flex-direction: row;
+			margin: 0px $size-l $size-l 0px;
+		}
+		@include until-large {
+			flex-direction: column;
+			align-items: flex-start;
+			margin: 0px;
+		}
+	}
+
+	&__image {
+		position: absolute;
+		height: 270px;
+		width: 285px;
+		bottom: 0;
+		background-image: url($assets-image-base-new + "/order/cart-modal/lower_third_cart_modal_540x514.png");
+		background-position: 0px 50px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		overflow: hidden;
+		@include until-extra-large {
+			height: 260px;
+			background-position: 0px $size-l;
+		}
+		@include until-medium {
+			display: none;
+		}
+	}
+
+	&__headline {
+		@include header('delta');
+		text-align: left;
+		padding: 0;
+		margin-bottom: $size-s;
+	}
+	&__copy {
+		@include header('zeta');
+		color: $colors-pure-white;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		max-width: 100%;
+		@include until-medium {
+			margin: 0 0 $size-l 0;
+			color: $colors-text-dark;
+		}
+		&--desktop {
+			@include until-extra-large {
+				display: none;
+			}
+		}
+		&--mobile {
+			max-width: 575px;
+			@include from-extra-large {
+				display: none;
+			}
+			@include until-large {
+				display: none;
+			}
+		}
+	}
+
+	&__button-terms {
+		color: $colors-text-med;
+		margin-top: $size-s;
+
+		@include until-extra-large {
+			margin-left: $size-l;
+			margin-top: 0;
+		}
+		@include until-large {
+			margin-left: 0;
+			margin-top: $size-s;
+			margin-bottom: 0px;
+		}
+	}
+
+	&__list {
+		height: 100%;
+		padding: 0;
+		margin-left: $size-m;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: $size-s 0;
+		&__item {
+			@include header('epsilon');
+			color: $colors-text-med;
+			margin-bottom: 0;
+			height:50%;
+			margin-right: $size-m;
+			@include until-large{
+				margin-right: $size-m;
+			}
+		}
+		@include until-medium {
+			display: none;
+		}
+	}
+}
+
+//forces the modal itself to the bottom;
+.modal--is-lower-third .modal__inner{
+	width: 100%;
+	vertical-align: bottom !important;
+	max-width: 100% !important;
+	@media screen and (max-height: 649px) {
+		margin: 0 !important;
+	}
+}

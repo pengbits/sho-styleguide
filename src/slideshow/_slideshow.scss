@@ -1,3 +1,5 @@
+@import './default-skin/default-skin.scss';
+
 .pswp__bg {
 	opacity: 0.88 !important;
 }
@@ -22,9 +24,8 @@
 
 	&:before {
 		// our icon mixins don't work with photoswipe
-	  background: url("#{$icon-base-path}/prev.svg");
-	  background-repeat: no-repeat;
-	  background-size: cover;
+	  background: url("#{$icon-base-path}/prev.svg") no-repeat !important;
+	  background-size: cover !important;
 	}
 } 
 
@@ -35,9 +36,8 @@
 
 	&:before {
 		// our icon mixins don't work with photoswipe
-	  background: url("#{$icon-base-path}/next.svg");
-	  background-repeat: no-repeat;
-	  background-size: cover;
+		background: url("#{$icon-base-path}/next.svg") no-repeat !important;
+	  background-size: cover !important;		
 	}
 }
 

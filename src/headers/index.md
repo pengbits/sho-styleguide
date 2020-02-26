@@ -55,6 +55,7 @@ A promo group header provides context to a group of promos. It may have a sub-ca
   	<h4 class="promo-group-header__sub-title">5 Shows</h4>
   </div>
 </section>
+
 ```
 <section class="section section--black">
   <div class="promo-group-header">
@@ -76,6 +77,7 @@ A promo group header provides context to a group of promos. This variant was use
 	  </a>
   </div>
 </section>
+
 ```
 <section class="section section--black">
   <div class="promo-group-header">
@@ -84,5 +86,58 @@ A promo group header provides context to a group of promos. This variant was use
 	  See All Fights
 	  </a>
   </div>
+</section>
+```
+
+## Promo Group Header without Accent
+
+<section class="section section--black">
+	<div class="promo-group-header promo-group-header--no-accent">
+    <h3 class="promo-group-header__title">Order the Fight on Pay-Per-View</h3>
+    <h4 class="promo-group-header__sub-title upcase">Visit your participating partner website for event availability</h4>
+  </div>
+</section>
+
+```
+<section class="section section--black">
+	<div class="promo-group-header promo-group-header--no-accent">
+    <h3 class="promo-group-header__title">Order the Fight on Pay-Per-View</h3>
+    <h4 class="promo-group-header__sub-title upcase">Visit your participating partner website for event availability</h4>
+  </div>
+</section>
+```
+
+
+## Promo Group Header with Callout
+
+<section class="section section--black">
+	<div class="promo-group-header promo-group-header--no-accent promo-group-header--with-callout">
+		<h3 class="promo-group-header__title">Other Ways to Buy  <em class="promo-group-header__callout">(Prices Vary)</em></h3>
+	</div>
+</section>
+
+```
+<section class="section section--black">
+	<div class="promo-group-header promo-group-header--no-accent promo-group-header--with-callout">
+		<h3 class="promo-group-header__title">Other Ways to Buy  <em class="promo-group-header__callout">(Prices Vary)</em></h3>
+	</div>
+</section>
+```
+
+## Promo Group Header with Callout in Sub-Title
+
+<section class="section section--black">
+	<div class="promo-group-header promo-group-header--no-accent promo-group-header--with-callout">
+		<h3 class="promo-group-header__title">Streaming</h3>
+		<h3 class="promo-group-header__sub-title">Buy online for $74.99 and stream on all your devices <em class="promo-group-header__callout">(Varies by Partner)</em></h3>              
+	</div>
+</section>
+
+```
+<section class="section section--black">
+	<div class="promo-group-header promo-group-header--no-accent promo-group-header--with-callout">
+		<h3 class="promo-group-header__title">Streaming</h3>
+		<h3 class="promo-group-header__sub-title">Buy online for $74.99 and stream on all your devices <em class="promo-group-header__callout">(Varies by Partner)</em></h3>              
+	</div>
 </section>
 ```

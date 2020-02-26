@@ -1,73 +1,61 @@
-.input {}
-.input--radio {}
+$radio-size-short: 24px;
+$radio-margin-right-short: $size-s - ($size-xxs * 2);
 
-// super-radios
+// added these rules for squeezing additional providers into the order tray before going to two-col layout
+$radio-size-medium-tall: ($radio-size-short * 1.125);
+$radio-margin-right-medium-tall: $size-s;
+
+$radio-size-tall: ($radio-size-short * 1.25);
+$radio-margin-right-tall: $size-s;
+
+// super-radios/faux-radios
 //http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons/
-$radio-size: 36px;
-$radio-margin-right: $size-m;
-$radio-size-short: $radio-size * 0.75;
-$radio-margin-right-short: $size-s;
-
-@mixin super-radio-label {
-  display: inline-block;
-  padding-left: $radio-size + $radio-margin-right;
-  height: $radio-size;
-  line-height: $radio-size;
-  background: url("#{$icon-base-path}/super-radio_36x36.svg") no-repeat 0 0;
-  background-size: contain;
-  cursor: pointer;
-  
-  @include until-tall {
-    height: $radio-size-short;
-    line-height: $radio-size-short;
-    padding-left: $radio-size-short + $radio-margin-right;
-  }
-}
-
-.input--super-radio {
-  position: absolute;
-  left:0; 
-  top:0;
-  margin: 0;
-  padding: 0;
-  opacity:0;
-  -moz-appearance:none;
-  -webkit-appearance: none; 
-  appearance: none;
-  overflow: hidden;
-  
-  & + label {
-    @include super-radio-label();
-  }
-  
-  &:checked + label {
-    background: url("#{$icon-base-path}/super-radio-checked_36x36.svg") no-repeat 0 0;
-    background-size: contain;
-  }
-}
-
-// At the time of this writing IE11 is having a hard time with the applying of svg background-images to the `radio + label` elements and psuedo-selectors, manifesting in sporadic drop-out in the order-tray. 
-// To solve this, we are completely re-writing the markup, eschewing the form elments alltogether, since it's a pure javascript component that doesn't need to submit anything
-
+// 1) originally implemented per article above, with use of input + label selectors
+// at the time of this writing IE11 is having a hard time applying of svg background-images 
+// to the `radio + label` elements and psuedo-selectors, manifesting in sporadic drop-out in the order-tray. 
+// To solve this, we are completely re-writing the markup, eschewing the form elments alltogether, 
+// since it's a pure javascript component that doesn't need to submit anything
 .input--faux-radio {
+  position: relative;
+  display: block;
   cursor: pointer;
-  display: inline-block;
-  line-height: $radio-size;
+  padding-top:2px;
+  padding-bottom: 2px;
+  padding-left: $radio-size-short + $radio-margin-right-short;
+  padding-right: 5px;
+  min-height: $radio-size-short;
   
-  @include until-tall {  
-    line-height: $radio-size-short;
+  @include at-medium-tall {
+    padding-top:5px;
+    padding-bottom: 3px;
+    padding-left: $radio-size-medium-tall + $radio-margin-right-short;
+    min-height: $radio-size-medium-tall;
   }
+  
+  @include from-tall {
+    padding-top:7px;
+    padding-bottom: 4px;
+    padding-left: $radio-size-tall + $radio-margin-right-tall;
+    min-height: $radio-size-tall;
+  }
+}
 
-  .input__icon { // svg marked up as img element
-    vertical-align: middle;
-    margin-right: $radio-margin-right;
-    width: $radio-size;
-    height: $radio-size;
-    
-    @include until-tall {  
-      margin-right: $radio-margin-right-short;
-      width: $radio-size-short;
-      height: $radio-size-short;
-    }
+.input--faux-radio .input__icon { // svg marked up as img element
+  position: absolute;
+  top: -2px;
+  left:0;
+  margin-right: $radio-margin-right-short;
+  @include size($radio-size-short);
+  
+  @include at-medium-tall {
+    top:-1px;
+    @include size($radio-size-medium-tall);
+    margin-right: $radio-margin-right-medium-tall;
   }
-} 
+  
+  @include from-tall {
+    top:0;
+    @include size($radio-size-tall);
+    margin-right: $radio-margin-right-tall;
+  }
+}

@@ -12,7 +12,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 <div class="fight-card fight-card--main-card">
   <header class="fight-card__header">
   	<div class="fight-card__fighter-left">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Deontay
@@ -33,7 +33,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 		 vs
 	</div>
   	<div class="fight-card__fighter-right">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Artur
@@ -110,7 +110,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 <div class="fight-card fight-card--main-card">
   <header class="fight-card__header">
   	<div class="fight-card__fighter-left">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Deontay
@@ -131,7 +131,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 		 vs
 	</div>
   	<div class="fight-card__fighter-right">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Artur
@@ -210,7 +210,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 <div class="fight-card">
   <header class="fight-card__header">
   	<div class="fight-card__fighter-left">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Deontay
@@ -231,7 +231,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 		 vs
 	</div>
   	<div class="fight-card__fighter-right">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Artur
@@ -308,7 +308,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 <div class="fight-card">
   <header class="fight-card__header">
   	<div class="fight-card__fighter-left">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Deontay
@@ -329,7 +329,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 		 vs
 	</div>
   	<div class="fight-card__fighter-right">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Artur
@@ -408,7 +408,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 <div class="fight-card fight-card--main-card fight-card--post">
   <header class="fight-card__header">
   	<div class="fight-card__fighter-left fight-card--winner">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Deontay
@@ -429,7 +429,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 		 vs
 	</div>
   	<div class="fight-card__fighter-right">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Artur
@@ -506,7 +506,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 <div class="fight-card fight-card--main-card fight-card--post">
   <header class="fight-card__header">
   	<div class="fight-card__fighter-left fight-card--winner">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Deontay
@@ -527,7 +527,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 		 vs
 	</div>
   	<div class="fight-card__fighter-right">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Artur
@@ -606,7 +606,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 <div class="fight-card fight-card--main-card fight-card--post">
   <header class="fight-card__header">
   	<div class="fight-card__fighter-left">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Deontay
@@ -627,7 +627,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 		 vs
 	</div>
   	<div class="fight-card__fighter-right">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Artur
@@ -704,7 +704,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 <div class="fight-card fight-card--main-card fight-card--post">
   <header class="fight-card__header">
   	<div class="fight-card__fighter-left">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-1022_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Deontay
@@ -725,7 +725,7 @@ The Fight Card component has three modifier classes: --main-card, --post, and --
 		 vs
 	</div>
   	<div class="fight-card__fighter-right">
-		<img class="fight-card__fighter-photo" src="http://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
+		<img class="fight-card__fighter-photo" src="https://www.sho.com/site/image-bin/images/46_0_0/46_0_0_f-25_88x88.jpg">
 		<div class="fight-card__fighter-name-record">
 			<div class="fight-card__fighter-first-name">
 				Artur

@@ -1,0 +1,39 @@
+$device-provider-logo-path:  "#{$icon-base-path}/provider-device-logos";
+$device-logo-ratios-mobile:  187 / 321; // these ratios are derived from the pixel dimens of the lockups in the sketch file
+$device-logo-ratios-desktop: 180 / 800; // but since the entire svg is scalable, theu are more of a starting poitn
+
+
+.device-logos {
+  position: relative;
+  text-align: center;
+  background-color: $colors-pure-white;
+  overflow: hidden;
+  
+  &__title {
+    @include header('beta');
+    padding: $size-s 0;
+    color: $colors-pure-black;
+    text-transform: uppercase;
+    border-bottom: 1px solid #aaaaaa;
+  }
+  
+  &__image {
+    margin: $size-m;
+    background: transparent no-repeat url("#{$device-provider-logo-path}/mobile.min.svg") top center;
+    background-size: contain;
+    @include proportions--square($device-logo-ratios-mobile);
+    
+    @include from-medium {
+      margin: 0 auto;
+      @include proportions--landscape($device-logo-ratios-desktop);
+      background-size: contain;
+      background-image:url("#{$device-provider-logo-path}/desktop.min.svg");       
+    }
+  }
+  
+  &__image-alt-text {
+    position: absolute;
+    left: -999999px
+  }
+}
+

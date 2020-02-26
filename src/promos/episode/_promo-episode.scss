@@ -1,0 +1,22 @@
+.promo-season-group {
+	.promo {
+		&__stream-btn {
+			@include round-button;
+			@include button--solid($colors-red);
+		}
+		&__watch-btn {
+			@include round-button;
+			@include button--outline($colors-pure-white);
+			display: table;
+			margin-top: $size-l;
+			@include from-large {
+				display: inline-block;
+				margin-top: 0px;
+				margin-left: $size-m; 
+			}
+			&--first {
+				margin-left: 0;
+			}
+		}
+	}
+}

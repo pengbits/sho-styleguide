@@ -1,0 +1,100 @@
+// styles for the centered variant of the event-hero
+// created for widler vs fury custom ppv
+$logo-path-svg: "#{$icon-base-path}/provider-logos";
+
+.event-hero {
+  &--centered &__logo {
+    margin-bottom: $size-s;
+    display: inline-block;
+    @include hide-text;
+    width: 144px;
+    height: 32px;
+    background-image: url("#{$logo-path-svg}/showtime-ppv-logo.svg");
+  }
+  
+  // the event-hero--centered actually incorporates some key styles from the (regular) hero.
+  // thse are applied via classnames in the html layer but could be switched for @extends
+  // in retrospect, this component has more in common with the regular hero than the event-hero...
+  // and might benefit from a wholesale recode that positions it as more of variant of hero then event-hero..
+  // but, as long as we are keeping the event-hero ties intact, and since the logic in the event page
+  // that handles swapping out custom content for widler vs fury is mostly contained to the evenr-hero__inner, 
+  // we have to handle the inner-container styles in a manner that's consistent with the event-hero
+  &--centered &__inner {
+    // unset unwanted flex styles coming from hero__inner
+    display: block; 
+    
+    &.hero__inner { 
+      //to keep with event-hero's strategy of undoing full-width-container__inner 
+      // we have to undo the borders with a strong selector
+      border: 0;
+      
+      @include until-small {
+        // move copy away from fighters in hero art
+        margin-top: 195px; 
+      }
+    }
+  }
+  
+  &--centered &__body { 
+    @include from-medium { 
+      text-align: center 
+    }
+  }
+  
+  &__bout,
+  &--centered &__sub-title  {
+    @include header('epsilon');
+    @include upcase;
+    margin-bottom: $size-xs;
+  }
+  
+  &__bout {
+    @include header('delta');
+  }
+  
+  &--centered &__description {
+    margin-bottom:$size-l;
+    
+    @include from-medium { 
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  &--centered &__title {
+    margin-bottom: $size-s;
+    & em {
+      font-weight: 100;
+    }
+  }
+  
+  // the big button is an 'add to calendar' calreply widget in pre-release, 
+  // and an order button in post-release state, hence the variants
+  &__big-button {
+    display: inline-block;
+    @include round-button;
+    @include button--outline($colors-pure-white);
+    // we can't use button--large as-is, line-height is wrong, excessive width etc.
+    padding: ($size-m + $size-s) ($size-xl + $size-s) $size-l ($size-xl + $size-s) !important;
+    border-radius: $size-xl;
+    @include header('gamma');
+    @include from-medium { min-width: 350px }
+    margin-bottom: $size-m;
+  }
+  
+  &__big-button--provider-lead {
+    @include button--solid($colors-red);
+    @include hover {
+      background-color: $colors-red;
+      color: $colors-pure-white
+    }
+  }
+  
+  &__mandatory {
+    @include header('zeta');
+    color: $colors-text-dark;
+    margin-bottom: ($size-l + $size-s);
+  }
+    
+}

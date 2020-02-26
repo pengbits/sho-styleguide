@@ -1,0 +1,28 @@
+.form-preview-modal {
+  margin: 0 auto;
+  max-width: 440px;
+  @include from-large {
+    max-width: 580px;
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: -$size-xs;
+  }
+
+  &__text {
+    padding: $size-xl $size-xxl;
+    background: #2b2f8b;    
+  }
+
+  &__message, &__name {
+    color: $colors-pure-white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__message {
+    margin-bottom: $size-m;
+  }
+}

@@ -42,15 +42,22 @@ collection: components
 		</div><!-- END footer-inner -->
 	</div><!-- END footer-schedule-section -->
 	<div class="footer__nav-section">
-		<div class="footer__inner">
+		<div class="footer__inner footer__nav-section__inner">
+			<div class="footer__disclaimer">
+				<p>By viewing our video content you are accepting the terms of our Video Services Policy.</p>
+				<p>This website is intended for viewing solely in the United States and its territories and possessions.</p>
+				<p>This website may contain adult content.</p>
+				<p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Closed Captioning</a> | <a href="#">Mobile User Agreement</a></p>
+				<p>© 2016 Showtime Networks Inc. and Showtime Digital Inc. All rights reserved.</p>
+			</div>
 			<div class="footer-nav">
 				<ul class="footer-nav__links--sho">
 					<li><a href="#">Free Full Episodes</a></li>
 					<li><a href="#">Shop</a></li>
+					<li><a href="#">Gift Cards</a></li>
 					<li><a href="#">Careers</a></li>
-					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Help</a></li>
 					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
 					<li><a href="#">Showtime Anytime</a></li>
 					<li><a href="#">Showtime.com</a></li>
 				</ul>
@@ -60,16 +67,7 @@ collection: components
 					<li><a class="icon--instagram" href="#"></a></li>
 					<li><a class="icon--pinterest" href="#"></a></li>
 					<li><a class="icon--youtube" href="#"></a></li>
-					<li><a class="icon--googleplus" href="#"></a></li>
-					<li><a class="icon--tumblr" href="#"></a></li>
 				</ul>
-			</div>
-			<div class="footer__disclaimer">
-				<p>By viewing our video content you are accepting the terms of our Video Services Policy.</p>
-				<p>This website is intended for viewing solely in the United States and its territories and possessions.</p>
-				<p>This website may contain adult content.</p>
-				<p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Closed Captioning</a> | <a href="#">Mobile User Agreement</a></p>
-				<p>© 2016 Showtime Networks Inc. and Showtime Digital Inc. All rights reserved.</p>
 			</div>
 		</div>
 	</div>
@@ -107,15 +105,22 @@ collection: components
 		</div><!-- END footer-inner -->
 	</div><!-- END footer-schedule-section -->
 	<div class="footer__nav-section">
-		<div class="footer__inner">
+		<div class="footer__inner footer__nav-section__inner">
+			<div class="footer__disclaimer">
+				<p>By viewing our video content you are accepting the terms of our Video Services Policy.</p>
+				<p>This website is intended for viewing solely in the United States and its territories and possessions.</p>
+				<p>This website may contain adult content.</p>
+				<p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Closed Captioning</a> | <a href="#">Mobile User Agreement</a></p>
+				<p>&#169; 2016 Showtime Networks Inc. and Showtime Digital Inc. All rights reserved.</p>
+			</div>
 			<div class="footer-nav">
 				<ul class="footer-nav__links--sho">
 					<li><a href="#">Free Full Episodes</a></li>
 					<li><a href="#">Shop</a></li>
+					<li><a href="#">Gift Cards</a></li>
 					<li><a href="#">Careers</a></li>
-					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Help</a></li>
 					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
 					<li><a href="#">Showtime Anytime</a></li>
 					<li><a href="#">Showtime.com</a></li>
 				</ul>
@@ -125,16 +130,7 @@ collection: components
 					<li><a class="icon--instagram" href="#"></a></li>
 					<li><a class="icon--pinterest" href="#"></a></li>
 					<li><a class="icon--youtube" href="#"></a></li>
-					<li><a class="icon--googleplus" href="#"></a></li>
-					<li><a class="icon--tumblr" href="#"></a></li>
 				</ul>
-			</div>
-			<div class="footer__disclaimer">
-				<p>By viewing our video content you are accepting the terms of our Video Services Policy.</p>
-				<p>This website is intended for viewing solely in the United States and its territories and possessions.</p>
-				<p>This website may contain adult content.</p>
-				<p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Closed Captioning</a> | <a href="#">Mobile User Agreement</a></p>
-				<p>&#169; 2016 Showtime Networks Inc. and Showtime Digital Inc. All rights reserved.</p>
 			</div>
 		</div>
 	</div>

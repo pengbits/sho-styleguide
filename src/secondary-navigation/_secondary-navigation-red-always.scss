@@ -4,6 +4,9 @@
 	.secondary-nav__content {
 		background: $colors-red;
 		min-height: $size-xl;
+		@include from-medium {
+			position: relative;
+		}
 	}
 
 	.secondary-nav__dropdown {
@@ -22,14 +25,20 @@
 	}
 
 	.secondary-nav__link {
-		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
 		@include until-medium {
-			position: absolute;
-			top: 0;
-			right: 0;
 			padding: $size-s;
 			height: $size-xl;
 			width: auto;
+		}
+		&:after {
+	    margin-top: -$size-xs;
 		}
 	}
 }

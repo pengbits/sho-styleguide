@@ -23,6 +23,18 @@
   min-height: 150px;
 }
 
+.slider__container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider__container::-webkit-scrollbar {
+  display: none;
+}
+
+.slider__content {
+}
+
 .slider.slider--grid {
   .slider__container {
     position: relative;
@@ -40,22 +52,22 @@
   // this solves the issue where slider content is visible to the right, but now the controls
   // are not properly centered, because height of overall component collapses to min-height above.
   position: absolute;
-  overflow: hidden;
+  overflow-x: scroll;
   left:0;
   right:0;
+  display: flex;
 }
 
 .slider--inline .slider__content {
   position: relative;
   top: 0;
   left: 0;
-  // an arbitrary but high number is needed
-  width: 999999px;
 
   @include transition(left $transition-duration unquote($transition-easing));
 }
 
 .slider__control {
+  overflow: hidden;
   position: absolute;
   right: 0;
   height: 100%;
@@ -117,6 +129,9 @@
   min-width: $size-xxl;
   margin-right: $size-l;
   vertical-align: text-top;
+  &:last-child {
+    margin-right: 0;
+  }
 
   @include from-medium {
     margin-right: $size-m;

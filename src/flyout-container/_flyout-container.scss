@@ -1,0 +1,20 @@
+.flyout-container {
+  display: none;
+  background-color: $colors-pure-black;
+  box-shadow: 0 $size-l $size-xxl $colors-pure-black;
+
+  .flyout-container__inner{
+    padding-top: $size-xxl + $size-xxs + $size-xxs + $size-xxs;
+    margin: $size-l 0 $size-xl 0;
+  }
+
+  @include from-large {
+    display: block;
+  }
+
+  .flyout-container__icon-close {
+	  @include icon('close','medium');
+    float: right;
+    cursor: pointer;
+  }
+}

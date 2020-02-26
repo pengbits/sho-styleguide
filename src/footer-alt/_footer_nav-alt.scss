@@ -1,0 +1,126 @@
+.foooter {
+	&__nav-section {
+		display: block;
+		padding-bottom: 25px;
+	}
+	.footer__nav-section__inner {
+		@media only screen and (max-width: 767px){
+			flex-direction: column;
+		}
+	}
+
+	.footer-nav {
+		width: 100% !important;
+		display: flex;
+		justify-content: space-between;
+		border-top: 1px solid rgba(255, 255, 255, .2);
+		padding: 40px 0 10px;
+		margin-right: 0;
+
+		@media only screen and (max-width: 767px){
+			flex-direction: column;
+			justify-content: flex-start;
+			padding: 40px 0 20px;
+		}
+	}
+	.footer-nav li {
+		margin-left: 0;
+		margin-bottom: 30px;
+	}
+
+	.footer-nav__links--sho {
+		display: flex;
+		flex-direction: column;
+		min-width: 50%;
+	}
+
+	.footer__bottom {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		@media only screen and (max-width: 767px){
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.foooter__disclaimer p {
+			width: 100% !important;
+			max-width: 100% !important;
+			margin: 0;
+			display: inline-block;
+		}
+	}
+
+	.footer__logo-and-socials {
+		display: flex;
+		@media only screen and (max-width: 767px){
+			flex-direction: column;
+			margin-bottom: 20px;
+		}
+	}
+
+	.footer__logo {
+		height: 50px;
+		width: 145px;
+		@media only screen and (max-width: 767px){
+			margin-bottom: 15px;
+		}
+	}
+
+	.footer-nav__inner {
+		display: flex;
+		justify-content: space-between;
+		width: 50%;
+		@media only screen and (max-width: 767px){
+			width: 100%;
+		}
+	}
+
+	.footer-nav__inner:last-of-type {
+		@media only screen and (max-width: 767px){
+			flex-direction: row-reverse;
+		}
+	}
+
+	.footer-nav__links--social {
+		padding: 0;
+		width: auto;
+		margin: 0 60px 0 15px;
+		display: flex;
+		align-items: center;
+		height: 53px;
+		@media only screen and (max-width: 767px){
+			margin-left: 0;
+		}
+	}
+
+
+	.footer__nav-section__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		.icon--facebook {
+			background-image: url('https://downloads.sho.com/misc/footer-design-test/facebook.svg');
+			height: 30px;
+			width: 30px;
+		}
+		.icon--youtube {
+			background-image: url('https://downloads.sho.com/misc/footer-design-test/youtube.svg');
+			height: 30px;
+			width: 30px;
+		}
+		.icon--twitter{
+			background-image: url('https://downloads.sho.com/misc/footer-design-test/twitter.svg');
+			height: 30px;
+			width: 30px;
+		}
+		.icon--instagram {
+			background-image: url('https://downloads.sho.com/misc/footer-design-test/instagram.svg');
+			height: 30px;
+			width: 30px;
+		}
+	}
+}
+
+

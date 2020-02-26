@@ -57,8 +57,9 @@
 	}
 
 	&__button {
-		@include button--solid-white;
-		
+    @include round-button;
+		@include button--solid($colors-pure-white);
+
 		@include until-small {
       width: 100%;
 			max-width: 250px;
@@ -86,24 +87,24 @@
     }
 	}
 }
-
-
-
-// 'censored' version
-// Used in affiliate B2B video player - 
+// 'censored'/dark version
+// Used in affiliate B2B video player -
 // the headline is replaced with a logo and color palette is muted
-.order-banner--censored {
+.order-banner--dark {
   background-color: $colors-bg-light;
-  
+
   .order-banner__inner {
     background: none;
   }
-  
-  .order-banner__headline {
-    @include order-promo--censored__headline;
-  }
-  
+
   .order-banner__copy {
     display: none;
   }
+}
+
+.order-banner__headline--logo {
+  @include hide-text;
+  height:($size-m + $size-l);
+  margin-bottom: $size-l;
+  background: transparent no-repeat url('#{$icon-base-path}/showtime-logo.svg') center center;
 }
