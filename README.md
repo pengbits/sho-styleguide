@@ -4,7 +4,7 @@ collection: articles
 ---
 # Sho Styleguide
 
-This styleguide is a collection of base elements and components for use with [https://www.sho.com](sho.com). The goal is for the library of components to be rich enough that building out new pages is just a matter of gathering up the correct components and assembling them into new uis. The styleguide itself can be seen at https://styleguide.sho.com/ where each component is documented and shown in a variety of contexts.
+This styleguide is a collection of base elements and components for use with [sho.com](https://www.sho.com). The goal is for the library of components to be rich enough that building out new pages is just a matter of gathering up the correct components and assembling them into new uis. The styleguide itself can be seen at https://styleguide.sho.com/ where each component is documented and shown in a variety of contexts.
 
 ## Requirements
 
